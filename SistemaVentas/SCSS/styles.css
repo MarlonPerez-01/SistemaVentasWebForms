@@ -1,0 +1,134 @@
+﻿html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: #172B4D; }
+
+h1, h2, h3, h4, h5, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: #7764E4; }
+
+.header {
+  height: 65px;
+  line-height: 65px;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(136, 136, 136, 0.7);
+  -moz-box-shadow: 5px 5px 10px 0px rgba(136, 136, 136, 0.7);
+  box-shadow: 5px 5px 10px 0px rgba(136, 136, 136, 0.7); }
+
+/*LOGO DE LA EMPRESA*/
+.contenedor-logo {
+  background-color: #1176b6;
+  height: 65px;
+  line-height: 65px; }
+
+/*FORMULARIO*/
+.form-buscar input[type=text] {
+  border-radius: 3px 0 0 3px;
+  border: 1px solid gray !important;
+  /*NO TUVE ELECCION*/
+  width: 100vw !important;
+  margin-left: 1em; }
+
+.form-buscar button {
+  background-color: #FFF;
+  background-color: #6d6d6d;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  color: #FFF !important; }
+
+.form-buscar input[type=text], .form-buscar button {
+  border: none;
+  padding: 0 1em;
+  height: 35px;
+  line-height: 35px; }
+
+/*FALTAN ESTILOS PARA CUANDO HAYA NOTIFICACION*/
+.campana {
+  vertical-align: middle; }
+
+/*iNFORMACION USUARIO*/
+.contenedor-usuario span {
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 5em;
+  line-height: 30px; }
+
+.contenedor-usuario img {
+  margin-left: 1em;
+  width: 35px;
+  height: 35px;
+  border-radius: 150px; }
+
+/*ESTILOS GENERALES DE LA BARRA LATERAL*/
+.barra-lateral {
+  background: white;
+  color: #fff;
+  min-width: 270px;
+  min-height: 100vh;
+  padding: 0;
+  box-shadow: 3px 0 5px -2px #888; }
+  .barra-lateral a {
+    color: #172B4D; }
+
+/*QUITAR ESTILOS POR DEFECTO A LAS LISTAS*/
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+/*SEPARA ICONO DE TEXTO*/
+.item {
+  padding-left: 0.5em; }
+
+/*ESTILO PARA CADA ITEM*/
+.barra-lateral .menu a {
+  display: block;
+  padding: 1em; }
+
+/*HOVER A LOS ITEMS DENTRO DE SUBMENUS*/
+.barra-lateral .menu a:hover {
+  background: #f2f3f4;
+  text-decoration: none; }
+
+/*GENERAR EFECTO DE SANGRIA EN LOS SUBITEMS*/
+.submenu li {
+  padding-left: 2em; }
+
+/*OCULTAR ITEMS DE LOS SUBMENUS*/
+.submenu li {
+  overflow: hidden;
+  height: 0;
+  -webkit-transition: height 500ms ease-in;
+  -moz-transition: height 500ms ease-in;
+  -o-transition: height 500ms ease-in;
+  transition: height 500ms ease-in; }
+
+/*MOSTRAR SUBITEMS ITEMS HOVER*/
+nav ul > li:hover ul li {
+  height: 56px; }
+
+/*MEDIAQUERIES*/
+@media screen and (max-width: 1300px) {
+  .barra-lateral {
+    min-width: auto; }
+  .logo-texto {
+    display: none; }
+  .logo-imagen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+    padding-top: 1em; }
+  .menu a span {
+    display: none; } }
+
+@media screen and (max-width: 575px) {
+  .contenedor-derecha {
+    display: none; }
+  .barra-lateral {
+    min-height: auto; }
+  .item {
+    padding: 0;
+    margin: 0; } }
+
+.contenido-principal {
+  padding-top: 2em; }

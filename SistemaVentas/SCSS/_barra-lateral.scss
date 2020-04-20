@@ -1,0 +1,96 @@
+﻿/*ESTILOS GENERALES DE LA BARRA LATERAL*/
+.barra-lateral {
+    background: white;
+    color: #fff;
+    min-width: 270px;
+    min-height: 100vh;
+    padding: 0;
+    box-shadow: 3px 0 5px -2px #888;
+
+    a {
+        color: $color-fuente;
+    }
+}
+
+/*QUITAR ESTILOS POR DEFECTO A LAS LISTAS*/
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*SEPARA ICONO DE TEXTO*/
+.item {
+    padding-left: 0.5em;
+}
+
+/*ESTILO PARA CADA ITEM*/
+.barra-lateral .menu a {
+    display: block;
+    padding: 1em;
+}
+
+/*HOVER A LOS ITEMS DENTRO DE SUBMENUS*/
+.barra-lateral .menu a:hover {
+    background: $background-hover;
+    text-decoration: none;
+}
+
+/*GENERAR EFECTO DE SANGRIA EN LOS SUBITEMS*/
+.submenu li {
+    padding-left: 2em;
+}
+
+/*OCULTAR ITEMS DE LOS SUBMENUS*/
+.submenu li {
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: height 500ms ease-in;
+    -moz-transition: height 500ms ease-in;
+    -o-transition: height 500ms ease-in;
+    transition: height 500ms ease-in;
+}
+
+/*MOSTRAR SUBITEMS ITEMS HOVER*/
+nav ul > li:hover ul li {
+    height: 56px;
+}
+
+
+/*MEDIAQUERIES*/
+@media screen and (max-width: 1300px) {
+    .barra-lateral {
+        min-width: auto;
+    }
+
+    .logo-texto {
+        display: none;
+    }
+
+    .logo-imagen {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 80%;
+        padding-top: 1em;
+    }
+
+    .menu a span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .contenedor-derecha {
+        display: none;
+    }
+
+    .barra-lateral {
+        min-height: auto;
+    }
+
+    .item {
+        padding: 0;
+        margin: 0;
+    }
+}

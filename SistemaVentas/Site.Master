@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SistemaVentas.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="SCSS/styles.min.css" rel="stylesheet" />
+</head>
+<body class="p-0 m-0">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="barra-lateral col-12 col-sm-auto">
+                    <div class="col contenedor-logo">
+                        <a href="#">
+                            <img src="~/images/logo-icon.png" class="logo-imagen" />
+                            <img src="~/images/logo-text.png" class="logo-texto" />
+                        </a>
+                    </div>
+                    <nav class="d-flex d-sm-block justify-content-center flex-wrap">
+                        <ul class="menu">
+                            <li>
+                                <a href="#"><i class="fas fa-home"></i><span class="item">Inicio</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-user"></i><span class="item">Personas</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a runat="server" href="Usuario/Index.aspx"><span>Usuarios</span></a>
+                                    </li>
+                                    <li>
+                                        <a runat="server" href="Cliente/Index.aspx"><span>Clientes</span></a>
+                                    </li>
+                                    <li>
+                                        <a runat="server" href="Proveedor/Index.aspx"><span>Proveedores</span></a>
+                                    </li>
+                                    <li>
+                                        <a runat="server" href="Empleado/Index.aspx"><span>Empleados</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-box-open"></i><span class="item">Inventario</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#"><span>Productos</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Marcas</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Categorias</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-calendar"></i><span class="item">Calendario</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-file-alt"></i><span class="item">Finanzas</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#"><span>Ventas</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Compra</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Caja</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Balance</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-file-alt"></i><span class="item">Reportes</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#"><span>Reportes Compras</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Reportes Ventas</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-cog"></i><span class="item">Configuración</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#"><span>General</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><span>Usuario</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fas fa-sign-out-alt"></i><span class="item">Salir</span></a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+
+                <div class="col">
+                    <div class="row header">
+                        <div class="col buscar">
+                            <div class="row">
+                                <div class="form-buscar form-inline">
+                                    <div>
+                                        <input type="text" name="" id="" placeholder="Buscar">
+                                    </div>
+                                    <div>
+                                        <button><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="col d-flex justify-content-end contenedor-derecha">
+                            <div class="contenedor-notificacion">
+                                <i class="fas fa-bell campana"></i>
+                            </div>
+                            <div class="contenedor-usuario">
+                                <span>Nombre Usuario</span>
+                                <a href="#" class="imagen">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt=""></a>
+                            </div>
+
+                        </nav>
+                    </div>
+                    <div class="row contenido-principal">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿//ESTILOS GENERALES DEL HEADER
+.header {
+    //padding: 15px;
+    height: 65px;
+    line-height: 65px;
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(136,136,136,0.7);
+    -moz-box-shadow: 5px 5px 10px 0px rgba(136,136,136,0.7);
+    box-shadow: 5px 5px 10px 0px rgba(136,136,136,0.7);
+}
+
+
+/*LOGO DE LA EMPRESA*/
+.contenedor-logo {
+    background-color: #1176b6;
+    height: 65px;
+    line-height: 65px;
+}
+
+
+/*FORMULARIO*/
+.form-buscar input[type=text] {
+    border-radius: 3px 0 0 3px;
+    border: 1px solid gray !important; /*NO TUVE ELECCION*/
+    width: 100vw !important;
+    margin-left: 1em;
+}
+
+.form-buscar button {
+    background-color: #FFF;
+    background-color: #6d6d6d;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    color: #FFF !important;
+}
+
+.form-buscar input[type=text], .form-buscar button {
+    border: none;
+    padding: 0 1em;
+    height: 35px;
+    line-height: 35px;
+}
+
+/*FALTAN ESTILOS PARA CUANDO HAYA NOTIFICACION*/
+.campana {
+    vertical-align: middle;
+}
+
+/*iNFORMACION USUARIO*/
+.contenedor-usuario span {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-left: 5em;
+    line-height: 30px;
+}
+
+.contenedor-usuario img {
+    margin-left: 1em;
+    width: 35px;
+    height: 35px;
+    border-radius: 150px;
+}
