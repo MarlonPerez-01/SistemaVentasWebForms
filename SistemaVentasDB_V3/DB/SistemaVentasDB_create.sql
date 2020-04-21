@@ -107,9 +107,9 @@ CREATE TABLE Empleado (
     telefonoEmpleado int  NULL,
     correoEmpleado varchar(50)  NULL,
     sexoEmpleado char(1)  NOT NULL CHECK (sexoEmpleado = 'M' OR sexoEmpleado = 'S'), --CHECK
-    departamentoEmpleado int  NOT NULL,
-    municipioEmpleado int  NOT NULL,
-    detallesDireccionEmpleado int  NOT NULL,
+    departamentoEmpleado varchar(50)  NOT NULL,
+    municipioEmpleado varchar(50)  NOT NULL,
+    detallesDireccionEmpleado varchar(50)  NOT NULL,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Empleado_pk PRIMARY KEY  (idEmpleado)
 );
