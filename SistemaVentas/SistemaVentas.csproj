@@ -53,6 +53,7 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -108,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Cliente\Create.aspx" />
     <Content Include="Cliente\Index.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -122,7 +122,14 @@
     <Content Include="Empleado\Create.aspx" />
     <Content Include="Empleado\Index.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Fonts\all.min.css" />
+    <Content Include="Fonts\all.min.js" />
+    <Content Include="Fonts\fa-brands-400.svg" />
+    <Content Include="Fonts\fa-regular-400.svg" />
+    <Content Include="Fonts\fa-solid-900.svg" />
+    <Content Include="Fonts\fontawesome.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Icons\LICENSE.txt" />
     <Content Include="Proveedor\Index.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -151,6 +158,18 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Fonts\fa-brands-400.eot" />
+    <Content Include="Fonts\fa-brands-400.ttf" />
+    <Content Include="Fonts\fa-brands-400.woff" />
+    <Content Include="Fonts\fa-brands-400.woff2" />
+    <Content Include="Fonts\fa-regular-400.eot" />
+    <Content Include="Fonts\fa-regular-400.ttf" />
+    <Content Include="Fonts\fa-regular-400.woff" />
+    <Content Include="Fonts\fa-regular-400.woff2" />
+    <Content Include="Fonts\fa-solid-900.eot" />
+    <Content Include="Fonts\fa-solid-900.ttf" />
+    <Content Include="Fonts\fa-solid-900.woff" />
+    <Content Include="Fonts\fa-solid-900.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -257,6 +276,7 @@
     </Content>
     <Content Include="Site.Master" />
     <Content Include="Usuario\Create.aspx" />
+    <Content Include="Usuario\Details.aspx" />
     <Content Include="Usuario\Index.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -291,13 +311,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Cliente\Create.aspx.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cliente\Create.aspx.designer.cs">
-      <DependentUpon>Create.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cliente\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -366,6 +379,13 @@
     <Compile Include="Usuario\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuario\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,7 +405,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Cargo\" />
     <Folder Include="Files\" />
-    <Folder Include="Icons\" />
     <Folder Include="Images\" />
     <Folder Include="JS\" />
     <Folder Include="Marca\" />

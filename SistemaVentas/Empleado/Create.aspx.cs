@@ -29,7 +29,7 @@ namespace SistemaVentas.Empleado
 
         public void obtenerCargoList()
         {
-            var dataTable = new Crud().ObtenerDataTable("CargoList");
+            var dataTable = new Crud().Seleccionar("CargoList");
             ddlIdCargo.DataSource = dataTable;
             ddlIdCargo.DataTextField = "nombreCargo";
             ddlIdCargo.DataValueField = "idCargo";

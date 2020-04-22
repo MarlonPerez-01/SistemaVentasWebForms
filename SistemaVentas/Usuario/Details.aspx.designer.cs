@@ -7,101 +7,101 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SistemaVentas.Cliente
+namespace SistemaVentas.Usuario
 {
 
 
-    public partial class Create
+    public partial class Details
     {
 
         /// <summary>
-        /// Control inpPrimerNombreCliente.
+        /// Control GridViewData.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreCliente;
+        protected global::System.Web.UI.WebControls.GridView GridViewData;
 
         /// <summary>
-        /// Control inpSegundoNombreCliente.
+        /// Control lblresult.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreCliente;
+        protected global::System.Web.UI.WebControls.Label lblresult;
 
         /// <summary>
-        /// Control inpPrimerApellidoCliente.
+        /// Control pnlpopup.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoCliente;
+        protected global::System.Web.UI.WebControls.Panel pnlpopup;
 
         /// <summary>
-        /// Control inpSegundoApellidoCliente.
+        /// Control LabelValidate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoCliente;
+        protected global::System.Web.UI.WebControls.Label LabelValidate;
 
         /// <summary>
-        /// Control inpDuiCliente.
+        /// Control lblID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDuiCliente;
+        protected global::System.Web.UI.WebControls.Label lblID;
 
         /// <summary>
-        /// Control inpNitCliente.
+        /// Control lblContactName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNitCliente;
+        protected global::System.Web.UI.WebControls.Label lblContactName;
 
         /// <summary>
-        /// Control inpTelefonoCliente.
+        /// Control txtAddress.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
-        /// Control btnRegresar.
+        /// Control txtCity.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegresar;
+        protected global::System.Web.UI.WebControls.TextBox txtCity;
 
         /// <summary>
-        /// Control btnCrearCliente.
+        /// Control btnUpdate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearCliente;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
 
         /// <summary>
-        /// Control Label1.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

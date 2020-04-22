@@ -31,7 +31,7 @@ namespace SistemaVentas.Usuario
 
         public void obtenerEmpleadoList()
         {
-            var dataTable = new Crud().ObtenerDataTable("EmpleadoList");
+            var dataTable = new Crud().Seleccionar("EmpleadoList");
             ddlIdEmpleado.DataSource = dataTable;
             ddlIdEmpleado.DataTextField = "nombreEmpleado";
             ddlIdEmpleado.DataValueField = "idEmpleado";
@@ -41,7 +41,7 @@ namespace SistemaVentas.Usuario
 
         public void obtenerTipoUsuarioList()
         {
-            var dataTable = new Crud().ObtenerDataTable("TipoUsuarioList");
+            var dataTable = new Crud().Seleccionar("TipoUsuarioList");
             ddlIdTipoUsuario.DataSource = dataTable;
             ddlIdTipoUsuario.DataTextField = "nombreTipoUsuario";
             ddlIdTipoUsuario.DataValueField = "idTipoUsuario";
