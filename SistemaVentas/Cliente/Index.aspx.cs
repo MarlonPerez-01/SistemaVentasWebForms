@@ -117,13 +117,13 @@ namespace SistemaVentas.Cliente
         protected void btnCrearCliente_OnClick(object sender, EventArgs e)
         {
             //Limpiando el formulario 
-            inpPrimerNombreCliente_e.Value = String.Empty;
-            inpSegundoNombreCliente_e.Value = String.Empty;
-            inpPrimerApellidoCliente_e.Value = String.Empty;
-            inpSegundoApellidoCliente_e.Value = String.Empty;
-            inpDuiCliente_e.Value = String.Empty;
-            inpNitCliente_e.Value = String.Empty;
-            inpTelefonoCliente_e.Value = String.Empty;
+            inpPrimerNombreCliente_c.Value = String.Empty;
+            inpSegundoNombreCliente_c.Value = String.Empty;
+            inpPrimerApellidoCliente_c.Value = String.Empty;
+            inpSegundoApellidoCliente_c.Value = String.Empty;
+            inpDuiCliente_c.Value = String.Empty;
+            inpNitCliente_c.Value = String.Empty;
+            inpTelefonoCliente_c.Value = String.Empty;
 
             ModalCrear(true);
         }
