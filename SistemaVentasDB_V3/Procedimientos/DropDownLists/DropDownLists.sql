@@ -14,12 +14,12 @@ AS
 
 	SELECT e.idEmpleado, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado
 	FROM dbo.Empleado e
+	WHERE estado = 1
 
 	COMMIT
 GO
 
 EmpleadoList
-SeleccionarUsuarios
 
 
 /*Listado Nombre Cargo*/

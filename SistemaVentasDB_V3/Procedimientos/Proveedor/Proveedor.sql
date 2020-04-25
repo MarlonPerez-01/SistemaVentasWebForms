@@ -11,7 +11,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idProveedor, primerNombreProveedor, segundoNombreProveedor, primerApellidoProveedor, segundoApellidoProveedor, empresaProveedor, telefonoProveedor
+	SELECT idProveedor, primerNombreProveedor, segundoNombreProveedor, primerApellidoProveedor, segundoApellidoProveedor, telefonoProveedor, empresaProveedor
 	FROM dbo.Proveedor
 	WHERE estado = 1
 
@@ -19,6 +19,34 @@ AS
 GO
 
 EXEC SeleccionarProveedores
+
+
+
+IF OBJECT_ID('SeleccionarProveedorById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarProveedorById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarProveedorById
+(@idProveedor [int])
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idProveedor, primerNombreProveedor, segundoNombreProveedor, primerApellidoProveedor, segundoApellidoProveedor, telefonoProveedor, empresaProveedor
+	FROM dbo.Proveedor
+	WHERE idProveedor = @idProveedor AND estado = 1
+
+	COMMIT
+GO
+
+SeleccionarProveedorById 30
+
+
+
+
 
 /*INSERTAR PROVEEDORES*/
 IF OBJECT_ID('InsertarProveedor') IS NOT NULL
@@ -60,7 +88,7 @@ GO
 
 EXEC InsertarProveedor 'JoseProveedor', 'Roberto', 'Lopez', 'Perez', 75858596, 'HP'
 
-
+SeleccionarProveedores
 
 /*ACTUALIZAR PROVEEDOR*/
 IF OBJECT_ID('ActualizarProveedor') IS NOT NULL
@@ -68,6 +96,8 @@ BEGIN
 	DROP PROCEDURE dbo.ActualizarProveedor
 END
 GO
+
+
 CREATE PROCEDURE dbo.ActualizarProveedor
 	(
 		@idProveedor [int],
@@ -90,6 +120,8 @@ AS
 GO
 
 EXEC ActualizarProveedor
+
+SeleccionarProveedorById 8
 
 
 /*ELIMINAR PROVEEDOR*/

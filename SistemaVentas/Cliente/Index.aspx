@@ -49,7 +49,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Crear Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
@@ -83,7 +83,7 @@
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnCrear" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <asp:Button ID="btnCerrar" CommandName="Cerrar" runat="server" Text="Cancelar" OnClick="cerrar" />
+                <button type="button" class="cerrar">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -95,7 +95,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Detalles Clientes</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
@@ -145,7 +145,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Editar Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
@@ -195,7 +195,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Eliminar Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>

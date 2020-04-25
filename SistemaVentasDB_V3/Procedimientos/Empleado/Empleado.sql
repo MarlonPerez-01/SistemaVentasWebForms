@@ -12,7 +12,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idEmpleado, fotografiaEmpleado, primerNombreEmpleado, primerApellidoEmpleado, c.nombreCargo, telefonoEmpleado, correoEmpleado, fechaContrato
+	SELECT idEmpleado,  primerNombreEmpleado, primerApellidoEmpleado, c.nombreCargo, telefonoEmpleado, correoEmpleado, fechaContrato
 	FROM dbo.Empleado AS e
 	INNER JOIN dbo.Cargo c
 	ON e.idCargo = c.idCargo

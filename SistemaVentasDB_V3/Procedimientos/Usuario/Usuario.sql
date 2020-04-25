@@ -12,23 +12,34 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idUsuario, idEmpleado, idTipoUsuario, nombreUsuario, contraseniaUsuario
-	FROM dbo.Usuario
-	WHERE estado = 1
+	SELECT idUsuario, nombreUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, tu.nombreTipoUsuario
+	FROM dbo.Usuario AS u
+	INNER JOIN dbo.Empleado e
+	ON u.idEmpleado = e.idEmpleado
+	INNER JOIN dbo.TipoUsuario tu
+	ON u.idTipoUsuario = tu.idTipoUsuario
+
+	WHERE u.estado = 1
 
 	COMMIT
 GO
 
+EXEC SeleccionarUsuarios
+
+EXEC TipoUsuarioList
 
 
-/*V2*/
-IF OBJECT_ID('SeleccionarUsuarios2') IS NOT NULL
+
+
+
+--SeleccionarUsuarioById
+IF OBJECT_ID('SeleccionarUsuarioById') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.SeleccionarUsuarios2
+	DROP PROCEDURE dbo.SeleccionarUsuarioById
 END
 GO
-CREATE PROCEDURE dbo.SeleccionarUsuarios2
-
+CREATE PROCEDURE dbo.SeleccionarUsuarioById
+	(@idUsuario [int])
 AS
 	SET NOCOUNT ON
 	SET XACT_ABORT ON
@@ -42,14 +53,40 @@ AS
 	INNER JOIN dbo.TipoUsuario tu
 	ON u.idTipoUsuario = tu.idTipoUsuario
 
-	WHERE u.estado = 1
+	WHERE idUsuario = @idUsuario AND u.estado = 1
 
 	COMMIT
 GO
 
-EXEC SeleccionarUsuarios2
+SeleccionarUsuarioById 8
 
-EXEC TipoUsuarioList
+
+
+--Para llenar el modal editar
+IF OBJECT_ID('SeleccionarUsuarioByIdEditar') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarUsuarioByIdEditar
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarUsuarioByIdEditar
+	(@idUsuario [int])
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT u.idUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, u.nombreUsuario, u.contraseniaUsuario
+	FROM Usuario AS u
+	INNER JOIN dbo.Empleado e
+	ON u.idEmpleado = e.idEmpleado
+	WHERE u.idUsuario = @idUsuario AND u.estado = 1
+	COMMIT
+GO
+
+SeleccionarUsuarioByIdEditar 13
+
+
 
 
 
@@ -92,9 +129,9 @@ GO
 
 EXEC InsertarUsuario 1, 1, 'marlonUser', '1234'
 
-SeleccionarUsuarios
-
 InsertarTipoUsuario 'Basico'
+
+SELECT u.* FROM dbo.Usuario u
 
 
 /*Actualizar Usuario*/
@@ -122,6 +159,12 @@ AS
 GO
 
 EXEC ActualizarUsuario
+
+SELECT u.* FROM dbo.Usuario u WHERE estado = 1
+
+GO
+
+SeleccionarUsuarios
 
 /*Eliminar Usuario*/
 IF OBJECT_ID('EliminarUsuario') IS NOT NULL

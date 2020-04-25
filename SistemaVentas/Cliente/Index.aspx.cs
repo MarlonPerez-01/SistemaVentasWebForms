@@ -163,7 +163,7 @@ namespace SistemaVentas.Cliente
                 GridView1.DataBind();
             }
 
-            ModalDetalles(false);
+            ModalCrear(false);
         }
 
         protected void btnActualizar_OnClick(object sender, EventArgs e)
@@ -201,8 +201,7 @@ namespace SistemaVentas.Cliente
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }
-
-            ModalDetalles(false);
+            ModalEditar(false);
         }
 
         protected void btnEliminar_OnClick(object sender, EventArgs e)
@@ -229,11 +228,6 @@ namespace SistemaVentas.Cliente
             }
         }
 
-
-        protected void cerrar(object sender, EventArgs e)
-        {
-            ModalDetalles(false);
-        }
 
 
         void ModalDetalles(bool isDisplay)
