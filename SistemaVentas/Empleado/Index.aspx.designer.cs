@@ -429,6 +429,60 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoCliente_e;
 
         /// <summary>
+        /// Control Text1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+
+        /// <summary>
+        /// Control inpFechaContratoEmpleado_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpFechaContratoEmpleado_e;
+
+        /// <summary>
+        /// Control inpTelefonoEmpleado_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoEmpleado_e;
+
+        /// <summary>
+        /// Control inpCorreoEmpleado_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpCorreoEmpleado_e;
+
+        /// <summary>
+        /// Control inpMunicipioEmpleado_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpMunicipioEmpleado_e;
+
+        /// <summary>
+        /// Control inpDetallesDireccion_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDetallesDireccion_e;
+
+        /// <summary>
         /// Control btnActualizar.
         /// </summary>
         /// <remarks>

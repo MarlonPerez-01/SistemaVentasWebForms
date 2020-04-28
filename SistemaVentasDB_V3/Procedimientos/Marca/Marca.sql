@@ -1,3 +1,25 @@
+/*SELECCIONAR MARCA BY ID*/
+IF OBJECT_ID('SeleccionarMarcaById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarMarcaById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarMarcaById
+		@idMarca [int]
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idMarca, nombreMarca, estado
+	FROM dbo.Marca
+	WHERE idMarca = @idMarca AND estado = 1
+
+	COMMIT
+GO
+
+
 /*SELECCIONAR MARCAS*/
 IF OBJECT_ID('SeleccionarMarcas') IS NOT NULL
 BEGIN

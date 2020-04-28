@@ -232,7 +232,7 @@
                     <input type="text" class="form-control" id="inpIdCliente_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerNombreCliente_e" class="col-form-label"> Nombre:</label>
+                    <label for="inpPrimerNombreCliente_e" class="col-form-label">Primer Nombre:</label>
                     <input type="text" class="form-control" id="inpPrimerNombreCliente_e" runat="server" />
                 </div>
                 <div>
@@ -256,9 +256,38 @@
                     <input type="text" class="form-control" id="inpNitCliente_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Telefono:</label>
+                    <label for="inpTelefonoCliente_e" class="col-form-label">Fotografía:</label>
                     <input type="text" class="form-control" id="inpTelefonoCliente_e" runat="server" />
                 </div>
+                <div>
+                    <label for="inpTelefonoCliente_e" class="col-form-label">Fecha de Nacimiento:</label>
+                    <input type="text" class="form-control" id="Text1" runat="server" />
+                </div>
+                <div>
+                    <label for="inpFechaContratoEmpleado_e" class="col-form-label">Fecha de Contrato:</label>
+                    <input type="text" class="form-control" id="inpFechaContratoEmpleado_e" runat="server" />
+                </div>
+                <div>
+                    <label for="inpTelefonoEmpleado_e" class="col-form-label">Telefono:</label>
+                    <input type="text" class="form-control" id="inpTelefonoEmpleado_e" runat="server" />
+                </div>
+                <div>
+                    <label for="inpCorreoEmpleado_e" class="col-form-label">Correo:</label>
+                    <input type="text" class="form-control" id="inpCorreoEmpleado_e" runat="server" />
+                </div>
+                <div>
+                    <label for="inpTelefonoCliente_e" class="col-form-label">Departamento:</label>
+                    <asp:DropDownList runat="server"/>
+                </div>
+                <div>
+                    <label for="inpMunicipioEmpleado_e" class="col-form-label">Municipio:</label>
+                    <input type="text" class="form-control" id="inpMunicipioEmpleado_e" runat="server" />
+                </div>
+                <div>
+                    <label for="inpDetallesDireccion_e" class="col-form-label">Detalles Dirección:</label>
+                    <input type="text" class="form-control" id="inpDetallesDireccion_e" runat="server" />
+                </div>
+
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnActualizar" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />

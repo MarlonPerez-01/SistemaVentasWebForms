@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SistemaVentas.Marca
+namespace SistemaVentas.Categoria
 {
 
 
-    public partial class Index
+    public partial class Categoria
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace SistemaVentas.Marca
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// Control inpNombreMarca_c.
+        /// Control inpNombreCategoria_c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreMarca_c;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreCategoria_c;
 
         /// <summary>
         /// Control btnCrear.
@@ -69,22 +69,22 @@ namespace SistemaVentas.Marca
         protected global::System.Web.UI.WebControls.Panel modalDetalles;
 
         /// <summary>
-        /// Control lblIdMarca.
+        /// Control lblIdCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdMarca;
+        protected global::System.Web.UI.WebControls.Label lblIdCategoria;
 
         /// <summary>
-        /// Control lblNombreMarca.
+        /// Control lblNombreCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreMarca;
+        protected global::System.Web.UI.WebControls.Label lblNombreCategoria;
 
         /// <summary>
         /// Control btnImprimir.
@@ -105,22 +105,22 @@ namespace SistemaVentas.Marca
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
-        /// Control inpIdMarca_e.
+        /// Control inpIdCategoria_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdMarca_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdCategoria_e;
 
         /// <summary>
-        /// Control inpNombreMarca_e.
+        /// Control inpNombreCategoria_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreMarca_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreCategoria_e;
 
         /// <summary>
         /// Control btnActualizar.
@@ -141,13 +141,13 @@ namespace SistemaVentas.Marca
         protected global::System.Web.UI.WebControls.Panel modalEliminar;
 
         /// <summary>
-        /// Control lblIdMarcaEliminar.
+        /// Control lblIdCategoriaEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdMarcaEliminar;
+        protected global::System.Web.UI.WebControls.Label lblIdCategoriaEliminar;
 
         /// <summary>
         /// Control btnEliminar.

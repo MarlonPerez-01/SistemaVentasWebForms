@@ -83,9 +83,6 @@ namespace SistemaVentas.Empleado
                     lblCorreoEmpleado.Text = dataTable.Rows[0][9].ToString();
                     lblDireccionEmpleado.Text = dataTable.Rows[0][10].ToString();
                     lblNombreCargo.Text = dataTable.Rows[0][11].ToString();
-
-              
-
                 }
 
                 ModalDetalles(true);
@@ -99,7 +96,7 @@ namespace SistemaVentas.Empleado
 
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarEmpleadosById_e", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("SeleccionarEmpleadoById_e", sqlConnection);
                     SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@idEmpleado", idEmpleado);
@@ -115,8 +112,8 @@ namespace SistemaVentas.Empleado
                     inpNitCliente_e.Value = dataTable.Rows[0][6].ToString();
                     //inp.Value = dataTable.Rows[0][8].ToString();
                     inpTelefonoCliente_e.Value = dataTable.Rows[0][9].ToString();
-                    inpTelefonoCliente_e.Value = dataTable.Rows[0][10].ToString();
-                    inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
+                    inpCorreoEmpleado_e.Value = dataTable.Rows[0][10].ToString();
+                    
                     inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
                 }
                 ModalEditar(true);
@@ -204,7 +201,7 @@ namespace SistemaVentas.Empleado
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }
-
+            Bind();
             ModalCrear(false);
         }
 
@@ -234,10 +231,10 @@ namespace SistemaVentas.Empleado
                     sqlCommand.Parameters.AddWithValue("@idEmpleado", Convert.ToInt32(lblIdEmpleadoEliminar.Text));
                     int filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
-                Bind();
 
                 if (filasAfectadas != 0)
                 {
+                    Bind();
                     //TODO: Mensaje exitoso
                 }
                 else

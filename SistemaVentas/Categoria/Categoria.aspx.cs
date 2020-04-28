@@ -10,10 +10,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SistemaVentas.Helpers;
 
-namespace SistemaVentas.Marca
-
+namespace SistemaVentas.Categoria
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Categoria : System.Web.UI.Page
     {
 
         //CONEXION
@@ -30,7 +29,7 @@ namespace SistemaVentas.Marca
 
         protected void Bind()
         {
-            var dataTable = new Crud().Seleccionar("SeleccionarMarcas");
+            var dataTable = new Crud().Seleccionar("SeleccionarCategorias");
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
@@ -52,19 +51,19 @@ namespace SistemaVentas.Marca
                 LinkButton btnDetalles = (LinkButton)e.CommandSource;
                 GridViewRow gvrow = (GridViewRow)btnDetalles.NamingContainer;
 
-                int idMarca = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
+                int idCategoria = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarMarcaById", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
                     SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idMarca", idMarca);
+                    sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter.Fill(dataTable);
 
-                    lblIdMarca.Text = dataTable.Rows[0][0].ToString();
-                    lblNombreMarca.Text = dataTable.Rows[0][1].ToString();
+                    lblIdCategoria.Text = dataTable.Rows[0][0].ToString();
+                    lblNombreCategoria.Text = dataTable.Rows[0][1].ToString();
                 }
 
                 ModalDetalles(true);
@@ -74,19 +73,19 @@ namespace SistemaVentas.Marca
                 LinkButton btnEditar = (LinkButton)e.CommandSource;
                 GridViewRow gvrow = (GridViewRow)btnEditar.NamingContainer;
 
-                int idMarca = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
+                int idCategoria = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarMarcaById", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
                     SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idMarca", idMarca);
+                    sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter.Fill(dataTable);
 
-                    inpIdMarca_e.Value = dataTable.Rows[0][0].ToString();
-                    inpNombreMarca_e.Value = dataTable.Rows[0][1].ToString();
+                    inpIdCategoria_e.Value = dataTable.Rows[0][0].ToString();
+                    inpNombreCategoria_e.Value = dataTable.Rows[0][1].ToString();
 
                 }
                 ModalEditar(true);
@@ -96,8 +95,8 @@ namespace SistemaVentas.Marca
                 LinkButton btnEliminar = (LinkButton)e.CommandSource;
                 GridViewRow gvrow = (GridViewRow)btnEliminar.NamingContainer;
 
-                int idMarca = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
-                lblIdMarcaEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
+                int idCategoria = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
+                lblIdCategoriaEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
                 ModalEliminar(true);
             }
         }
@@ -108,11 +107,11 @@ namespace SistemaVentas.Marca
 
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("InsertarMarca", sqlConnection))
+                using (var sqlCommand = new SqlCommand("InsertarCategoria", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@nombreMarca", inpNombreMarca_c.Value);
+                    sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_c.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
@@ -127,7 +126,7 @@ namespace SistemaVentas.Marca
                 }
 
                 //Limpiando el campo
-                inpNombreMarca_c.Value = String.Empty;
+                inpNombreCategoria_c.Value = String.Empty;
                 Bind();
             }
         }
@@ -138,12 +137,12 @@ namespace SistemaVentas.Marca
 
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("ActualizarMarca", sqlConnection))
+                using (var sqlCommand = new SqlCommand("ActualizarCategoria", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idMarca", inpIdMarca_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@nombreMarca", inpNombreMarca_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@idCategoria", inpIdCategoria_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_e.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
@@ -166,11 +165,11 @@ namespace SistemaVentas.Marca
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("EliminarMarca", sqlConnection))
+                using (var sqlCommand = new SqlCommand("EliminarCategoria", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idMarca", Convert.ToInt32(lblIdMarcaEliminar.Text));
+                    sqlCommand.Parameters.AddWithValue("@idCategoria", Convert.ToInt32(lblIdCategoriaEliminar.Text));
                     int filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
                 Bind();

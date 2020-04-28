@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Marca.Index" ClientIDMode="Static" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Categoria.aspx.cs" Inherits="SistemaVentas.Categoria.Categoria" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Listado de Marcas</h1>
+    <h1>Listado de Categorias</h1>
 
     <div class="w-100"></div>
 
@@ -11,43 +11,43 @@
 
     <div class="w-100"></div>
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idMarca" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idCategoria" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
         <Columns>
 
-            <asp:BoundField DataField="idMarca" HeaderText="ID" />
-            <asp:BoundField DataField="nombreMarca" HeaderText="Marca" />
+            <asp:BoundField DataField="idCategoria" HeaderText="ID" />
+            <asp:BoundField DataField="nombreCategoria" HeaderText="Categoria" />
 
             <asp:TemplateField HeaderText="Detalles" SortExpression="">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btnDetalles" runat="server" CommandName="detalles" CommandArgument='<%#Eval("idMarca") %>'><i class="fas fa-search-plus"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnDetalles" runat="server" CommandName="detalles" CommandArgument='<%#Eval("idCategoria") %>'><i class="fas fa-search-plus"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Editar" SortExpression="">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btnEditar" runat="server" CommandName="editar" CommandArgument='<%#Eval("idMarca") %>'><i class="fas fa-pencil-alt"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnEditar" runat="server" CommandName="editar" CommandArgument='<%#Eval("idCategoria") %>'><i class="fas fa-pencil-alt"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Eliminar" SortExpression="">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btnEliminar" runat="server" CommandName="eliminar" CommandArgument='<%#Eval("idMarca") %>'><i class="fas fa-trash-alt"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnEliminar" runat="server" CommandName="eliminar" CommandArgument='<%#Eval("idCategoria") %>'><i class="fas fa-trash-alt"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    
+
     <div id="fondoModal"></div>
-    
+
 
     <div class="w-100"></div>
     <!--Inicia Modal Crear-->
     <div style="background-color: rgba(100, 15, 145, 0.2);">
         <div>
-            <label>Agregar Marca</label>
+            <label>Agregar Categoria</label>
         </div>
         <div>
             <div>
-                <label for="inpNombreMarca_c" class="col-form-label">Nombre Marca:</label>
-                <input type="text" class="form-control" id="inpNombreMarca_c" runat="server" />
+                <label for="inpNombreCategoria_c" class="col-form-label">Nombre Categoria:</label>
+                <input type="text" class="form-control" id="inpNombreCategoria_c" runat="server" />
             </div>
         </div>
         <div>
@@ -62,17 +62,17 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio">
-                <label>Detalles Marca</label>
+                <label>Detalles Categoria</label>
                 <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
                     <label>ID:</label>
-                    <asp:Label ID="lblIdMarca" runat="server"></asp:Label>
+                    <asp:Label ID="lblIdCategoria" runat="server"></asp:Label>
                 </div>
                 <div>
-                    <label>Marca:</label>
-                    <asp:Label ID="lblNombreMarca" runat="server"></asp:Label>
+                    <label>Categoria:</label>
+                    <asp:Label ID="lblNombreCategoria" runat="server"></asp:Label>
                 </div>
             </div>
             <div class="modal-footer-mio">
@@ -88,17 +88,17 @@
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio">
-                <label>Editar Marca</label>
+                <label>Editar Categoria</label>
                 <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="inpIdMarca_e" class="col-form-label">ID:</label>
-                    <input type="text" class="form-control" id="inpIdMarca_e" runat="server" />
+                    <label for="inpIdCategoria_e" class="col-form-label">ID:</label>
+                    <input type="text" class="form-control" id="inpIdCategoria_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpNombreMarca_e" class="col-form-label">Marca:</label>
-                    <input type="text" class="form-control" id="inpNombreMarca_e" runat="server" />
+                    <label for="inpNombreCategoria_e" class="col-form-label">Categoria:</label>
+                    <input type="text" class="form-control" id="inpNombreCategoria_e" runat="server" />
                 </div>
             </div>
             <div class="modal-footer-mio">
@@ -114,13 +114,13 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio">
-                <label>Eliminar Marca</label>
+                <label>Eliminar Categoria</label>
                 <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="lblIdMarcaEliminar" class="col-form-label">Está a punto de eliminar la marca con el identificador:</label>
-                    <asp:Label ID="lblIdMarcaEliminar" runat="server" Text=""></asp:Label>
+                    <label for="lblIdCategoriaEliminar" class="col-form-label">Está a punto de eliminar la marca con el identificador:</label>
+                    <asp:Label ID="lblIdCategoriaEliminar" runat="server" Text=""></asp:Label>
                 </div>
             </div>
             <div class="modal-footer-mio">
