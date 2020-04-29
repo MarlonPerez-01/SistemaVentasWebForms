@@ -28,16 +28,16 @@ CREATE TABLE Cliente (
     idCliente int  NOT NULL IDENTITY,
     Nombres varchar(50)  NOT NULL CHECK (LEN(Nombres) > 2),
     Apellidos varchar(50)  NOT NULL CHECK (LEN(Apellidos) > 2), --CHECK
-	Correo varchar(50)  NOT NULL CHECK (LEN(Correo) > 2), --CHECK
-	Nombre_Usuario varchar(50)  NOT NULL CHECK (LEN(Nombre_Usuario) > 2),
-	Contraseña varchar(50) NOT NULL CHECK (LEN(Contraseña) > 2),
+    Correo varchar(50)  NOT NULL CHECK (LEN(Correo) > 2), --CHECK
+    Nombre_Usuario varchar(50)  NOT NULL CHECK (LEN(Nombre_Usuario) > 2),
+    Contraseña varchar(50) NOT NULL CHECK (LEN(Contraseña) > 2),
     duiCliente varchar(10)  NULL CHECK ([duiCliente] like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][-][0-9]'), --CHECK
     nitCliente varchar(20)  NULL,
     telefonoCliente int  NULL CHECK (telefonoCliente like '[2-7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'), --CHECK
-	Direccion varchar(150) NULL CHECK (LEN(Direccion) > 2), --CHECK
-	Pais varchar(50) NOT NULL CHECK (LEN(Pais) > 2),
-	Provincia varchar(50) NOT NULL CHECK (LEN(Provincia) > 2),
-	Zip int NOT NULL CHECK (LEN(Zip) > 2),
+    Direccion varchar(150) NULL CHECK (LEN(Direccion) > 2), --CHECK
+    Pais varchar(50) NOT NULL CHECK (LEN(Pais) > 2),
+    Provincia varchar(50) NOT NULL CHECK (LEN(Provincia) > 2),
+    Zip int NOT NULL CHECK (LEN(Zip) > 2),
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Cliente_pk PRIMARY KEY  (idCliente)
 );
