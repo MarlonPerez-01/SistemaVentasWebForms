@@ -83,10 +83,10 @@
                                         <a href="#"><span>Productos</span></a>
                                     </li>
                                     <li>
-                                        <a href="#"><span>Marcas</span></a>
+                                        <a runat="server" href="Marca/Index.aspx"><span>Marcas</span></a>
                                     </li>
                                     <li>
-                                        <a href="#"><span>Categorias</span></a>
+                                        <a runat="server" href="Categoria/Index.aspx"><span>Categorias</span></a>
                                     </li>
                                 </ul>
                             </li>

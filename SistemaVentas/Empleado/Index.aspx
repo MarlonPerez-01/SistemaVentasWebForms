@@ -117,19 +117,19 @@
                     <label for="ddlDepartamento_c">Departamento:</label>
                     <asp:DropDownList runat="server" AppendDataBoundItems="true" ID="ddlDepartamento_c">
                         <Items>
-                            <asp:ListItem Text="Ahuachapán" />
-                            <asp:ListItem Text="Cabañas" />
-                            <asp:ListItem Text="Chalatenango" />
-                            <asp:ListItem Text="La Libertad" />
-                            <asp:ListItem Text="La Paz" />
-                            <asp:ListItem Text="La Unión" />
-                            <asp:ListItem Text="Morazán" />
-                            <asp:ListItem Text="San Miguel" />
-                            <asp:ListItem Text="San Salvador" />
-                            <asp:ListItem Text="San Vicente" />
-                            <asp:ListItem Text="Santa Ana" />
-                            <asp:ListItem Text="Sonsonate" />
-                            <asp:ListItem Text="Usulután" />
+                            <asp:ListItem Text="Ahuachapán" Value="Ahuachapán"/>
+                            <asp:ListItem Text="Cabañas" Value="Cabañas"/>
+                            <asp:ListItem Text="Chalatenango" Value="Chalatenango"/>
+                            <asp:ListItem Text="La Libertad" Value="La Libertad"/>
+                            <asp:ListItem Text="La Paz" Value="La Paz"/>
+                            <asp:ListItem Text="La Unión" Value="La Union"/>
+                            <asp:ListItem Text="Morazán" Value="Morazan"/>
+                            <asp:ListItem Text="San Miguel" Value="San Miguel"/>
+                            <asp:ListItem Text="San Salvador" Value="San Salvador"/>
+                            <asp:ListItem Text="San Vicente" Value="San Vicente"/>
+                            <asp:ListItem Text="Santa Ana" Value="Santa Ana"/>
+                            <asp:ListItem Text="Sonsonate" Value="Sonsonate"/>
+                            <asp:ListItem Text="Usulután" Value="Usulutan"/>
                         </Items>
                     </asp:DropDownList>
                 </div>
@@ -139,7 +139,7 @@
                 </div>
                 <div>
                     <label for="txtDetallesDireccionEmpleado_c" class="col-form-label">Detalles de la Dirección:</label>
-                    <textarea class="form-control" id="txtDetallesDireccionEmpleado_c" cols="20" rows="2" runat="server"></textarea>
+                    <textarea  runat="server" class="form-control" id="txtDetallesDireccionEmpleado_c" cols="20" rows="2"></textarea>
                 </div>
             </div>
             <div class="modal-footer-mio">
@@ -228,64 +228,94 @@
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="inpIdCliente_e" class="col-form-label">ID:</label>
-                    <input type="text" class="form-control" id="inpIdCliente_e" runat="server" />
+                    <label for="inpIdEmpleado_e" class="col-form-label">ID:</label>
+                    <input type="text" class="form-control" id="inpIdEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerNombreCliente_e" class="col-form-label">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="inpPrimerNombreCliente_e" runat="server" />
+                    <label for="ddlCargo_e" class="col-form-label">Cargo:</label>
+                    <asp:DropDownList ID="ddlCargo_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
-                    <label for="inpSegundoNombreCliente_e" class="col-form-label">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="inpSegundoNombreCliente_e" runat="server" />
+                    <label for="inpPrimerNombreEmpleado_e" class="col-form-label">Primer Nombre:</label>
+                    <input type="text" class="form-control" id="inpPrimerNombreEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerApellidoCliente_e" class="col-form-label">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="inpPrimerApellidoCliente_e" runat="server" />
+                    <label for="inpSegundoNombreEmpleado_e" class="col-form-label">Segundo Nombre:</label>
+                    <input type="text" class="form-control" id="inpSegundoNombreEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpSegundoApellidoCliente_e" class="col-form-label">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="inpSegundoApellidoCliente_e" runat="server" />
+                    <label for="inpPrimerApellidoEmpleado_e" class="col-form-label">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="inpPrimerApellidoEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpDuiCliente_e" class="col-form-label">DUI:</label>
-                    <input type="text" class="form-control" id="inpDuiCliente_e" runat="server" />
+                    <label for="inpSegundoApellidoEmpleado_e" class="col-form-label">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="inpSegundoApellidoEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpNitCliente_e" class="col-form-label">NIT:</label>
-                    <input type="text" class="form-control" id="inpNitCliente_e" runat="server" />
+                    <label for="inpDuiEmpleado_e" class="col-form-label">DUI:</label>
+                    <input type="text" class="form-control" id="inpDuiEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Fotografía:</label>
-                    <input type="text" class="form-control" id="inpTelefonoCliente_e" runat="server" />
+                    <label for="inpNitEmpleado_e" class="col-form-label">NIT:</label>
+                    <input type="text" class="form-control" id="inpNitEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Fecha de Nacimiento:</label>
-                    <input type="text" class="form-control" id="Text1" runat="server" />
+                    <label for="FileUpload1_e" class="col-form-label">Fotografía:</label>
+                    <asp:FileUpload ID="FileUpload1_e" runat="server" />
+                    <img runat="server" id="imgFotografiaEmpleado_e" alt="fotografia" />
                 </div>
                 <div>
-                    <label for="inpFechaContratoEmpleado_e" class="col-form-label">Fecha de Contrato:</label>
-                    <input type="text" class="form-control" id="inpFechaContratoEmpleado_e" runat="server" />
+                    <label for="inpFechaNacimientoEmpleado_e" class="col-form-label">Fecha de Nacimiento:</label>
+                    <input type="text" class="form-control" id="inpFechaNacimientoEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoEmpleado_e" class="col-form-label">Telefono:</label>
-                    <input type="text" class="form-control" id="inpTelefonoEmpleado_e" runat="server" />
+                    <label for="inpFechaContrato_e" class="col-form-label">Fecha de Contrato:</label>
+                    <input type="text" class="form-control" id="inpFechaContrato_e" runat="server" />
+                </div>
+                <div>
+                    <label for="inpTelefonoEmpleado_e" class="col-form-label">Teléfono:</label>
+                    <input type="tel" class="form-control" id="inpTelefonoEmpleado_e" runat="server" />
                 </div>
                 <div>
                     <label for="inpCorreoEmpleado_e" class="col-form-label">Correo:</label>
-                    <input type="text" class="form-control" id="inpCorreoEmpleado_e" runat="server" />
+                    <input type="email" class="form-control" id="inpCorreoEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Departamento:</label>
-                    <asp:DropDownList runat="server"/>
+                    <label for="ddlSexo_e">Sexo:</label>
+                    <asp:DropDownList runat="server" AppendDataBoundItems="true"  ID="ddlSexo_e">
+                        <Items>
+                            <asp:ListItem Text="Masculino" Value="M" />
+                            <asp:ListItem Text="Femenino" Value="F" />
+                        </Items>
+                    </asp:DropDownList>
+                </div>
+                <div>
+                    <label for="ddlDepartamento_e">Departamento:</label>
+                    <asp:DropDownList runat="server" AppendDataBoundItems="true" ID="ddlDepartamento_e">
+                        <Items>
+                            <asp:ListItem Text="Ahuachapán" Value="Ahuachapán"/>
+                            <asp:ListItem Text="Cabañas" Value="Cabañas"/>
+                            <asp:ListItem Text="Chalatenango" Value="Chalatenango"/>
+                            <asp:ListItem Text="La Libertad" Value="La Libertad"/>
+                            <asp:ListItem Text="La Paz" Value="La Paz"/>
+                            <asp:ListItem Text="La Unión" Value="La Union"/>
+                            <asp:ListItem Text="Morazán" Value="Morazan"/>
+                            <asp:ListItem Text="San Miguel" Value="San Miguel"/>
+                            <asp:ListItem Text="San Salvador" Value="San Salvador"/>
+                            <asp:ListItem Text="San Vicente" Value="San Vicente"/>
+                            <asp:ListItem Text="Santa Ana" Value="Santa Ana"/>
+                            <asp:ListItem Text="Sonsonate" Value="Sonsonate"/>
+                            <asp:ListItem Text="Usulután" Value="Usulutan"/>
+                        </Items>
+                    </asp:DropDownList>
                 </div>
                 <div>
                     <label for="inpMunicipioEmpleado_e" class="col-form-label">Municipio:</label>
                     <input type="text" class="form-control" id="inpMunicipioEmpleado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpDetallesDireccion_e" class="col-form-label">Detalles Dirección:</label>
-                    <input type="text" class="form-control" id="inpDetallesDireccion_e" runat="server" />
+                    <label for="txtDetallesDireccionEmpleado_e" class="col-form-label">Detalles Dirección:</label>
+                    <textarea runat="server" id="txtDetallesDireccionEmpleado_e" cols="20" rows="2" class="form-control"></textarea>
                 </div>
 
             </div>

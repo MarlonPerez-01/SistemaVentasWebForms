@@ -40,17 +40,17 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT e.idEmpleado, e.primerNombreEmpleado, e.segundoNombreEmpleado, e.primerApellidoEmpleado, e.segundoApellidoEmpleado, e.duiEmpleado, e.nitEmpleado, e.fotografiaEmpleado, e.fechaNacimientoEmpleado, e.fechaContrato, e.telefonoEmpleado, e.correoEmpleado, e.departamentoEmpleado,  e.municipioEmpleado, e.detallesDireccionEmpleado
+	SELECT e.idEmpleado, e.idCargo, e.primerNombreEmpleado, e.segundoNombreEmpleado, e.primerApellidoEmpleado, e.segundoApellidoEmpleado, e.duiEmpleado, e.nitEmpleado, e.fotografiaEmpleado, e.fechaNacimientoEmpleado, e.fechaContrato, e.telefonoEmpleado, e.correoEmpleado, e.sexoEmpleado, e.departamentoEmpleado,  e.municipioEmpleado, e.detallesDireccionEmpleado
 	FROM dbo.Empleado AS e
 	WHERE idEmpleado = @idEmpleado AND e.estado = 1
 	COMMIT
 GO
 
- SeleccionarEmpleadoById_e 9
+ EXEC SeleccionarEmpleadoById_e 14
  SELECT e.* FROM dbo.Empleado e
 
 
-
+ fec
 /*SELECCIONAR EMPLEADOS*/
 
 IF OBJECT_ID('SeleccionarEmpleados') IS NOT NULL
@@ -134,7 +134,7 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarEmpleado 1, 'carlos', 'jose', 'lopez', 'perez', '12345678-9', '12345678', NULL, '20001212', '20201212', 74585858, 'marlon@gmail.com', 'm', 'san salvador', 'soyapango', 'casa xd'
+EXEC InsertarEmpleado 1, 'pedro', 'rene', 'reyes', 'hernandez', '12345678-9', '12345678', NULL, '20001212', '20201212', 74585858, 'marlon@gmail.com', 'F', 'san salvador', 'soyapango', 'casa xd'
 
 /*Actualizar Empleado*/
 IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
@@ -172,6 +172,116 @@ AS
 		WHERE idEmpleado = @idEmpleado
 	COMMIT
 GO
+
+
+
+
+/*Actualizar Empleado*/
+IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ActualizarEmpleado
+END
+GO
+CREATE PROCEDURE dbo.ActualizarEmpleado
+	(
+		@idEmpleado [int],
+		@idCargo [int],
+		@primerNombreEmpleado [varchar](50),
+		@segundoNombreEmpleado [varchar](50),
+		@primerApellidoEmpleado [varchar](50),
+		@segundoApellidoEmpleado [varchar](50),
+		@duiEmpleado [varchar](10),
+		@nitEmpleado [varchar](14),
+		@fotografiaEmpleado [varbinary](max),
+		@fechaNacimientoEmpleado [date],
+		@fechaContrato [date],
+		@telefonoEmpleado [int],
+		@correoEmpleado [varchar](50),
+		@sexoEmpleado [char](1),
+		@departamentoEmpleado [int],
+		@municipioEmpleado [int],
+		@detallesDireccionEmpleado [int]
+	)
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+		UPDATE dbo.Empleado
+		SET  idCargo = @idCargo, primerNombreEmpleado = @primerNombreEmpleado, segundoNombreEmpleado = @segundoNombreEmpleado, primerApellidoEmpleado = @primerApellidoEmpleado, segundoApellidoEmpleado = @segundoApellidoEmpleado, duiEmpleado = @duiEmpleado, nitEmpleado = @nitEmpleado, fotografiaEmpleado = @fotografiaEmpleado, fechaNacimientoEmpleado = @fechaNacimientoEmpleado, fechaContrato = @fechaContrato, telefonoEmpleado = @telefonoEmpleado, correoEmpleado = @correoEmpleado, sexoEmpleado = @sexoEmpleado, departamentoEmpleado = @departamentoEmpleado, municipioEmpleado = @municipioEmpleado, detallesDireccionEmpleado = @detallesDireccionEmpleado
+		WHERE idEmpleado = @idEmpleado
+	COMMIT
+GO
+
+
+
+/*Actualizar Empleado*/
+IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ActualizarEmpleado
+END
+GO
+CREATE PROCEDURE dbo.ActualizarEmpleado
+	(
+		@idEmpleado [int],
+		@idCargo [int],
+		@primerNombreEmpleado [varchar](50),
+		@segundoNombreEmpleado [varchar](50),
+		@primerApellidoEmpleado [varchar](50),
+		@segundoApellidoEmpleado [varchar](50),
+		@duiEmpleado [varchar](10),
+		@nitEmpleado [varchar](14),
+		@fotografiaEmpleado [varbinary](max),
+		@fechaNacimientoEmpleado [date],
+		@fechaContrato [date],
+		@telefonoEmpleado [int],
+		@correoEmpleado [varchar](50),
+		@sexoEmpleado [char](1),
+		@departamentoEmpleado [varchar](50),
+		@municipioEmpleado [varchar](50),
+		@detallesDireccionEmpleado [varchar](50)
+	)
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+		UPDATE dbo.Empleado
+		SET  idCargo = @idCargo, primerNombreEmpleado = @primerNombreEmpleado, segundoNombreEmpleado = @segundoNombreEmpleado, primerApellidoEmpleado = @primerApellidoEmpleado, segundoApellidoEmpleado = @segundoApellidoEmpleado, duiEmpleado = @duiEmpleado, nitEmpleado = @nitEmpleado, fotografiaEmpleado = @fotografiaEmpleado,fechaNacimientoEmpleado = @fechaNacimientoEmpleado, fechaContrato = @fechaContrato, telefonoEmpleado = @telefonoEmpleado, correoEmpleado = @correoEmpleado, sexoEmpleado = @sexoEmpleado, departamentoEmpleado = @departamentoEmpleado,
+		municipioEmpleado = @municipioEmpleado, detallesDireccionEmpleado = @detallesDireccionEmpleado
+		WHERE idEmpleado = @idEmpleado
+	COMMIT
+GO
+
+
+ActualizarEmpleado 15, 1
+
+seleccionarEmpleados
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*Eliminar Empleado*/

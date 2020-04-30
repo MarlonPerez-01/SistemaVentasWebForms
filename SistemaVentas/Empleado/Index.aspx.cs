@@ -87,8 +87,10 @@ namespace SistemaVentas.Empleado
 
                 ModalDetalles(true);
             }
+
             else if (e.CommandName == "editar")
             {
+                ddlCargoBind_e();
                 LinkButton btnEditar = (LinkButton)e.CommandSource;
                 GridViewRow gvrow = (GridViewRow)btnEditar.NamingContainer;
 
@@ -103,21 +105,48 @@ namespace SistemaVentas.Empleado
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter.Fill(dataTable);
 
-                    inpIdCliente_e.Value = dataTable.Rows[0][0].ToString();
-                    inpPrimerNombreCliente_e.Value = dataTable.Rows[0][1].ToString();
-                    inpSegundoNombreCliente_e.Value = dataTable.Rows[0][2].ToString();
-                    inpPrimerApellidoCliente_e.Value = dataTable.Rows[0][3].ToString();
-                    inpSegundoApellidoCliente_e.Value = dataTable.Rows[0][4].ToString();
-                    inpDuiCliente_e.Value = dataTable.Rows[0][5].ToString();
-                    inpNitCliente_e.Value = dataTable.Rows[0][6].ToString();
-                    //inp.Value = dataTable.Rows[0][8].ToString();
-                    inpTelefonoCliente_e.Value = dataTable.Rows[0][9].ToString();
-                    inpCorreoEmpleado_e.Value = dataTable.Rows[0][10].ToString();
+                    inpIdEmpleado_e.Value = dataTable.Rows[0][0].ToString();
+
+                    string cargoDB = dataTable.Rows[0][1].ToString();
+                    ddlCargo_e.SelectedIndex = ddlCargo_e.Items.IndexOf(ddlCargo_e.Items.FindByValue(cargoDB));
+
+                    inpPrimerNombreEmpleado_e.Value = dataTable.Rows[0][2].ToString();
+                    inpSegundoNombreEmpleado_e.Value = dataTable.Rows[0][3].ToString();
+                    inpPrimerApellidoEmpleado_e.Value = dataTable.Rows[0][4].ToString();
+                    inpSegundoApellidoEmpleado_e.Value = dataTable.Rows[0][5].ToString();
+                    inpDuiEmpleado_e.Value = dataTable.Rows[0][6].ToString();
+                    inpNitEmpleado_e.Value = dataTable.Rows[0][7].ToString();
                     
-                    inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
+
+                    byte[] img = (byte[])dataTable.Rows[0][8];
+                    if (img != null && img.Length > 0)
+                    {
+                        imgFotografiaEmpleado_e.Src = "data:image;base64," + Convert.ToBase64String(img);
+                    }
+
+
+                    DateTime dateTime1_e = (DateTime) dataTable.Rows[0][9];
+                    inpFechaNacimientoEmpleado_e.Value = dateTime1_e.ToShortDateString();
+
+                    DateTime dateTime2_e = (DateTime)dataTable.Rows[0][10];
+                    inpFechaContrato_e.Value = dateTime2_e.ToShortDateString();
+
+                    inpTelefonoEmpleado_e.Value = dataTable.Rows[0][11].ToString();
+                    inpCorreoEmpleado_e.Value = dataTable.Rows[0][12].ToString();
+
+                    string sexoDB = dataTable.Rows[0][13].ToString();
+                    ddlSexo_e.SelectedIndex = ddlSexo_e.Items.IndexOf(ddlSexo_e.Items.FindByValue(sexoDB));
+
+                    string departamentoDB = dataTable.Rows[0][14].ToString();
+                    ddlDepartamento_e.SelectedIndex = ddlDepartamento_e.Items.IndexOf(ddlDepartamento_e.Items.FindByValue(departamentoDB));
+
+                    inpMunicipioEmpleado_e.Value = dataTable.Rows[0][15].ToString();
+                    txtDetallesDireccionEmpleado_e.Value = dataTable.Rows[0][16].ToString();
+
+                    ModalEditar(true);
                 }
-                ModalEditar(true);
             }
+
             else if (e.CommandName == "eliminar")
             {
                 LinkButton btnEliminar = (LinkButton)e.CommandSource;
@@ -129,18 +158,7 @@ namespace SistemaVentas.Empleado
             }
         }
 
-        /*
-        protected void ddlEmpleadoBind_c()
-        {
-            var dataTable = new Crud().Seleccionar("EmpleadoList");
-            ddlEmpleado_c.DataSource = dataTable;
-            ddlEmpleado_c.DataTextField = "nombreEmpleado";
-            ddlEmpleado_c.DataValueField = "idEmpleado";
-            ddlEmpleado_c.DataBind();
-        }*/
-
-
-
+        //DropDownlists
         protected void ddlCargoBind_c()
         {
             var dataTable = new Crud().Seleccionar("CargoList");
@@ -149,7 +167,15 @@ namespace SistemaVentas.Empleado
             ddlCargo_c.DataValueField = "idCargo";
             ddlCargo_c.DataBind();
         }
-        
+        protected void ddlCargoBind_e()
+        {
+            var dataTable = new Crud().Seleccionar("CargoList");
+            ddlCargo_e.DataSource = dataTable;
+            ddlCargo_e.DataTextField = "nombreCargo";
+            ddlCargo_e.DataValueField = "idCargo";
+            ddlCargo_e.DataBind();
+        }
+
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -166,7 +192,7 @@ namespace SistemaVentas.Empleado
                 using (var sqlCommand = new SqlCommand("InsertarEmpleado", sqlConnection))
                 {
                     sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;                  
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@idCargo", ddlCargo_c.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@primerNombreEmpleado", inpPrimerNombreEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@segundoNombreEmpleado", inpSegundoNombreEmpleado_c.Value);
@@ -174,8 +200,8 @@ namespace SistemaVentas.Empleado
                     sqlCommand.Parameters.AddWithValue("@segundoApellidoEmpleado", inpSegundoApellidoEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@duiEmpleado", inpDuiEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@nitEmpleado", inpNitEmpleado_c.Value);
-                    //sqlCommand.Parameters.AddWithValue("@fotografiaEmpleado", ImagenOriginal);
-                    sqlCommand.Parameters.Add("@fotografiaEmpleado", SqlDbType.Image).Value = ImagenOriginal;
+                    sqlCommand.Parameters.AddWithValue("@fotografiaEmpleado", ImagenOriginal);
+                    //sqlCommand.Parameters.Add("@fotografiaEmpleado", SqlDbType.Image).Value = ImagenOriginal;
                     sqlCommand.Parameters.AddWithValue("@fechaNacimientoEmpleado", inpFechaNacimientoEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@fechaContrato", inpFechaContratoEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@telefonoEmpleado", inpTelefonoEmpleado_c.Value);
@@ -213,11 +239,55 @@ namespace SistemaVentas.Empleado
             throw new NotImplementedException();
         }
 
- 
+
 
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //TODO: Validar que los campos esten llenos
+            
+            //Obtener datos de la imagen
+            int tamanio = FileUpload1_e.PostedFile.ContentLength;
+            byte[] ImagenOriginal = new byte[tamanio];
+            FileUpload1_e.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio);
+            Bitmap ImagenOriginalBinaria = new Bitmap(FileUpload1_e.PostedFile.InputStream);
+            
+            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            {
+                using (var sqlCommand = new SqlCommand("ActualizarEmpleado", sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@idEmpleado", inpIdEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@idCargo", ddlCargo_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@primerNombreEmpleado", inpPrimerNombreEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@segundoNombreEmpleado", inpSegundoNombreEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@primerApellidoEmpleado", inpPrimerApellidoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@segundoApellidoEmpleado", inpSegundoApellidoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@duiEmpleado", inpDuiEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@nitEmpleado", inpNitEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@fotografiaEmpleado", ImagenOriginal);
+                    sqlCommand.Parameters.AddWithValue("@fechaNacimientoEmpleado", inpFechaNacimientoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@fechaContrato", inpFechaContrato_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@telefonoEmpleado", inpTelefonoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@correoEmpleado", inpCorreoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@sexoEmpleado", ddlSexo_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@departamentoEmpleado", ddlDepartamento_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@municipioEmpleado", inpMunicipioEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@detallesDireccionEmpleado", txtDetallesDireccionEmpleado_e.Value);
+                    filasAfectadas = sqlCommand.ExecuteNonQuery();
+                }
+
+                if (filasAfectadas != 0)
+                {
+                    //TODO: Mensaje exitoso
+                }
+                else
+                {
+                    //TODO: Mensaje de fracaso
+                }
+                Bind();
+            }
+            ModalEditar(false);
         }
 
         protected void btnEliminar_OnClick(object sender, EventArgs e)
@@ -246,7 +316,6 @@ namespace SistemaVentas.Empleado
 
         protected void btnCrearEmpleado_OnClick(object sender, EventArgs e)
         {
-            //ddlEmpleadoBind_c();
             ddlCargoBind_c();
             //Limpiando el formulario 
             inpPrimerNombreEmpleado_c.Value = String.Empty;
@@ -266,7 +335,7 @@ namespace SistemaVentas.Empleado
 
 
 
-                
+
         protected void cerrar(object sender, EventArgs e)
         {
             ModalDetalles(false);

@@ -49,6 +49,10 @@ CREATE TABLE ClienteUsuario (
     correoClienteUsuario varchar(50)  NOT NULL,
     fechaNacimientoClienteUsuario int  NOT NULL,
     contraseniaClienteUsuario varchar(25)  NOT NULL,
+	direccion varchar(150) NULL CHECK (LEN(direccion) > 2), --CHECK
+	pais varchar(50) NOT NULL CHECK (LEN(pais) > 2),	    pais varchar(50) NOT NULL CHECK (LEN(pais) > 2),
+	provincia varchar(50) NOT NULL CHECK (LEN(provincia) > 2),	    provincia varchar(50) NOT NULL CHECK (LEN(provincia) > 2),
+	zip int NOT NULL CHECK (LEN(zip) > 2),	    zip int NOT NULL CHECK (LEN(zip) > 2),
     CONSTRAINT ClienteUsuario_pk PRIMARY KEY  (idClienteUsuario)
 );
 
@@ -111,13 +115,14 @@ CREATE TABLE Empleado (
     fechaContrato date  NOT NULL,
     telefonoEmpleado int  NULL,
     correoEmpleado varchar(50)  NULL,
-    sexoEmpleado char(1)  NOT NULL CHECK (sexoEmpleado = 'M' OR sexoEmpleado = 'S'), --CHECK
+    sexoEmpleado char(1)  NOT NULL CHECK (sexoEmpleado = 'M' OR sexoEmpleado = 'F'), --CHECK
     departamentoEmpleado varchar(50)  NOT NULL,
     municipioEmpleado varchar(50)  NOT NULL,
     detallesDireccionEmpleado varchar(50)  NOT NULL,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Empleado_pk PRIMARY KEY  (idEmpleado)
 );
+
 
 -- Table: Marca
 CREATE TABLE Marca (

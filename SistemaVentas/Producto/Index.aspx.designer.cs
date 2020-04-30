@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SistemaVentas.Empleado
+namespace SistemaVentas.Producto
 {
 
 
@@ -33,13 +33,13 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Control btnCrearEmpleado.
+        /// Control btnCrearProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCrearEmpleado;
+        protected global::System.Web.UI.WebControls.LinkButton btnCrearProducto;
 
         /// <summary>
         /// Control GridView1.
@@ -60,67 +60,31 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Panel modalCrear;
 
         /// <summary>
-        /// Control ddlCargo_c.
+        /// Control inpNombreProducto_c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCargo_c;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreProducto_c;
 
         /// <summary>
-        /// Control inpPrimerNombreEmpleado_c.
+        /// Control ddlCategoria_c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreEmpleado_c;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria_c;
 
         /// <summary>
-        /// Control inpSegundoNombreEmpleado_c.
+        /// Control ddlMarca_c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreEmpleado_c;
-
-        /// <summary>
-        /// Control inpPrimerApellidoEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoEmpleado_c;
-
-        /// <summary>
-        /// Control inpSegundoApellidoEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoEmpleado_c;
-
-        /// <summary>
-        /// Control inpDuiEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDuiEmpleado_c;
-
-        /// <summary>
-        /// Control inpNitEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNitEmpleado_c;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarca_c;
 
         /// <summary>
         /// Control FileUpload1_c.
@@ -132,76 +96,13 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1_c;
 
         /// <summary>
-        /// Control inpFechaNacimientoEmpleado_c.
+        /// Control inpDescripcionProducto_c.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpFechaNacimientoEmpleado_c;
-
-        /// <summary>
-        /// Control inpFechaContratoEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpFechaContratoEmpleado_c;
-
-        /// <summary>
-        /// Control inpTelefonoEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpTelefonoEmpleado_c;
-
-        /// <summary>
-        /// Control inpCorreoEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpCorreoEmpleado_c;
-
-        /// <summary>
-        /// Control ddlSexo_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSexo_c;
-
-        /// <summary>
-        /// Control ddlDepartamento_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento_c;
-
-        /// <summary>
-        /// Control inpMunicipioEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpMunicipioEmpleado_c;
-
-        /// <summary>
-        /// Control txtDetallesDireccionEmpleado_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDetallesDireccionEmpleado_c;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDescripcionProducto_c;
 
         /// <summary>
         /// Control btnCrear.
@@ -231,67 +132,67 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Panel modalDetalles;
 
         /// <summary>
-        /// Control lblIdEmpleado.
+        /// Control lblIdProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblIdProducto;
 
         /// <summary>
-        /// Control lblNombreEmpleado.
+        /// Control lblNombreProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblNombreProducto;
 
         /// <summary>
-        /// Control lblDuiEmpleado.
+        /// Control lblDuiProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDuiEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblDuiProducto;
 
         /// <summary>
-        /// Control lblNitEmpleado.
+        /// Control lblNitProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNitEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblNitProducto;
 
         /// <summary>
-        /// Control imgFotografiaEmpleado.
+        /// Control imgFotografiaProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgFotografiaEmpleado;
+        protected global::System.Web.UI.WebControls.Image imgFotografiaProducto;
 
         /// <summary>
-        /// Control lblSexoEmpleado.
+        /// Control lblSexoProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSexoEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblSexoProducto;
 
         /// <summary>
-        /// Control lblFechaNacimientoEmpleado.
+        /// Control lblFechaNacimientoProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaNacimientoEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblFechaNacimientoProducto;
 
         /// <summary>
         /// Control lblFechaContrato.
@@ -303,40 +204,31 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Label lblFechaContrato;
 
         /// <summary>
-        /// Control lblTelefonoEmpleado.
+        /// Control lblTelefonoProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblTelefonoProducto;
 
         /// <summary>
-        /// Control lblCorreoEmpleado.
+        /// Control lblCorreoProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreoEmpleado;
+        protected global::System.Web.UI.WebControls.Label lblCorreoProducto;
 
         /// <summary>
-        /// Control lblDireccionEmpleado.
+        /// Control lblDireccionProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccionEmpleado;
-
-        /// <summary>
-        /// Control lblNombreCargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombreCargo;
+        protected global::System.Web.UI.WebControls.Label lblDireccionProducto;
 
         /// <summary>
         /// Control btnImprimir.
@@ -357,166 +249,130 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
-        /// Control inpIdEmpleado_e.
+        /// Control inpIdCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdCliente_e;
 
         /// <summary>
-        /// Control ddlCargo_e.
+        /// Control inpPrimerNombreCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCargo_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreCliente_e;
 
         /// <summary>
-        /// Control inpPrimerNombreEmpleado_e.
+        /// Control inpSegundoNombreCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreCliente_e;
 
         /// <summary>
-        /// Control inpSegundoNombreEmpleado_e.
+        /// Control inpPrimerApellidoCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoCliente_e;
 
         /// <summary>
-        /// Control inpPrimerApellidoEmpleado_e.
+        /// Control inpSegundoApellidoCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoCliente_e;
 
         /// <summary>
-        /// Control inpSegundoApellidoEmpleado_e.
+        /// Control inpDuiCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDuiCliente_e;
 
         /// <summary>
-        /// Control inpDuiEmpleado_e.
+        /// Control inpNitCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDuiEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNitCliente_e;
 
         /// <summary>
-        /// Control inpNitEmpleado_e.
+        /// Control inpTelefonoCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNitEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoCliente_e;
 
         /// <summary>
-        /// Control FileUpload1_e.
+        /// Control Text1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
 
         /// <summary>
-        /// Control imgFotografiaEmpleado_e.
+        /// Control inpFechaContratoProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgFotografiaEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpFechaContratoProducto_e;
 
         /// <summary>
-        /// Control inpFechaNacimientoEmpleado_e.
+        /// Control inpTelefonoProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpFechaNacimientoEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoProducto_e;
 
         /// <summary>
-        /// Control inpFechaContrato_e.
+        /// Control inpCorreoProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpFechaContrato_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpCorreoProducto_e;
 
         /// <summary>
-        /// Control inpTelefonoEmpleado_e.
+        /// Control inpMunicipioProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpTelefonoEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpMunicipioProducto_e;
 
         /// <summary>
-        /// Control inpCorreoEmpleado_e.
+        /// Control inpDetallesDireccion_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inpCorreoEmpleado_e;
-
-        /// <summary>
-        /// Control ddlSexo_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSexo_e;
-
-        /// <summary>
-        /// Control ddlDepartamento_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartamento_e;
-
-        /// <summary>
-        /// Control inpMunicipioEmpleado_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpMunicipioEmpleado_e;
-
-        /// <summary>
-        /// Control txtDetallesDireccionEmpleado_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDetallesDireccionEmpleado_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDetallesDireccion_e;
 
         /// <summary>
         /// Control btnActualizar.
@@ -537,13 +393,13 @@ namespace SistemaVentas.Empleado
         protected global::System.Web.UI.WebControls.Panel modalEliminar;
 
         /// <summary>
-        /// Control lblIdEmpleadoEliminar.
+        /// Control lblIdProductoEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdEmpleadoEliminar;
+        protected global::System.Web.UI.WebControls.Label lblIdProductoEliminar;
 
         /// <summary>
         /// Control btnEliminar.

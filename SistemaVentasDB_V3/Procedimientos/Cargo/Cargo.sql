@@ -51,8 +51,9 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarCargo 'programador', 1000
+EXEC InsertarCargo 'vendedor', 500
 
+SELECT c.* FROM dbo.Cargo c
 
 /*Actualizar Cargo*/
 IF OBJECT_ID('ActualizarCargo') IS NOT NULL
