@@ -1,8 +1,9 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Last modification date: 2020-04-04 05:24:36.051
 
--- tables
+-- tablas
 -- Table: Cargo
+
 
 CREATE DATABASE SistemaVentasDB
 USE SistemaVentasDB
@@ -26,18 +27,13 @@ CREATE TABLE Categoria (
 -- Table: Cliente
 CREATE TABLE Cliente (
     idCliente int  NOT NULL IDENTITY,
-    Nombres varchar(50)  NOT NULL CHECK (LEN(Nombres) > 2),
-    Apellidos varchar(50)  NOT NULL CHECK (LEN(Apellidos) > 2), --CHECK
-    Correo varchar(50)  NOT NULL CHECK (LEN(Correo) > 2), --CHECK
-    Nombre_Usuario varchar(50)  NOT NULL CHECK (LEN(Nombre_Usuario) > 2),
-    Contraseña varchar(50) NOT NULL CHECK (LEN(Contraseña) > 2),
+    primerNombreCliente varchar(50)  NOT NULL CHECK (LEN(primerNombreCliente) > 2), --CHECK
+    segundoNombreCliente varchar(50)  NULL CHECK (LEN(segundoNombreCliente) > 2), --CHECK
+    primerApellidoCliente varchar(50)  NOT NULL CHECK (LEN(primerApellidoCliente) > 2), --CHECK
+    segundoApellidoCliente varchar(50)  NULL CHECK (LEN(segundoApellidoCliente) > 2), --CHECK
     duiCliente varchar(10)  NULL CHECK ([duiCliente] like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][-][0-9]'), --CHECK
     nitCliente varchar(20)  NULL,
     telefonoCliente int  NULL CHECK (telefonoCliente like '[2-7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'), --CHECK
-    Direccion varchar(150) NULL CHECK (LEN(Direccion) > 2), --CHECK
-    Pais varchar(50) NOT NULL CHECK (LEN(Pais) > 2),
-    Provincia varchar(50) NOT NULL CHECK (LEN(Provincia) > 2),
-    Zip int NOT NULL CHECK (LEN(Zip) > 2),
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Cliente_pk PRIMARY KEY  (idCliente)
 );
@@ -49,10 +45,6 @@ CREATE TABLE ClienteUsuario (
     correoClienteUsuario varchar(50)  NOT NULL,
     fechaNacimientoClienteUsuario int  NOT NULL,
     contraseniaClienteUsuario varchar(25)  NOT NULL,
-	direccion varchar(150) NULL CHECK (LEN(direccion) > 2), --CHECK
-	pais varchar(50) NOT NULL CHECK (LEN(pais) > 2),	    pais varchar(50) NOT NULL CHECK (LEN(pais) > 2),
-	provincia varchar(50) NOT NULL CHECK (LEN(provincia) > 2),	    provincia varchar(50) NOT NULL CHECK (LEN(provincia) > 2),
-	zip int NOT NULL CHECK (LEN(zip) > 2),	    zip int NOT NULL CHECK (LEN(zip) > 2),
     CONSTRAINT ClienteUsuario_pk PRIMARY KEY  (idClienteUsuario)
 );
 
@@ -122,7 +114,6 @@ CREATE TABLE Empleado (
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Empleado_pk PRIMARY KEY  (idEmpleado)
 );
-
 
 -- Table: Marca
 CREATE TABLE Marca (
