@@ -67,20 +67,12 @@ namespace SistemaVentas.Producto
                         lblIdProducto.Text = dataTable.Rows[0][0].ToString();
                         //lblNombreProducto.Text = dataTable.Rows[0][1].ToString();
                         lblDuiProducto.Text = dataTable.Rows[0][2].ToString();
-                        lblNitProducto.Text = dataTable.Rows[0][3].ToString();
 
                         byte[] img = (byte[])dataTable.Rows[0][4];
                         if (img != null && img.Length > 0)
                         {
-                            imgFotografiaProducto.ImageUrl = "data:image;base64," + Convert.ToBase64String(img);
+                            //imgFotografiaProducto.ImageUrl = "data:image;base64," + Convert.ToBase64String(img);
                         }
-
-                        lblSexoProducto.Text = dataTable.Rows[0][5].ToString();
-                        lblFechaNacimientoProducto.Text = dataTable.Rows[0][6].ToString();
-                        lblFechaContrato.Text = dataTable.Rows[0][7].ToString();
-                        lblTelefonoProducto.Text = dataTable.Rows[0][8].ToString();
-                        lblCorreoProducto.Text = dataTable.Rows[0][9].ToString();
-                        lblDireccionProducto.Text = dataTable.Rows[0][10].ToString();
                         //lblNombreProducto.Text = dataTable.Rows[0][11].ToString();
                     }
 
@@ -102,18 +94,7 @@ namespace SistemaVentas.Producto
                         DataTable dataTable = new DataTable();
                         SqlDataAdapter.Fill(dataTable);
 
-                        inpidProducto_e.Value = dataTable.Rows[0][0].ToString();
-                        inpPrimerNombreCliente_e.Value = dataTable.Rows[0][1].ToString();
-                        inpSegundoNombreCliente_e.Value = dataTable.Rows[0][2].ToString();
-                        inpPrimerApellidoCliente_e.Value = dataTable.Rows[0][3].ToString();
-                        inpSegundoApellidoCliente_e.Value = dataTable.Rows[0][4].ToString();
-                        inpDuiCliente_e.Value = dataTable.Rows[0][5].ToString();
-                        inpNitCliente_e.Value = dataTable.Rows[0][6].ToString();
-                        //inp.Value = dataTable.Rows[0][8].ToString();
-                        inpTelefonoCliente_e.Value = dataTable.Rows[0][9].ToString();
-                        inpCorreoProducto_e.Value = dataTable.Rows[0][10].ToString();
-
-                        inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
+                      
                     }
                     ModalEditar(true);
                 }

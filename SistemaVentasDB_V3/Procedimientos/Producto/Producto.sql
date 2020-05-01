@@ -24,13 +24,61 @@ AS
 	COMMIT
 GO
 
-/*SELECCIONAR PRODUCTOS*/
-IF OBJECT_ID('SeleccionarProductos') IS NOT NULL
+
+/*Seleccionar Productos By Id*/
+IF OBJECT_ID('SeleccionarProductoById_e') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.SeleccionarProductos
+	DROP PROCEDURE dbo.SeleccionarProductoById_e
 END
 GO
-CREATE PROCEDURE dbo.SeleccionarProductos
+CREATE PROCEDURE dbo.SeleccionarProductoById_e
+		@idProducto [int]
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idProducto, idCategoria, idMarca, nombreProducto, descripcionProducto, imagenProducto, estado
+	FROM dbo.Producto
+	WHERE idProducto = @idProducto AND estado = 1
+
+	COMMIT
+GO
+
+
+/*Seleccionar Productos By Id*/
+IF OBJECT_ID('SeleccionarProductoById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarProductoById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarProductoById
+		@idProducto [int]
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idProducto, idCategoria, idMarca, nombreProducto, descripcionProducto, imagenProducto, estado
+	FROM dbo.Producto
+	WHERE idProducto = @idProducto AND estado = 1
+
+	COMMIT
+GO
+
+
+
+
+
+/*SELECCIONAR PRODUCTOS2*/
+IF OBJECT_ID('SeleccionarProductos2') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarProductos2
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarProductos2
 
 AS
 	SET NOCOUNT ON
@@ -52,8 +100,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarProductos
-SELECT p.* FROM dbo.Producto p
 
 
 
@@ -61,7 +107,7 @@ SELECT p.* FROM dbo.Producto p
 /*INSERTAR PRODUCTOS*/
 IF OBJECT_ID('InsertarProducto') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.crud_ProductoInsert
+	DROP PROCEDURE dbo.InsertarProducto
 END
 GO
 CREATE PROCEDURE dbo.InsertarProducto
@@ -140,3 +186,6 @@ AS
 		WHERE idProducto = @idProducto
 	COMMIT
 GO
+
+
+	

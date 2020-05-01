@@ -124,66 +124,29 @@
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="inpidProducto_e" class="col-form-label">ID:</label>
-                    <input type="text" class="form-control" id="inpidProducto_e" runat="server" />
+                    <label for="inpIdProducto_e" class="col-form-label">ID:</label>
+                    <input type="text" class="form-control" id="inpIdProducto_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerNombreCliente_e" class="col-form-label">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="inpPrimerNombreCliente_e" runat="server" />
+                    <label for="ddlCategoria_e" class="col-form-label">Categoría:</label>
+                    <asp:DropDownList ID="ddlCategoria_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
-                    <label for="inpSegundoNombreCliente_e" class="col-form-label">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="inpSegundoNombreCliente_e" runat="server" />
+                    <label for="ddlMarca_e" class="col-form-label">Marca:</label>
+                    <asp:DropDownList ID="ddlMarca_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
-                    <label for="inpPrimerApellidoCliente_e" class="col-form-label">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="inpPrimerApellidoCliente_e" runat="server" />
+                    <label for="inpNombreProducto_e" class="col-form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="inpNombreProducto_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpSegundoApellidoCliente_e" class="col-form-label">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="inpSegundoApellidoCliente_e" runat="server" />
+                    <label for="inpDescripcionProducto_e" class="col-form-label">Descripción:</label>
+                    <input type="text" class="form-control" id="inpDescripcionProducto_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpDuiCliente_e" class="col-form-label">DUI:</label>
-                    <input type="text" class="form-control" id="inpDuiCliente_e" runat="server" />
+                    <label for="FileUpload1_e" class="col-form-label">Imagen:</label>
+                    <asp:FileUpload ID="FileUpload1_e" runat="server" />
                 </div>
-                <div>
-                    <label for="inpNitCliente_e" class="col-form-label">NIT:</label>
-                    <input type="text" class="form-control" id="inpNitCliente_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Fotografía:</label>
-                    <input type="text" class="form-control" id="inpTelefonoCliente_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Fecha de Nacimiento:</label>
-                    <input type="text" class="form-control" id="Text1" runat="server" />
-                </div>
-                <div>
-                    <label for="inpFechaContratoProducto_e" class="col-form-label">Fecha de Contrato:</label>
-                    <input type="text" class="form-control" id="inpFechaContratoProducto_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpTelefonoProducto_e" class="col-form-label">Telefono:</label>
-                    <input type="text" class="form-control" id="inpTelefonoProducto_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpCorreoProducto_e" class="col-form-label">Correo:</label>
-                    <input type="text" class="form-control" id="inpCorreoProducto_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpTelefonoCliente_e" class="col-form-label">Departamento:</label>
-                    <asp:DropDownList runat="server" />
-                </div>
-                <div>
-                    <label for="inpMunicipioProducto_e" class="col-form-label">Municipio:</label>
-                    <input type="text" class="form-control" id="inpMunicipioProducto_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpDetallesDireccion_e" class="col-form-label">Detalles Dirección:</label>
-                    <input type="text" class="form-control" id="inpDetallesDireccion_e" runat="server" />
-                </div>
-
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnActualizar" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />

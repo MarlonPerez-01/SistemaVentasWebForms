@@ -177,130 +177,58 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
-        /// Control inpidProducto_e.
+        /// Control inpIdProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpidProducto_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdProducto_e;
 
         /// <summary>
-        /// Control inpPrimerNombreCliente_e.
+        /// Control ddlCategoria_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreCliente_e;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria_e;
 
         /// <summary>
-        /// Control inpSegundoNombreCliente_e.
+        /// Control ddlMarca_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreCliente_e;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarca_e;
 
         /// <summary>
-        /// Control inpPrimerApellidoCliente_e.
+        /// Control inpNombreProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoCliente_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreProducto_e;
 
         /// <summary>
-        /// Control inpSegundoApellidoCliente_e.
+        /// Control inpDescripcionProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoCliente_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDescripcionProducto_e;
 
         /// <summary>
-        /// Control inpDuiCliente_e.
+        /// Control FileUpload1_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDuiCliente_e;
-
-        /// <summary>
-        /// Control inpNitCliente_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpNitCliente_e;
-
-        /// <summary>
-        /// Control inpTelefonoCliente_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoCliente_e;
-
-        /// <summary>
-        /// Control Text1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-
-        /// <summary>
-        /// Control inpFechaContratoProducto_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpFechaContratoProducto_e;
-
-        /// <summary>
-        /// Control inpTelefonoProducto_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoProducto_e;
-
-        /// <summary>
-        /// Control inpCorreoProducto_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpCorreoProducto_e;
-
-        /// <summary>
-        /// Control inpMunicipioProducto_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpMunicipioProducto_e;
-
-        /// <summary>
-        /// Control inpDetallesDireccion_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDetallesDireccion_e;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_e;
 
         /// <summary>
         /// Control btnActualizar.
