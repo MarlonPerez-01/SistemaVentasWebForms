@@ -102,7 +102,7 @@ namespace SistemaVentas.Producto
                         DataTable dataTable = new DataTable();
                         SqlDataAdapter.Fill(dataTable);
 
-                        inpIdCliente_e.Value = dataTable.Rows[0][0].ToString();
+                        inpidProducto_e.Value = dataTable.Rows[0][0].ToString();
                         inpPrimerNombreCliente_e.Value = dataTable.Rows[0][1].ToString();
                         inpSegundoNombreCliente_e.Value = dataTable.Rows[0][2].ToString();
                         inpPrimerApellidoCliente_e.Value = dataTable.Rows[0][3].ToString();
@@ -122,7 +122,7 @@ namespace SistemaVentas.Producto
                     LinkButton btnEliminar = (LinkButton)e.CommandSource;
                     GridViewRow gvrow = (GridViewRow)btnEliminar.NamingContainer;
 
-                    int idCliente = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
+                    int idProducto = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
                     lblIdProductoEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
                     ModalEliminar(true);
                 }

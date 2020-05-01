@@ -19,8 +19,6 @@ AS
 	COMMIT
 GO
 
-EmpleadoList
-
 
 /*Listado Nombre Cargo*/
 IF OBJECT_ID('CargoList') IS NOT NULL
@@ -41,7 +39,6 @@ AS
 	COMMIT
 GO
 
-EXEC CargoList
 
 
 /*Listado Nombre TipoCargo*/
@@ -63,9 +60,6 @@ AS
 	COMMIT
 GO
 
-EXEC TipoCargoList
-
-seleccionarUsuarios
 
 /*Listado Nombre TipoUsuario*/
 IF OBJECT_ID('TipoUsuarioList') IS NOT NULL
@@ -86,54 +80,26 @@ AS
 	COMMIT
 GO
 
-EXEC TipoUsuarioList
-
-
 
 /*Listado Nombre CategoriaList*/
-IF OBJECT_ID('CategoriaList') IS NOT NULL
+IF OBJECT_ID('MarcaList') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.CategoriaList
+	DROP PROCEDURE dbo.MarcaList
 END
 GO
-CREATE PROCEDURE dbo.CategoriaList
+CREATE PROCEDURE dbo.MarcaList
 AS
 	SET NOCOUNT ON
 	SET XACT_ABORT ON
 	
 	BEGIN TRANSACTION
 
-	SELECT c.idCategoria, c.nombreCategoria
-	FROM dbo.Categoria c
+	SELECT m.idMarca, m.nombreMarca
+	FROM dbo.Marca m
 	WHERE estado = 1
 	COMMIT
 GO
 
-EXEC CategoriaList
-
-
-
-
-/*Listado Nombre CategoriaList*/
-IF OBJECT_ID('CategoriaList') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.CategoriaList
-END
-GO
-CREATE PROCEDURE dbo.CategoriaList
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-
-	SELECT c.idCategoria, c.nombreCategoria
-	FROM dbo.Categoria c
-	WHERE estado = 1
-	COMMIT
-GO
-
-EXEC CategoriaList
 
 
 /*Listado Nombre ProductoList*/
@@ -155,9 +121,6 @@ AS
 	COMMIT
 GO
 
-EXEC ProductoList
-
-
 /*Listado Nombre ProveedorL*/
 IF OBJECT_ID('ProveedorList') IS NOT NULL
 BEGIN
@@ -177,4 +140,3 @@ AS
 	COMMIT
 GO
 
-EXEC ProveedorList

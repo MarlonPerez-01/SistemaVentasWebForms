@@ -47,7 +47,7 @@ GO
 seleccionarClientes
 EXEC SeleccionarClientesById 3
 
-ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
+
 
 /*Insertar Clientes*/
 IF OBJECT_ID('InsertarCliente') IS NOT NULL

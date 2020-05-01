@@ -17,17 +17,14 @@
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="idProducto" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
         <Columns>
             <asp:BoundField DataField="idProducto" HeaderText="ID" />
-            <asp:TemplateField HeaderText="Fotografía" SortExpression="">
+            <asp:TemplateField HeaderText="Imagen" SortExpression="">
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" ImageUrl='<%#"data:Image/jpg;jpg;base64," + Convert.ToBase64String((byte[])Eval("fotografiaProducto"))%>' />
+                    <asp:Image ID="Image1" runat="server" Height="100px" Width="100px" ImageUrl='<%#"data:Image/jpg;jpg;base64," + Convert.ToBase64String((byte[])Eval("imagenProducto"))%>' />
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:BoundField DataField="primerNombreProducto" HeaderText="Nombre" />
-            <asp:BoundField DataField="primerApellidoProducto" HeaderText="Apellido" />
-            <asp:BoundField DataField="nombreProducto" HeaderText="Producto" />
-            <asp:BoundField DataField="telefonoProducto" HeaderText="Telefono" />
-            <asp:BoundField DataField="correoProducto" HeaderText="Correo" />
-            <asp:BoundField DataField="fechaContrato" HeaderText="Fecha de Contrato" />
+            <asp:BoundField DataField="nombreProducto" HeaderText="Nombre" />
+            <asp:BoundField DataField="nombreMarca" HeaderText="Marca" />
+            <asp:BoundField DataField="nombreCategoria" HeaderText="Categoria" />
 
             <asp:TemplateField HeaderText="Detalles" SortExpression="">
                 <ItemTemplate>
@@ -108,38 +105,6 @@
                     <label for="lblDuiProducto">DUI:</label>
                     <asp:Label ID="lblDuiProducto" runat="server"></asp:Label>
                 </div>
-                <div>
-                    <label for="lblNitProducto">NIT:</label>
-                    <asp:Label ID="lblNitProducto" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblFotografiaProducto">Fotografía:</label>
-                    <asp:Image ID="imgFotografiaProducto" runat="server" />
-                </div>
-                <div>
-                    <label for="lblSexoProducto">Sexo:</label>
-                    <asp:Label ID="lblSexoProducto" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblFechaNacimientoProducto">Fecha de Nacimiento:</label>
-                    <asp:Label ID="lblFechaNacimientoProducto" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblFechaContrato">Fecha de Contrato:</label>
-                    <asp:Label ID="lblFechaContrato" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblTelefonoProducto">Telefono:</label>
-                    <asp:Label ID="lblTelefonoProducto" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblCorreoProducto">Correo:</label>
-                    <asp:Label ID="lblCorreoProducto" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblDireccionProducto">Dirección:</label>
-                    <asp:Label ID="lblDireccionProducto" runat="server"></asp:Label>
-                </div>
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnImprimir" runat="server" Text="Imprimir" />
@@ -159,8 +124,8 @@
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="inpIdCliente_e" class="col-form-label">ID:</label>
-                    <input type="text" class="form-control" id="inpIdCliente_e" runat="server" />
+                    <label for="inpidProducto_e" class="col-form-label">ID:</label>
+                    <input type="text" class="form-control" id="inpidProducto_e" runat="server" />
                 </div>
                 <div>
                     <label for="inpPrimerNombreCliente_e" class="col-form-label">Primer Nombre:</label>

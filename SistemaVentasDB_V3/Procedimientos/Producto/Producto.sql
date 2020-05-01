@@ -24,15 +24,47 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarProductos
+/*SELECCIONAR PRODUCTOS*/
+IF OBJECT_ID('SeleccionarProductos') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarProductos
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarProductos
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT p.idProducto, p.imagenProducto, p.nombreProducto, m.nombreMarca, c.nombreCategoria, dc.precioVentaUnidad
+	FROM dbo.Producto AS p
+	INNER JOIN dbo.Marca m
+	ON p.idMarca = m.idMarca
+	INNER JOIN dbo.Categoria c
+	ON p.idCategoria = c.idCategoria
+	INNER JOIN dbo.DetalleCompra dc
+	ON p.idProducto = dc.idProducto
+
+	WHERE p.estado = 1
+
+	COMMIT
+GO
+
+SeleccionarProductos
+SELECT p.* FROM dbo.Producto p
+
+
+
 
 /*INSERTAR PRODUCTOS*/
-IF OBJECT_ID('crud_ProductoInsert') IS NOT NULL
+IF OBJECT_ID('InsertarProducto') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.crud_ProductoInsert
 END
 GO
-CREATE PROCEDURE dbo.crud_ProductoInsert
+CREATE PROCEDURE dbo.InsertarProducto
 	(
 		@idCategoria [int],
 		@idMarca [int],
@@ -62,10 +94,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarProducto
-
-
-
 /*Actualizar Producto*/
 IF OBJECT_ID('ActualizarProducto') IS NOT NULL
 BEGIN
@@ -92,9 +120,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarProducto
-
-
 /*Eliminar Producto*/
 IF OBJECT_ID('EliminarProducto') IS NOT NULL
 BEGIN
@@ -115,5 +140,3 @@ AS
 		WHERE idProducto = @idProducto
 	COMMIT
 GO
-
-EXEC EliminarProducto

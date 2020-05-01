@@ -159,78 +159,6 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Label lblDuiProducto;
 
         /// <summary>
-        /// Control lblNitProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNitProducto;
-
-        /// <summary>
-        /// Control imgFotografiaProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgFotografiaProducto;
-
-        /// <summary>
-        /// Control lblSexoProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSexoProducto;
-
-        /// <summary>
-        /// Control lblFechaNacimientoProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaNacimientoProducto;
-
-        /// <summary>
-        /// Control lblFechaContrato.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaContrato;
-
-        /// <summary>
-        /// Control lblTelefonoProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefonoProducto;
-
-        /// <summary>
-        /// Control lblCorreoProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCorreoProducto;
-
-        /// <summary>
-        /// Control lblDireccionProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccionProducto;
-
-        /// <summary>
         /// Control btnImprimir.
         /// </summary>
         /// <remarks>
@@ -249,13 +177,13 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
-        /// Control inpIdCliente_e.
+        /// Control inpidProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdCliente_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpidProducto_e;
 
         /// <summary>
         /// Control inpPrimerNombreCliente_e.

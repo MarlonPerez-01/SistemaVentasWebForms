@@ -31,12 +31,12 @@ EXEC SeleccionarCompras
 
 
 /*INSERTAR COMPRAS*/
-IF OBJECT_ID('InsertarCompras') IS NOT NULL
+IF OBJECT_ID('InsertarCompra') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.InsertarCompras
+	DROP PROCEDURE dbo.InsertarCompra
 END
 GO
-CREATE PROCEDURE dbo.InsertarCompras
+CREATE PROCEDURE dbo.InsertarCompra
 	(
 		@idProveedor [int],
 		@idUsuario [int],
@@ -64,7 +64,9 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarCompras '1', '1', '2010/12/1', '12:00'
+
+
+EXEC InsertarCompras 1, 12, '2010/12/1', '12:00'
 
 
 IF OBJECT_ID('crud_CompraUpdate') IS NOT NULL
