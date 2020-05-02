@@ -18,6 +18,8 @@ AS
 	COMMIT
 GO
 
+SELECT c.* FROM dbo.Compra c
+
 
 
 IF OBJECT_ID('InsertarDetalleCompra') IS NOT NULL
@@ -58,7 +60,46 @@ GO
 
 
 
-InsertarDetalleCompra 4, 1, 5, 50.00, 70.00, 'ninguna'
+InsertarDetalleCompra 4, 2, 5, 50.00, 70.00, 'ninguna'
+InsertarDetalleCompra 5, 2, 5, 50.00, 70.00, 'ninguna'
+
+SELECT c.* FROM dbo.Compra c
+SELECT dc.* FROM dbo.DetalleCompra dc
+
+
+
+
+
+/*SELECCIONAR PRODUCTOS*/
+IF OBJECT_ID('SeleccionarProductosById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarProductosById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarProductosById
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idProducto, imagenProducto, nombreProducto, m.nombreMarca, c.nombreCategoria
+	FROM dbo.Producto AS p
+	INNER JOIN dbo.Marca m
+	ON p.idMarca = m.idMarca
+	INNER JOIN dbo.Categoria c
+	ON p.idCategoria = c.idCategoria
+
+	WHERE p.estado = 1
+
+	COMMIT
+GO
+
+SeleccionarProductosById 
+
+SELECT dc.* FROM dbo.DetalleCompra dc
+
 
 
 IF OBJECT_ID('crud_ProvisionInsert') IS NOT NULL

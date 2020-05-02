@@ -59,7 +59,7 @@
                 </div>
                 <div>
                     <label for="ddlCategoria_c" class="col-form-label">Categoría:</label>
-                    <asp:DropDownList id="ddlCategoria_c" runat="server" />
+                    <asp:DropDownList ID="ddlCategoria_c" runat="server" />
                 </div>
                 <div>
                     <label for="ddlMarca_c" class="col-form-label">Marca:</label>
@@ -98,12 +98,40 @@
                     <asp:Label ID="lblIdProducto" runat="server"></asp:Label>
                 </div>
                 <div>
+                    <label for="lblCategoria">Categoría:</label>
+                    <asp:Label ID="lblCategoria" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <label for="lblMarca">Marca:</label>
+                    <asp:Label ID="lblMarca" runat="server"></asp:Label>
+                </div>
+                <div>
                     <label for="lblNombreProducto">Nombre:</label>
                     <asp:Label ID="lblNombreProducto" runat="server"></asp:Label>
                 </div>
                 <div>
-                    <label for="lblDuiProducto">DUI:</label>
-                    <asp:Label ID="lblDuiProducto" runat="server"></asp:Label>
+                    <label for="lblDescripciónProducto">Descripción:</label>
+                    <asp:Label ID="lblDescripciónProducto" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <label for="imgProducto_d">Imagen:</label>
+                    <asp:Image ID="imgProducto_d" runat="server" />
+                </div>
+                <div>
+                    <label for="lblPrecioCompraUnidad">Precio Compra Unidad:</label>
+                    <asp:Label ID="lblPrecioCompraUnidad" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <label for="lblPrecioVentaUnidad">Precio Venta Unidad:</label>
+                    <asp:Label ID="lblPrecioVentaUnidad" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <label for="lblObservaciones">Observaciones:</label>
+                    <asp:Label ID="lblObservaciones" runat="server"></asp:Label>
+                </div>
+                <div>
+                    <label for="lblStock">Stock:</label>
+                    <asp:Label ID="lblStock" runat="server"></asp:Label>
                 </div>
             </div>
             <div class="modal-footer-mio">
@@ -140,12 +168,13 @@
                     <input type="text" class="form-control" id="inpNombreProducto_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpDescripcionProducto_e" class="col-form-label">Descripción:</label>
-                    <input type="text" class="form-control" id="inpDescripcionProducto_e" runat="server" />
+                    <label for="txtDescripcionProducto_e" class="col-form-label">Descripción:</label>
+                    <textarea id="txtDescripcionProducto_e" cols="20" rows="2" runat="server"></textarea>
                 </div>
                 <div>
                     <label for="FileUpload1_e" class="col-form-label">Imagen:</label>
                     <asp:FileUpload ID="FileUpload1_e" runat="server" />
+                    <img src="" alt="" id="imgProducto_e" class="col-form-label" runat="server" />
                 </div>
             </div>
             <div class="modal-footer-mio">

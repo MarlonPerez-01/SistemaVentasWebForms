@@ -66,7 +66,7 @@ GO
 
 
 
-EXEC InsertarCompras 1, 12, '2010/12/1', '12:00'
+EXEC InsertarCompras 2, 13, '2011/12/1', '12:00'
 
 
 IF OBJECT_ID('crud_CompraUpdate') IS NOT NULL

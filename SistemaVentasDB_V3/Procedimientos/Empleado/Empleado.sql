@@ -305,3 +305,6 @@ AS
 		WHERE idEmpleado = @idEmpleado
 	COMMIT
 GO
+
+SELECT e.* FROM dbo.Empleado e
+EliminarEmpleado 4

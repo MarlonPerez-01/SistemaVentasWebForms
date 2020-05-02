@@ -80,7 +80,7 @@
                                 <a href="#"><i class="fas fa-box-open"></i><span class="item">Inventario</span></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="#"><span>Productos</span></a>
+                                        <a runat="server" href="Producto/Index.aspx"><span>Productos</span></a>
                                     </li>
                                     <li>
                                         <a runat="server" href="Marca/Index.aspx"><span>Marcas</span></a>
