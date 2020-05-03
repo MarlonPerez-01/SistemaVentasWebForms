@@ -1,3 +1,23 @@
+IF OBJECT_ID('SeleccionarCargoById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarCargoById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarCargoById
+		@idCargo [int]
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idCargo, nombreCargo, salarioCargo, estado
+	FROM dbo.Cargo
+	WHERE idCargo = @idCargo AND estado = 1;
+
+	COMMIT
+GO
+
 /*SELECCIONAR CARGOS*/
 IF OBJECT_ID('SeleccionarCargos') IS NOT NULL
 BEGIN

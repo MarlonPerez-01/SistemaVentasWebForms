@@ -69,7 +69,7 @@ namespace SistemaVentas.Producto
                     lblMarca.Text = dataTable.Rows[0][2].ToString();
                     lblNombreProducto.Text = dataTable.Rows[0][3].ToString();
                     lblDescripciónProducto.Text = dataTable.Rows[0][4].ToString();
-                    
+
                     lblPrecioCompraUnidad.Text = dataTable.Rows[0][6].ToString();
                     lblPrecioVentaUnidad.Text = dataTable.Rows[0][7].ToString();
                     lblObservaciones.Text = dataTable.Rows[0][8].ToString();

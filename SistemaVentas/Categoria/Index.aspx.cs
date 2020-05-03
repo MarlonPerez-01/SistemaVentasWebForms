@@ -254,7 +254,6 @@ namespace SistemaVentas.Categoria
             /*
             try
             {
-
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from cliente where primerNombreCliente like '" + txtBuscar.Text + "%'", cadenaConexion);
                 var dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);

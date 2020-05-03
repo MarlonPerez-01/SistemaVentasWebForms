@@ -157,7 +157,6 @@
             $('#fondoModal').hide();
             $('#<%=modalDetalles.ClientID %>').hide();
         }
-
         function mostrarEditar() {
             $('#fondoModal').show();
             $('#<%=modalEditar.ClientID %>').show();
@@ -166,7 +165,6 @@
             $('#fondoModal').hide();
             $('#<%=modalEditar.ClientID %>').hide();
         }
-
         function mostrarEliminar() {
             $('#fondoModal').show();
             $('#<%=modalEliminar.ClientID %>').show();

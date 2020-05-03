@@ -13,11 +13,11 @@ namespace SistemaVentas.PuntoDeCompra
 {
     public partial class Index : System.Web.UI.Page
     {
-       
+
 
         string cadenaConexion = ConfigurationManager.ConnectionStrings["conexion"].ToString();
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             ddlProveedorBind();
         }
 
@@ -31,7 +31,7 @@ namespace SistemaVentas.PuntoDeCompra
             ddlProveedor.DataBind();
         }
 
-    
+
         protected void btnFactura_OnClick(object sender, EventArgs e)
         {            //TODO: Validar que los campos esten llenos
 

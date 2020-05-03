@@ -62,7 +62,7 @@ namespace SistemaVentas.Usuario
                     sqlCommand.Parameters.AddWithValue("@idUsuario", idUsuario);
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter.Fill(dataTable);
-                    
+
                     lblIdUsuario.Text = dataTable.Rows[0][0].ToString();
                     lblNombreUsuario.Text = dataTable.Rows[0][1].ToString();
                     lblNombreEmpleado.Text = dataTable.Rows[0][2].ToString();
@@ -110,7 +110,7 @@ namespace SistemaVentas.Usuario
         }
 
         //DropDownlist para el modal editar
-        
+
         protected void ddlTipoUsuarioBind_e()
         {
             var dataTable = new Crud().Seleccionar("TipoUsuarioList");

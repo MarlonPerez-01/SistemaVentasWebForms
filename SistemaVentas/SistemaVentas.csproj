@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5E6F5A32-B661-4FF6-A3EE-7C5D13DF62CB}</ProjectGuid>
+    <ProjectGuid>{9D1BEBEA-0833-4988-8998-9E51F3F00312}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44367</IISExpressSSLPort>
+    <IISExpressSSLPort>44305</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -50,10 +50,6 @@
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -86,6 +82,9 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -109,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Cargo\Index.aspx" />
     <Content Include="Categoria\Index.aspx" />
     <Content Include="Cliente\Index.aspx" />
     <Content Include="Contact.aspx" />
@@ -129,7 +129,6 @@
     <Content Include="Fonts\fa-solid-900.svg" />
     <Content Include="Fonts\fontawesome.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Icons\LICENSE.txt" />
     <Content Include="Marca\Index.aspx" />
     <Content Include="Producto\Index.aspx" />
     <Content Include="Proveedor\Index.aspx" />
@@ -157,10 +156,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
     <Content Include="Fonts\fa-brands-400.eot" />
     <Content Include="Fonts\fa-brands-400.ttf" />
     <Content Include="Fonts\fa-brands-400.woff" />
@@ -173,6 +168,10 @@
     <Content Include="Fonts\fa-solid-900.ttf" />
     <Content Include="Fonts\fa-solid-900.woff" />
     <Content Include="Fonts\fa-solid-900.woff2" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -296,10 +295,10 @@
     <Content Include="SCSS\_barra-lateral.scss" />
     <Content Include="SCSS\_footer.scss" />
     <Content Include="SCSS\_general.scss" />
+    <Content Include="SCSS\_header.scss" />
+    <Content Include="SCSS\_login.scss" />
     <Content Include="SCSS\_main.scss" />
     <Content Include="SCSS\_variables.scss" />
-    <Content Include="SCSS\_login.scss" />
-    <Content Include="SCSS\_header.scss" />
     <Content Include="SCSS\styles.scss" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +311,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cargo\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cargo\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categoria\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,11 +417,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Caja\" />
-    <Folder Include="Cargo\" />
-    <Folder Include="Configuracion\" />
     <Folder Include="Dashboard\" />
-    <Folder Include="Files\" />
+    <Folder Include="Icons\" />
     <Folder Include="Images\" />
     <Folder Include="JS\" />
   </ItemGroup>
@@ -450,9 +453,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51293</DevelopmentServerPort>
+          <DevelopmentServerPort>51051</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44367/</IISUrl>
+          <IISUrl>https://localhost:44305/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

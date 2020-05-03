@@ -12,7 +12,7 @@ namespace SistemaVentas.Helpers
     {
         //ctrl k d
         string cadenaConexion = ConfigurationManager.ConnectionStrings["conexion"].ToString();
-        
+
         public DataTable Seleccionar(string comandoSql)
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))

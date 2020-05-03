@@ -75,7 +75,7 @@ AS
 	ON p.idMarca = m.idMarca
 
 	WHERE p.idProducto = @idProducto AND p.estado = 1
-	GROUP BY p.idProducto, p.idCategoria, p.idMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, dc.observaciones
+	GROUP BY p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, dc.observaciones
 
 	COMMIT
 GO

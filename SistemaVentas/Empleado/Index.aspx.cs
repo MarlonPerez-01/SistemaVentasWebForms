@@ -116,7 +116,7 @@ namespace SistemaVentas.Empleado
                     inpSegundoApellidoEmpleado_e.Value = dataTable.Rows[0][5].ToString();
                     inpDuiEmpleado_e.Value = dataTable.Rows[0][6].ToString();
                     inpNitEmpleado_e.Value = dataTable.Rows[0][7].ToString();
-                    
+
 
                     byte[] img = (byte[])dataTable.Rows[0][8];
                     if (img != null && img.Length > 0)
@@ -125,7 +125,7 @@ namespace SistemaVentas.Empleado
                     }
 
 
-                    DateTime dateTime1_e = (DateTime) dataTable.Rows[0][9];
+                    DateTime dateTime1_e = (DateTime)dataTable.Rows[0][9];
                     inpFechaNacimientoEmpleado_e.Value = dateTime1_e.ToShortDateString();
 
                     DateTime dateTime2_e = (DateTime)dataTable.Rows[0][10];
@@ -244,13 +244,13 @@ namespace SistemaVentas.Empleado
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
-            
+
             //Obtener datos de la imagen
             int tamanio = FileUpload1_e.PostedFile.ContentLength;
             byte[] ImagenOriginal = new byte[tamanio];
             FileUpload1_e.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio);
             Bitmap ImagenOriginalBinaria = new Bitmap(FileUpload1_e.PostedFile.InputStream);
-            
+
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
                 using (var sqlCommand = new SqlCommand("ActualizarEmpleado", sqlConnection))
