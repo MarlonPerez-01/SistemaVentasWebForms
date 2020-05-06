@@ -41,6 +41,29 @@ GO
 
 
 
+/*Listado Nombre Usuario*/
+IF OBJECT_ID('UsuarioList') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.UsuarioList
+END
+GO
+CREATE PROCEDURE dbo.UsuarioList
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT u.idUsuario, u.nombreUsuario
+	FROM dbo.Usuario u
+	WHERE estado = 1
+	COMMIT
+GO
+
+
+
+
+
 /*Listado Nombre TipoCargo*/
 IF OBJECT_ID('TipoCargoList') IS NOT NULL
 BEGIN

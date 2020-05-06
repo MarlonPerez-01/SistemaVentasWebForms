@@ -74,6 +74,9 @@
                                     <li>
                                         <a runat="server" href="Empleado/Index.aspx"><span>Empleados</span></a>
                                     </li>
+                                    <li>
+                                        <a runat="server" href="Cargo/Index.aspx"><span>Cargos</span></a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>

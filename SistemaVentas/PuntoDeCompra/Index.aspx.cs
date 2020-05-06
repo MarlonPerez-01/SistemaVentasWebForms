@@ -19,6 +19,7 @@ namespace SistemaVentas.PuntoDeCompra
         protected void Page_Load(object sender, EventArgs e)
         {
             ddlProveedorBind();
+            ddlUsuarioBind();
         }
 
 
@@ -31,28 +32,43 @@ namespace SistemaVentas.PuntoDeCompra
             ddlProveedor.DataBind();
         }
 
+        protected void ddlUsuarioBind()
+        {
+            var dataTable = new Crud().Seleccionar("UsuarioList");
+            ddlUsuario.DataSource = dataTable;
+            ddlUsuario.DataTextField = "nombreUsuario";
+            ddlUsuario.DataValueField = "idUsuario";
+            ddlUsuario.DataBind();
+        }
+
 
         protected void btnFactura_OnClick(object sender, EventArgs e)
-        {            //TODO: Validar que los campos esten llenos
+        {            
+            //TODO: Validar que los campos esten llenos
 
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("InsertarCliente", sqlConnection))
+                using (var sqlCommand = new SqlCommand("InsertarCompra", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
 
+                    sqlCommand.Parameters.AddWithValue("@idProveedor", ddlProveedor.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@idUsuario", ddlUsuario.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@fechaCompra", inpFechaCompra.Value);
+                    sqlCommand.Parameters.AddWithValue("@horaCompra", inpHoraCompra.Value);
 
+                    /*SqlParameter outPutVal = new SqlParameter("@idFactura", SqlDbType.Int);
+                    outPutVal.Direction = ParameterDirection.InputOutput;
 
-                    sqlCommand.Parameters.AddWithValue("@primerNombreCliente", ddlProveedor.SelectedValue);
-                    sqlCommand.Parameters.AddWithValue("@segundoNombreCliente", ddlUsuario.SelectedValue);
-                    sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpFechaCompra.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpHoraCompra.Value);
+                    if (outPutVal.Value != DBNull.Value) new_MEM_BASIC_ID = Convert.ToInt32(outPutVal.Value);
+                    return new_MEM_BASIC_ID;*/
 
-                    int iNewRowIdentity = Convert.ToInt32(sqlCommand.ExecuteScalar());
-
-                    inpIdCompra.Value = iNewRowIdentity.ToString();
                     //filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    string id = sqlCommand.ExecuteScalar().ToString();
+                    inpIdCompra.Value = id;
+
+
                 }
 
                 /*

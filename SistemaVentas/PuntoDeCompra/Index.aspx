@@ -19,7 +19,7 @@
         </div>
         <div>
             <label for="inpFechaCompra">Fecha</label>
-            <input id="inpFechaCompra" runat="server" type="date" />
+            <input id="inpFechaCompra" runat="server" type="date"/>
         </div>
         <div>
             <label for="inpHoraCompra">Hora</label>
@@ -29,5 +29,31 @@
     </div>
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    <script>
+        window.onload = function () {
+            let fecha = new Date();
+            let mes = fecha.getMonth() + 1;
+            let dia = fecha.getDate();
+            let anio = fecha.getFullYear();
+            if (dia < 10)
+                dia = '0' + dia;
+            if (mes < 10)
+                mes = '0' + mes
+            document.getElementById('inpFechaCompra').value = anio + "-" + mes + "-" + dia;
+        }
+    </script>
 
 </asp:Content>
