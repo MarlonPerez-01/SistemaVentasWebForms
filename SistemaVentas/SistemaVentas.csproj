@@ -130,6 +130,7 @@
     <Content Include="Fonts\fa-solid-900.svg" />
     <Content Include="Fonts\fontawesome.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Login\Index.aspx" />
     <Content Include="Marca\Index.aspx" />
     <Content Include="Producto\Index.aspx" />
     <Content Include="Proveedor\Index.aspx" />
@@ -366,6 +367,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Crud.cs" />
+    <Compile Include="Login\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Marca\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

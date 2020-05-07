@@ -50,7 +50,7 @@ GO
  SELECT e.* FROM dbo.Empleado e
 
 
- fec
+
 /*SELECCIONAR EMPLEADOS*/
 
 IF OBJECT_ID('SeleccionarEmpleados') IS NOT NULL

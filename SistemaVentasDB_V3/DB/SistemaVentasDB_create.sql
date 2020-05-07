@@ -1,18 +1,18 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-04-04 05:24:36.051
-
--- tablas
--- Table: Cargo
-
+-- Last modification date: 2020-05-07 02:48:43.387
 
 CREATE DATABASE SistemaVentasDB
 USE SistemaVentasDB
+
 ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
 
+
+-- tables
+-- Table: Cargo
 CREATE TABLE Cargo (
     idCargo int  NOT NULL IDENTITY,
     nombreCargo varchar(25)  NOT NULL,
-    salarioCargo decimal(6,2)  NOT NULL CHECK (salarioCargo >= 300 AND salarioCargo <= 2000), --CHECK
+    salarioCargo decimal(6,2)  NOT NULL,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Cargo_pk PRIMARY KEY  (idCargo)
 );
@@ -20,7 +20,7 @@ CREATE TABLE Cargo (
 -- Table: Categoria
 CREATE TABLE Categoria (
     idCategoria int  NOT NULL IDENTITY,
-    nombreCategoria varchar(50)  NOT NULL CHECK (LEN(nombreCategoria) > 3), --CHECK
+    nombreCategoria varchar(50)  NOT NULL,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Categoria_pk PRIMARY KEY  (idCategoria)
 );
@@ -28,13 +28,13 @@ CREATE TABLE Categoria (
 -- Table: Cliente
 CREATE TABLE Cliente (
     idCliente int  NOT NULL IDENTITY,
-    primerNombreCliente varchar(50)  NOT NULL CHECK (LEN(primerNombreCliente) > 2), --CHECK
-    segundoNombreCliente varchar(50)  NULL CHECK (LEN(segundoNombreCliente) > 2), --CHECK
-    primerApellidoCliente varchar(50)  NOT NULL CHECK (LEN(primerApellidoCliente) > 2), --CHECK
-    segundoApellidoCliente varchar(50)  NULL CHECK (LEN(segundoApellidoCliente) > 2), --CHECK
-    duiCliente varchar(10)  NULL CHECK ([duiCliente] like '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][-][0-9]'), --CHECK
+    primerNombreCliente varchar(50)  NOT NULL,
+    segundoNombreCliente varchar(50)  NULL,
+    primerApellidoCliente varchar(50)  NOT NULL,
+    segundoApellidoCliente varchar(50)  NULL,
+    duiCliente varchar(10)  NULL,
     nitCliente varchar(20)  NULL,
-    telefonoCliente int  NULL CHECK (telefonoCliente like '[2-7][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'), --CHECK
+    telefonoCliente int  NULL,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Cliente_pk PRIMARY KEY  (idCliente)
 );
@@ -42,10 +42,17 @@ CREATE TABLE Cliente (
 -- Table: ClienteUsuario
 CREATE TABLE ClienteUsuario (
     idClienteUsuario int  NOT NULL IDENTITY,
-    nombreClienteUsuario varchar(25)  NOT NULL,
-    correoClienteUsuario varchar(50)  NOT NULL,
-    fechaNacimientoClienteUsuario int  NOT NULL,
-    contraseniaClienteUsuario varchar(25)  NOT NULL,
+    Nombres varchar(50)  NULL,
+    Apellidos varchar(50)  NULL,
+    Correo varchar(50)  NULL,
+    Usuario varchar(50)  NULL,
+    Contraseña varchar(50)  NULL,
+    Direccion varchar(50)  NULL,
+    Pais varchar(50)  NULL,
+    Provincia varchar(50)  NULL,
+    Zip int  NULL,
+    Profile_img varbinary(max)  NULL,
+    estado int  NULL,
     CONSTRAINT ClienteUsuario_pk PRIMARY KEY  (idClienteUsuario)
 );
 
@@ -86,11 +93,23 @@ CREATE TABLE DetalleCompra (
 -- Table: DetalleVenta
 CREATE TABLE DetalleVenta (
     idDetalleVenta int  NOT NULL IDENTITY,
+    idVenta int  NOT NULL,
     idProducto int  NOT NULL,
     cantidadProducto int  NOT NULL,
     descuentoProducto decimal(6,2)  NOT NULL DEFAULT 0,
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT DetalleVenta_pk PRIMARY KEY  (idDetalleVenta)
+);
+
+-- Table: DetalleVentaOnline
+CREATE TABLE DetalleVentaOnline (
+    idDetalleVentaOnline int  NOT NULL IDENTITY,
+    idVentaOnline int  NOT NULL,
+    idProducto int  NOT NULL,
+    cantidadProducto int  NOT NULL,
+    descuentoProducto decimal(6,2)  NOT NULL DEFAULT 0,
+    estado bit  NOT NULL DEFAULT 1,
+    CONSTRAINT DetalleVentaOnline_pk PRIMARY KEY  (idDetalleVentaOnline)
 );
 
 -- Table: Empleado
@@ -108,7 +127,7 @@ CREATE TABLE Empleado (
     fechaContrato date  NOT NULL,
     telefonoEmpleado int  NULL,
     correoEmpleado varchar(50)  NULL,
-    sexoEmpleado char(1)  NOT NULL CHECK (sexoEmpleado = 'M' OR sexoEmpleado = 'F'), --CHECK
+    sexoEmpleado char(1)  NOT NULL,
     departamentoEmpleado varchar(50)  NOT NULL,
     municipioEmpleado varchar(50)  NOT NULL,
     detallesDireccionEmpleado varchar(50)  NOT NULL,
@@ -181,7 +200,6 @@ CREATE TABLE Usuario (
 -- Table: Venta
 CREATE TABLE Venta (
     idVenta int  NOT NULL IDENTITY,
-    idDetalleVenta int  NOT NULL,
     idCliente int  NOT NULL,
     idEmpleado int  NOT NULL,
     fechaVenta date  NOT NULL,
@@ -193,7 +211,6 @@ CREATE TABLE Venta (
 -- Table: VentaOnline
 CREATE TABLE VentaOnline (
     idVentaOnline int  NOT NULL IDENTITY,
-    idDetalleVenta int  NOT NULL,
     idClienteUsuario int  NOT NULL,
     horaVentaCliente time(0)  NOT NULL,
     fechaVentaCliente date  NOT NULL,
@@ -222,10 +239,25 @@ ALTER TABLE Compra ADD CONSTRAINT Compra_Usuario
     FOREIGN KEY (idUsuario)
     REFERENCES Usuario (idUsuario);
 
+-- Reference: DetalleVentaOnline_Producto (table: DetalleVentaOnline)
+ALTER TABLE DetalleVentaOnline ADD CONSTRAINT DetalleVentaOnline_Producto
+    FOREIGN KEY (idProducto)
+    REFERENCES Producto (idProducto);
+
+-- Reference: DetalleVentaOnline_VentaOnline (table: DetalleVentaOnline)
+ALTER TABLE DetalleVentaOnline ADD CONSTRAINT DetalleVentaOnline_VentaOnline
+    FOREIGN KEY (idVentaOnline)
+    REFERENCES VentaOnline (idVentaOnline);
+
 -- Reference: DetalleVenta_Producto (table: DetalleVenta)
 ALTER TABLE DetalleVenta ADD CONSTRAINT DetalleVenta_Producto
     FOREIGN KEY (idProducto)
     REFERENCES Producto (idProducto);
+
+-- Reference: DetalleVenta_Venta (table: DetalleVenta)
+ALTER TABLE DetalleVenta ADD CONSTRAINT DetalleVenta_Venta
+    FOREIGN KEY (idVenta)
+    REFERENCES Venta (idVenta);
 
 -- Reference: DetallesCompra_Compra (table: DetalleCompra)
 ALTER TABLE DetalleCompra ADD CONSTRAINT DetallesCompra_Compra
@@ -272,20 +304,10 @@ ALTER TABLE VentaOnline ADD CONSTRAINT VentaOnline_ClienteUsuario
     FOREIGN KEY (idClienteUsuario)
     REFERENCES ClienteUsuario (idClienteUsuario);
 
--- Reference: VentaOnline_DetalleVenta (table: VentaOnline)
-ALTER TABLE VentaOnline ADD CONSTRAINT VentaOnline_DetalleVenta
-    FOREIGN KEY (idDetalleVenta)
-    REFERENCES DetalleVenta (idDetalleVenta);
-
 -- Reference: Venta_Cliente (table: Venta)
 ALTER TABLE Venta ADD CONSTRAINT Venta_Cliente
     FOREIGN KEY (idCliente)
     REFERENCES Cliente (idCliente);
-
--- Reference: Venta_DetalleVenta (table: Venta)
-ALTER TABLE Venta ADD CONSTRAINT Venta_DetalleVenta
-    FOREIGN KEY (idDetalleVenta)
-    REFERENCES DetalleVenta (idDetalleVenta);
 
 -- Reference: Venta_Empleado (table: Venta)
 ALTER TABLE Venta ADD CONSTRAINT Venta_Empleado

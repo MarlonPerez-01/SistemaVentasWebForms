@@ -104,7 +104,7 @@ AS
 GO
 
 
-/*Listado Nombre CategoriaList*/
+/*Listado Nombre MarcaList*/
 IF OBJECT_ID('MarcaList') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.MarcaList
@@ -123,6 +123,25 @@ AS
 	COMMIT
 GO
 
+
+/*Listado Nombre CategoriaList*/
+IF OBJECT_ID('CategoriaList') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.CategoriaList
+END
+GO
+CREATE PROCEDURE dbo.CategoriaList
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idCategoria, nombreCategoria
+	FROM dbo.Categoria
+	WHERE estado = 1
+	COMMIT
+GO
 
 
 /*Listado Nombre ProductoList*/

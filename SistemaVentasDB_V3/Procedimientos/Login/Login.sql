@@ -1,24 +1,17 @@
-SELECT u.* FROM dbo.Usuario u
+create procedure SP_LoginUser
+(@nombreUsuario varchar(50), @contraseniaUsuario varchar(50))
+as
+Begin
+	if exists ( select * from Usuario Where nombreUsuario=@nombreUsuario and contraseniaUsuario=HASHBYTES('MD5',@contraseniaUsuario))
+	Begin
+		select 1 as Resultado, TU.nombreTipoUsuario, US.nombreUsuario from TipoUsuario as TU INNER JOIN Usuario as US ON Tu.idTipoUsuario= US.idTipoUsuario where US.nombreUsuario=@nombreUsuario
+	End
+	Else
+	begin
+		Select 0 as Resutado,'Credenciales incorrectas' as 'Mensaje'
+	End
+End
 
-IF OBJECT_ID('Login') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.Login
-END
-GO
-CREATE PROCEDURE dbo.Login
-		@nombreUsuario varchar(50),
-		@contraseniaUsuario varchar(50)
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
 
-	SELECT nombreUsuario, contraseniaUsuario
-	FROM dbo.Usuario
-	WHERE nombreUsuario = @nombreUsuario AND contraseniaUsuario = @contraseniaUsuario AND estado = 1
+exec SP_LoginUser 'lopez1731s', 'admin123'
 
-	COMMIT
-GO
-
-login 'MarlonUser', '2134554'
