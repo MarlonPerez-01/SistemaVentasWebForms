@@ -82,6 +82,8 @@ GO
 
 SeleccionarProductoById_d 2
 
+SELECT p.* FROM dbo.Producto p
+
 SELECT dc.* FROM dbo.DetalleCompra dc
 
 
