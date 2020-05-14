@@ -11,7 +11,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT dc.idDetalleCompra, p.nombreProducto, dc.cantidadProductoComprado, dc.precioCompraUnidad, dc.precioVentaUnidad, dc.observaciones
+	SELECT dc.idCompra, dc.idDetalleCompra, p.nombreProducto, dc.cantidadProductoComprado, dc.precioCompraUnidad, dc.precioVentaUnidad, dc.observaciones
 	FROM DetalleCompra AS dc
 	INNER JOIN dbo.Producto p
 	ON dc.idProducto = p.idProducto
@@ -20,23 +20,25 @@ AS
 	COMMIT
 GO
 
-SeleccionarDetalleCompra 4
+SeleccionarDetalleCompra 53
 
 
-IF OBJECT_ID('crud_DetalleCompraInsert') IS NOT NULL
+SELECT c.* FROM dbo.Compra c
+
+
+IF OBJECT_ID('InsertarDetalleCompra') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.crud_DetalleCompraInsert
+	DROP PROCEDURE dbo.InsertarDetalleCompra
 END
 GO
-CREATE PROCEDURE dbo.crud_DetalleCompraInsert
+CREATE PROCEDURE dbo.InsertarDetalleCompra
 	(
 		@idCompra [int],
 		@idProducto [int],
 		@cantidadProductoComprado [int],
 		@precioCompraUnidad [decimal](6, 2),
 		@precioVentaUnidad [decimal](6, 2),
-		@observaciones [varchar](100),
-		@estado [bit]
+		@observaciones [varchar](100)
 	)
 AS
 	SET NOCOUNT ON
@@ -46,7 +48,7 @@ AS
 
 	INSERT INTO dbo.DetalleCompra
 	(
-		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones, estado
+		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones
 	)
 	VALUES
 	(
@@ -55,16 +57,15 @@ AS
 		@cantidadProductoComprado,
 		@precioCompraUnidad,
 		@precioVentaUnidad,
-		@observaciones,
-		@estado
-
+		@observaciones
 	)
-	SELECT idDetalleCompra, idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones, estado
-	FROM dbo.DetalleCompra
-	WHERE (idDetalleCompra = SCOPE_IDENTITY())
-
 	COMMIT
 GO
+
+InsertarDetalleCompra 6, 2, 20, 130, 160, null
+SELECT c.* FROM dbo.Compra c
+SELECT dc.* FROM dbo.DetalleCompra dc
+
 IF OBJECT_ID('crud_DetalleCompraUpdate') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.crud_DetalleCompraUpdate

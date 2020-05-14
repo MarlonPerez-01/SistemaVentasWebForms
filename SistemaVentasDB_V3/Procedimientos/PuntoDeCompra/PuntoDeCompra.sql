@@ -1,3 +1,72 @@
+/*SELECCIONAR COMPRAS*/
+IF OBJECT_ID('SeleccionarUltimaCompra') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarUltimaCompra
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarUltimaCompra
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+	
+	SELECT TOP 1 c.idCompra, CONCAT(p.primerNombreProveedor, ' ', p.primerApellidoProveedor) AS nombreProveedor, CONCAT(e.primerNombreEmpleado, ' ', e.primerApellidoEmpleado) AS nombreEmpleado, fechaCompra, horaCompra
+
+	FROM dbo.Compra AS c
+	INNER JOIN dbo.Proveedor p
+	ON c.idProveedor = p.idProveedor
+	INNER JOIN dbo.Usuario u
+	ON c.idUsuario = u.idUsuario
+	INNER JOIN dbo.Empleado e
+	ON u.idEmpleado = e.idEmpleado
+	WHERE c.estado = 1
+	GROUP BY c.idCompra, p.primerNombreProveedor, p.primerApellidoProveedor, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaCompra, horaCompra
+	ORDER BY c.idCompra DESC
+
+	COMMIT
+GO
+
+SeleccionarCompras_pc
+go
+SeleccionarUltimaCompra
+SELECT c.* FROM dbo.Compra c
+
+
+
+
+
+
+
+
+IF OBJECT_ID('SeleccionarUltimaCompra') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarUltimaCompra
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarUltimaCompra
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT TOP 1 *
+	FROM Compra
+	WHERE estado = 1
+	ORDER BY idCompra DESC
+	COMMIT
+GO
+
+SeleccionarUltimaCompra
+
+
+
+SELECT c.* FROM dbo.Compra c
+
+
+
+
 IF OBJECT_ID('crud_DetalleCompraSelect') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.crud_DetalleCompraSelect
@@ -17,6 +86,9 @@ AS
 
 	COMMIT
 GO
+
+
+
 
 SELECT c.* FROM dbo.Compra c
 

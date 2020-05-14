@@ -11,7 +11,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idVenta, c.primerNombreCliente, c.primerApellidoCliente, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaVenta, horaVenta, SUM((dv.cantidadProducto*dv.idProducto)-(dv.cantidadProducto*dv.descuentoProducto)) AS monto
+	SELECT v.idVenta, c.primerNombreCliente, c.primerApellidoCliente, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaVenta, horaVenta, SUM((dv.cantidadProducto*dv.idProducto)-(dv.cantidadProducto*dv.descuentoProducto)) AS monto
 	FROM dbo.Venta AS v
 	INNER JOIN dbo.Empleado e
 	ON v.idEmpleado = e.idEmpleado
@@ -23,7 +23,7 @@ AS
 	ON dc.idProducto = dv.idProducto
 
 	WHERE v.estado = 1
-	GROUP BY idVenta, c.primerNombreCliente, c.primerApellidoCliente, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaVenta, horaVenta
+	GROUP BY v.idVenta, c.primerNombreCliente, c.primerApellidoCliente, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaVenta, horaVenta
 	
 	COMMIT
 GO

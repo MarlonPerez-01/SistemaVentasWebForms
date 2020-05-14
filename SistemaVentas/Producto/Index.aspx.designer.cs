@@ -60,6 +60,15 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Panel modalCrear;
 
         /// <summary>
+        /// Control FileUpload1_c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_c;
+
+        /// <summary>
         /// Control inpNombreProducto_c.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace SistemaVentas.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca_c;
-
-        /// <summary>
-        /// Control FileUpload1_c.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_c;
 
         /// <summary>
         /// Control inpDescripcionProducto_c.
@@ -130,6 +130,15 @@ namespace SistemaVentas.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalDetalles;
+
+        /// <summary>
+        /// Control imgProducto_d.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgProducto_d;
 
         /// <summary>
         /// Control lblIdProducto.
@@ -175,15 +184,6 @@ namespace SistemaVentas.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescripciónProducto;
-
-        /// <summary>
-        /// Control imgProducto_d.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgProducto_d;
 
         /// <summary>
         /// Control lblPrecioCompraUnidad.
@@ -240,6 +240,24 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
+        /// Control imgProducto_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgProducto_e;
+
+        /// <summary>
+        /// Control FileUpload1_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_e;
+
+        /// <summary>
         /// Control inpIdProducto_e.
         /// </summary>
         /// <remarks>
@@ -283,24 +301,6 @@ namespace SistemaVentas.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDescripcionProducto_e;
-
-        /// <summary>
-        /// Control FileUpload1_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1_e;
-
-        /// <summary>
-        /// Control imgProducto_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgProducto_e;
 
         /// <summary>
         /// Control btnActualizar.

@@ -92,8 +92,11 @@ AS
 GO
 
 
-EXEC InsertarCompras 2, 13, '2011/12/1', '12:00'
+EXEC InsertarCompra 4, 1, '2011/12/1', '12:00'
 
+SELECT c.* FROM dbo.Compra c
+
+SELECT * FROM dbo.Proveedor p
 
 IF OBJECT_ID('ActualizarCompra') IS NOT NULL
 BEGIN
@@ -141,3 +144,5 @@ AS
 		WHERE idCompra = @idCompra
 	COMMIT
 GO
+
+SELECT dc.* FROM dbo.DetalleCompra dc

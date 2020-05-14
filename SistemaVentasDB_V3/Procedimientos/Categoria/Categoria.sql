@@ -22,6 +22,26 @@ GO
 EXEC SeleccionarCategorias 
 
 
+/*Seleccionar Categoria By ID*/
+IF OBJECT_ID('SeleccionarCategoriaById') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.SeleccionarCategoriaById
+END
+GO
+CREATE PROCEDURE dbo.SeleccionarCategoriaById
+		@idCategoria [int]
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT idCategoria, nombreCategoria, estado
+	FROM dbo.Categoria
+	WHERE idCategoria = @idCategoria AND estado = 1
+
+	COMMIT
+GO
 
 /*INSERTAR CATEGORIA*/
 IF OBJECT_ID('InsertarCategoria') IS NOT NULL
