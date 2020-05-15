@@ -204,67 +204,58 @@ namespace SistemaVentas.PuntoDeCompra
         protected global::System.Web.UI.WebControls.Panel modalEditar;
 
         /// <summary>
-        /// Control inpIdProveedor_e.
+        /// Control inpIdDetalleCompra_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdProveedor_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdDetalleCompra_e;
 
         /// <summary>
-        /// Control inpPrimerNombreProveedor_e.
+        /// Control ddlProducto_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreProveedor_e;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProducto_e;
 
         /// <summary>
-        /// Control inpSegundoNombreProveedor_e.
+        /// Control inpCantidadProductoComprado_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreProveedor_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpCantidadProductoComprado_e;
 
         /// <summary>
-        /// Control inpPrimerApellidoProveedor_e.
+        /// Control inpPrecioCompraUnidad_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerApellidoProveedor_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioCompraUnidad_e;
 
         /// <summary>
-        /// Control inpSegundoApellidoProveedor_e.
+        /// Control inpPrecioVentaUnidad_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoApellidoProveedor_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioVentaUnidad_e;
 
         /// <summary>
-        /// Control inpTelefonoProveedor_e.
+        /// Control inpObservaciones_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpTelefonoProveedor_e;
-
-        /// <summary>
-        /// Control inpEmpresaProveedor_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpEmpresaProveedor_e;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpObservaciones_e;
 
         /// <summary>
         /// Control btnActualizar.
@@ -285,13 +276,13 @@ namespace SistemaVentas.PuntoDeCompra
         protected global::System.Web.UI.WebControls.Panel modalEliminar;
 
         /// <summary>
-        /// Control lblIdProveedorEliminar.
+        /// Control lblIdDetalleCompraEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdProveedorEliminar;
+        protected global::System.Web.UI.WebControls.Label lblIdDetalleCompraEliminar;
 
         /// <summary>
         /// Control btnEliminar.

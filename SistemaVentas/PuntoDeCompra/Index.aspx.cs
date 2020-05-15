@@ -24,10 +24,9 @@ namespace SistemaVentas.PuntoDeCompra
 
             if (!IsPostBack)
             {
-
+                ddlProductoBind_dc();
             }
             BindUltimaCompra();
-            ddlProductoBind_dc();
             ModalCrear(false);
             BindDetalleCompra();
         }
@@ -68,36 +67,48 @@ namespace SistemaVentas.PuntoDeCompra
             ddlProducto_dc.DataBind();
         }
 
+        protected void ddlProductoBind_e()
+        {
+            var dataTable = new Crud().Seleccionar("ProductoList");
+            ddlProducto_e.DataSource = dataTable;
+            ddlProducto_e.DataTextField = "nombreProducto";
+            ddlProducto_e.DataValueField = "idProducto";
+            ddlProducto_e.DataBind();
+        }
+
+
 
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "editar")
             {
-                //ddlCargoBind_e();
+                ddlProductoBind_e();
+
                 LinkButton btnEditar = (LinkButton)e.CommandSource;
                 GridViewRow gvrow = (GridViewRow)btnEditar.NamingContainer;
 
-                int idCompra = Convert.ToInt32(inpIdCompra.Value);
+                int idDetalleCompra = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarEmpleadoById_e", sqlConnection);
+
+
+                    SqlCommand sqlCommand = new SqlCommand("SeleccionarDetalleCompra_e", sqlConnection);
                     SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idEmpleado", idCompra);
+                    sqlCommand.Parameters.AddWithValue("@idDetalleCompra", idDetalleCompra);
                     DataTable dataTable = new DataTable();
                     SqlDataAdapter.Fill(dataTable);
 
+                    inpIdDetalleCompra_e.Value = dataTable.Rows[0][0].ToString();
 
-                    string cargoDB = dataTable.Rows[0][1].ToString();
-                    /*ddlCargo_e.SelectedIndex = ddlCargo_e.Items.IndexOf(ddlCargo_e.Items.FindByValue(cargoDB));
+                    string productoDB = dataTable.Rows[0][1].ToString();
+                    ddlProducto_e.SelectedIndex = ddlProducto_e.Items.IndexOf(ddlProducto_e.Items.FindByValue(productoDB));
 
-                    inpPrimerNombreEmpleado_e.Value = dataTable.Rows[0][2].ToString();
-                    inpSegundoNombreEmpleado_e.Value = dataTable.Rows[0][3].ToString();
-                    inpPrimerApellidoEmpleado_e.Value = dataTable.Rows[0][4].ToString();
-                    inpSegundoApellidoEmpleado_e.Value = dataTable.Rows[0][5].ToString();
-                    inpDuiEmpleado_e.Value = dataTable.Rows[0][6].ToString();
-                    inpNitEmpleado_e.Value = dataTable.Rows[0][7].ToString();*/
+                    inpCantidadProductoComprado_e.Value = dataTable.Rows[0][2].ToString();
+                    inpPrecioCompraUnidad_e.Value = dataTable.Rows[0][3].ToString();
+                    inpPrecioVentaUnidad_e.Value = dataTable.Rows[0][4].ToString();
+                    inpObservaciones_e.Value = dataTable.Rows[0][5].ToString();
 
                     ModalEditar(true);
                 }
@@ -109,7 +120,7 @@ namespace SistemaVentas.PuntoDeCompra
                 GridViewRow gvrow = (GridViewRow)btnEliminar.NamingContainer;
 
                 int idCompra = Convert.ToInt32(inpIdCompra.Value);
-                //lblIdEmpleadoEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
+                lblIdDetalleCompraEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
                 ModalEliminar(true);
             }
         }
@@ -191,17 +202,16 @@ namespace SistemaVentas.PuntoDeCompra
 
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("ActualizarProveedor", sqlConnection))
+                using (var sqlCommand = new SqlCommand("ActualizarDetalleCompra", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idProveedor", inpIdProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerNombreProveedor", inpPrimerNombreProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoNombreProveedor", inpSegundoNombreProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerApellidoProveedor", inpPrimerApellidoProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoApellidoProveedor", inpSegundoApellidoProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@telefonoProveedor", inpTelefonoProveedor_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@empresaProveedor", inpEmpresaProveedor_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@idDetalleCompra", Convert.ToInt32(inpIdDetalleCompra_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@idProducto", ddlProducto_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@cantidadProductoComprado", Convert.ToInt32(inpCantidadProductoComprado_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@precioCompraUnidad", Convert.ToInt32(inpPrecioCompraUnidad_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@precioVentaUnidad", Convert.ToInt32(inpPrecioVentaUnidad_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@observaciones", inpObservaciones_e.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
@@ -227,11 +237,11 @@ namespace SistemaVentas.PuntoDeCompra
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
-                using (var sqlCommand = new SqlCommand("EliminarProveedor", sqlConnection))
+                using (var sqlCommand = new SqlCommand("EliminarDetalleCompra", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idProveedor", Convert.ToInt32(lblIdProveedorEliminar.Text));
+                    sqlCommand.Parameters.AddWithValue("@idDetalleCompra", Convert.ToInt32(lblIdDetalleCompraEliminar.Text));
                     int filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
                 BindUltimaCompra();
@@ -245,6 +255,7 @@ namespace SistemaVentas.PuntoDeCompra
                     //TODO: Mensaje de fracaso
                 }
             }
+            BindDetalleCompra();
         }
 
 
@@ -332,10 +343,6 @@ namespace SistemaVentas.PuntoDeCompra
                 {
                     //TODO: Mensaje de fracaso
                 }
-
-                var dataTable = new Crud().Seleccionar("SeleccionarEmpleados");
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
             }
             BindUltimaCompra();
             ModalCrear(false);

@@ -28,7 +28,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarCompras
 
 
 /*Seleccionar Compra By Id*/
@@ -52,7 +51,7 @@ AS
 	COMMIT
 GO
 
-SeleccionarCompraById_e 4
+
 
 /*INSERTAR COMPRAS*/
 IF OBJECT_ID('InsertarCompra') IS NOT NULL
@@ -90,13 +89,6 @@ AS
 	SELECT SCOPE_IDENTITY()
 	COMMIT
 GO
-
-
-EXEC InsertarCompra 4, 1, '2011/12/1', '12:00'
-
-SELECT c.* FROM dbo.Compra c
-
-SELECT * FROM dbo.Proveedor p
 
 IF OBJECT_ID('ActualizarCompra') IS NOT NULL
 BEGIN
@@ -144,5 +136,3 @@ AS
 		WHERE idCompra = @idCompra
 	COMMIT
 GO
-
-SELECT dc.* FROM dbo.DetalleCompra dc

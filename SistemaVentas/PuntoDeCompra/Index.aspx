@@ -67,7 +67,7 @@
 
     <div class="w-100"></div>
     
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_OnRowCommand">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  DataKeyNames="idDetalleCompra" OnRowCommand="GridView1_OnRowCommand">
         <Columns>
             <asp:BoundField DataField="idDetalleCompra" HeaderText="ID" />
             <asp:BoundField DataField="nombreProducto" HeaderText="Producto" />
@@ -78,16 +78,20 @@
 
             <asp:TemplateField HeaderText="Editar" SortExpression="">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btnEditar" runat="server" CommandName="editar" CommandArgument='<%#Eval("idCompra") %>'><i class="fas fa-pencil-alt"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnEditar" runat="server" CommandName="editar" CommandArgument='<%#Eval("idDetalleCompra") %>'><i class="fas fa-pencil-alt"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Eliminar" SortExpression="">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btnEliminar" runat="server" CommandName="eliminar" CommandArgument='<%#Eval("idCompra") %>'><i class="fas fa-trash-alt"></i></asp:LinkButton>
+                    <asp:LinkButton ID="btnEliminar" runat="server" CommandName="eliminar" CommandArgument='<%#Eval("idDetalleCompra") %>'><i class="fas fa-trash-alt"></i></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    
+    <div class="w-100"></div>    
+    <button>Generar Factura</button>
+
 
     <div id="fondoModal"></div>
 
@@ -138,32 +142,28 @@
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="inpIdProveedor_e" class="col-form-label">Id:</label>
-                    <input type="text" class="form-control" id="inpIdProveedor_e" runat="server" />
+                    <label for="inpIdDetalleCompra_e" class="col-form-label">Id:</label>
+                    <input type="text" class="form-control" id="inpIdDetalleCompra_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerNombreProveedor_e" class="col-form-label">Primer Nombre:</label>
-                    <input type="text" class="form-control" id="inpPrimerNombreProveedor_e" runat="server" />
+                    <label for="ddlProducto_e" class="col-form-label">Producto:</label>
+                    <asp:DropDownList ID="ddlProducto_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
-                    <label for="inpSegundoNombreProveedor_e" class="col-form-label">Segundo Nombre:</label>
-                    <input type="text" class="form-control" id="inpSegundoNombreProveedor_e" runat="server" />
+                    <label for="inpCantidadProductoComprado_e" class="col-form-label">Cantidad Producto Comprado:</label>
+                    <input type="text" class="form-control" id="inpCantidadProductoComprado_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerApellidoProveedor_e" class="col-form-label">Primer Apellido:</label>
-                    <input type="text" class="form-control" id="inpPrimerApellidoProveedor_e" runat="server" />
+                    <label for="inpPrecioCompraUnidad_e" class="col-form-label">Precio Compra Unidad:</label>
+                    <input type="text" class="form-control" id="inpPrecioCompraUnidad_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpSegundoApellidoProveedor_e" class="col-form-label">Segundo Apellido:</label>
-                    <input type="text" class="form-control" id="inpSegundoApellidoProveedor_e" runat="server" />
+                    <label for="inpPrecioVentaUnidad_e" class="col-form-label">Precio Venta Unidad:</label>
+                    <input type="text" class="form-control" id="inpPrecioVentaUnidad_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpTelefonoProveedor_e" class="col-form-label">Telefono:</label>
-                    <input type="text" class="form-control" id="inpTelefonoProveedor_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpEmpresaProveedor_e" class="col-form-label">Empresa:</label>
-                    <input type="text" class="form-control" id="inpEmpresaProveedor_e" runat="server" />
+                    <label for="inpObservaciones_e" class="col-form-label">Observaciones:</label>
+                    <input type="text" class="form-control" id="inpObservaciones_e" runat="server" />
                 </div>
             </div>
             <div class="modal-footer-mio">
@@ -184,8 +184,8 @@
             </div>
             <div class="modal-body-mio">
                 <div>
-                    <label for="lblIdProveedorEliminar" class="col-form-label">Está a punto de eliminar la compra con el identificador:</label>
-                    <asp:Label ID="lblIdProveedorEliminar" runat="server" Text=""></asp:Label>
+                    <label for="lblIdDetalleCompraEliminar" class="col-form-label">Está a punto de eliminar la compra con el identificador:</label>
+                    <asp:Label ID="lblIdDetalleCompraEliminar" runat="server" Text=""></asp:Label>
                 </div>
             </div>
             <div class="modal-footer-mio">

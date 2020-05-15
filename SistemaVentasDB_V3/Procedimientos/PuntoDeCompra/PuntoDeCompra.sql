@@ -27,17 +27,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarCompras_pc
-go
-SeleccionarUltimaCompra
-SELECT c.* FROM dbo.Compra c
-
-
-
-
-
-
-
 
 IF OBJECT_ID('SeleccionarUltimaCompra') IS NOT NULL
 BEGIN
@@ -57,13 +46,6 @@ AS
 	ORDER BY idCompra DESC
 	COMMIT
 GO
-
-SeleccionarUltimaCompra
-
-
-
-SELECT c.* FROM dbo.Compra c
-
 
 
 
@@ -86,11 +68,6 @@ AS
 
 	COMMIT
 GO
-
-
-
-
-SELECT c.* FROM dbo.Compra c
 
 
 
@@ -131,17 +108,6 @@ AS
 GO
 
 
-
-InsertarDetalleCompra 4, 2, 5, 50.00, 70.00, 'ninguna'
-InsertarDetalleCompra 5, 2, 5, 50.00, 70.00, 'ninguna'
-
-SELECT c.* FROM dbo.Compra c
-SELECT dc.* FROM dbo.DetalleCompra dc
-
-
-
-
-
 /*SELECCIONAR PRODUCTOS*/
 IF OBJECT_ID('SeleccionarProductosById') IS NOT NULL
 BEGIN
@@ -168,9 +134,55 @@ AS
 	COMMIT
 GO
 
-SeleccionarProductosById 
 
-SELECT dc.* FROM dbo.DetalleCompra dc
+
+IF OBJECT_ID('ActualizarDetalleCompra') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ActualizarDetalleCompra
+END
+GO
+CREATE PROCEDURE dbo.ActualizarDetalleCompra
+	(
+		@idDetalleCompra [int],
+		@idProducto [int],
+		@cantidadProductoComprado [int],
+		@precioCompraUnidad [decimal](6, 2),
+		@precioVentaUnidad [decimal](6, 2),
+		@observaciones [varchar](100)
+	)
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+		UPDATE dbo.DetalleCompra
+		SET  idProducto = @idProducto, cantidadProductoComprado = @cantidadProductoComprado, precioCompraUnidad = @precioCompraUnidad, precioVentaUnidad = @precioVentaUnidad, observaciones = @observaciones
+		WHERE idDetalleCompra = @idDetalleCompra
+	COMMIT
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,52 +216,5 @@ AS
 		@estado
 	)
 	
-	COMMIT
-GO
-
-
-
-
-
-IF OBJECT_ID('crud_DetalleCompraUpdate') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.crud_DetalleCompraUpdate
-END
-GO
-CREATE PROCEDURE dbo.crud_DetalleCompraUpdate
-	(
-		@idDetalleCompra [int],
-		@idCompra [int],
-		@idProducto [int],
-		@cantidadProductoComprado [int],
-		@precioCompraUnidad [decimal](6, 2),
-		@precioVentaUnidad [decimal](6, 2),
-		@observaciones [varchar](100),
-		@estado [bit]
-	)
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-		UPDATE dbo.DetalleCompra
-		SET  idCompra = @idCompra, idProducto = @idProducto, cantidadProductoComprado = @cantidadProductoComprado, precioCompraUnidad = @precioCompraUnidad, precioVentaUnidad = @precioVentaUnidad, observaciones = @observaciones, estado = @estado
-		WHERE (idDetalleCompra = @idDetalleCompra OR @idDetalleCompra IS NULL)
-	COMMIT
-GO
-IF OBJECT_ID('crud_DetalleCompraDelete') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.crud_DetalleCompraDelete
-END
-GO
-CREATE PROCEDURE dbo.crud_DetalleCompraDelete
-		@idDetalleCompra [int]
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-		DELETE FROM dbo.DetalleCompra
-		WHERE (idDetalleCompra = @idDetalleCompra OR @idDetalleCompra IS NULL)
 	COMMIT
 GO
