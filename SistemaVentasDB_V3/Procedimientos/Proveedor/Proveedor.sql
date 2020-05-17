@@ -18,8 +18,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarProveedores
-
 
 
 IF OBJECT_ID('SeleccionarProveedorById') IS NOT NULL
@@ -41,8 +39,6 @@ AS
 
 	COMMIT
 GO
-
-SeleccionarProveedorById 30
 
 
 
@@ -86,10 +82,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarProveedor 'JoseProveedor', 'Roberto', 'Lopez', 'Perez', 75858596, 'HP'
-
-SeleccionarProveedores
-
 /*ACTUALIZAR PROVEEDOR*/
 IF OBJECT_ID('ActualizarProveedor') IS NOT NULL
 BEGIN
@@ -119,10 +111,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarProveedor
-
-SeleccionarProveedorById 8
-
 
 /*ELIMINAR PROVEEDOR*/
 IF OBJECT_ID('EliminarProveedor') IS NOT NULL
@@ -144,5 +132,3 @@ AS
 		WHERE idProveedor = @idProveedor
 	COMMIT
 GO
-
-EXEC EliminarProveedor '2'

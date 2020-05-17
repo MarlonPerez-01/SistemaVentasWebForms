@@ -41,7 +41,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarMarcas
 
 
 /*INSERTAR MARCA*/
@@ -72,7 +71,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarMarca 'DELL'
 
 
 /*Actualizar Marca*/
@@ -97,7 +95,7 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarMarca
+
 
 /*Eliminar Marca*/
 IF OBJECT_ID('EliminarMarca') IS NOT NULL
@@ -119,5 +117,3 @@ AS
 		WHERE idMarca = @idMarca
 	COMMIT
 GO
-
-EXEC EliminarMarca

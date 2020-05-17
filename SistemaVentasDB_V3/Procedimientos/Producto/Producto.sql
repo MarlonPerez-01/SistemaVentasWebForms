@@ -45,12 +45,6 @@ AS
 GO
 
 
-
-
-
-
-SELECT p.* FROM dbo.Producto p
-
 /*Seleccionar Productos By Id detalles*/
 IF OBJECT_ID('SeleccionarProductoById_d') IS NOT NULL
 BEGIN
@@ -80,13 +74,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarProductoById_d 2
-
-SELECT p.* FROM dbo.Producto p
-
-SELECT dc.* FROM dbo.DetalleCompra dc
-
-
 /*Seleccionar Productos By Id*/
 IF OBJECT_ID('SeleccionarProductoById') IS NOT NULL
 BEGIN
@@ -107,8 +94,6 @@ AS
 
 	COMMIT
 GO
-
-SELECT p.* FROM dbo.Producto p
 
 
 
@@ -139,9 +124,6 @@ AS
 
 	COMMIT
 GO
-
-
-
 
 
 /*INSERTAR PRODUCTOS*/

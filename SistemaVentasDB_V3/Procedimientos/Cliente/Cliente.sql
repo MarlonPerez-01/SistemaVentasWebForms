@@ -19,9 +19,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarClientes
-
-
 
 /*Seleccionar Clientes por ID*/
 
@@ -44,8 +41,6 @@ AS
 
 	COMMIT
 GO
-seleccionarClientes
-EXEC SeleccionarClientesById 3
 
 
 
@@ -90,10 +85,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarCliente 'marlonCliente', 'antonio', 'hurtado', 'perez', '12345678-9', '12345678', 78585858
-
-
-
 /*Actualizar Clientes*/
 IF OBJECT_ID('ActualizarCliente') IS NOT NULL
 BEGIN
@@ -122,10 +113,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarCliente 1, 'editado', 'editado', 'editado', 'editado', '12345678-9', '12345678', 71455858
-SeleccionarClientes
-
-
 
 /*Eliminar Cliente*/
 IF OBJECT_ID('EliminarCliente') IS NOT NULL
@@ -147,5 +134,3 @@ AS
 		WHERE idCliente = @idCliente
 	COMMIT
 GO
-
-EXEC EliminarCliente

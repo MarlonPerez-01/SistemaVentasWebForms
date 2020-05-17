@@ -11,7 +11,19 @@ namespace SistemaVentas.PuntoDeVenta
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //1 = admin || 2 = basico
+            string idTipoUsuario = Session["idTipoUsuario"] as string;
+            if (idTipoUsuario == null)
+            {
+                Response.Redirect("/Default.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    //Bind();
+                }
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title></title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -22,7 +22,7 @@
 
 
     <link href="~/Fonts/fontawesome.min.css" rel="stylesheet" />
-    
+
 </head>
 <body class="p-0 m-0">
     <form runat="server">
@@ -49,15 +49,20 @@
             <div class="row">
                 <div class="barra-lateral col-12 col-sm-auto">
                     <div class="col contenedor-logo">
-                        <a href="#">
-                            <img src="~/images/logo-icon.png" class="logo-imagen" />
-                            <img src="~/images/logo-text.png" class="logo-texto" />
+                        <a runat="server" href="Dashboard/Index.aspx">
+                            <img src="/Images/logo-icon.png" class="logo-imagen" />
+                        </a>
+                        <a runat="server" href="Dashboard/Index.aspx" style="font-weight: bold; font-size: 1.25em; text-decoration: none">
+                            E-Technology
+                            <!--
+                            <img src="/Images/logo-text.png" class="logo-texto" />
+                            -->
                         </a>
                     </div>
                     <nav class="d-flex d-sm-block justify-content-center flex-wrap">
                         <ul class="menu">
                             <li>
-                                <a href="#"><i class="fas fa-home"></i><span class="item">Inicio</span></a>
+                                <a runat="server" href="Dashboard/Index.aspx" ><i class="fas fa-home"></i><span class="item">Inicio</span></a>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-user"></i><span class="item">Personas</span></a>
@@ -94,25 +99,31 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fas fa-calendar"></i><span class="item">Calendario</span></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-file-alt"></i><span class="item">Finanzas</span></a>
+                                <a href="#"><i class="fas fa-wallet"></i><span class="item">Finanzas</span></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="#"><span>Ventas</span></a>
+                                        <a runat="server" href="Venta/Index.aspx"><span>Ventas</span></a>
                                     </li>
                                     <li>
-                                        <a href="#"><span>Compra</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>Caja</span></a>
+                                        <a runat="server" href="Compra/Index.aspx"><span>Compra</span></a>
                                     </li>
                                     <li>
                                         <a href="#"><span>Balance</span></a>
                                     </li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#"><i class="fas fa-file-invoice-dollar"></i><span class="item">Compra - Venta</span></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a runat="server" href="PuntoDeVenta/Index.aspx"><span>Punto de Venta</span></a>
+                                    </li>
+                                    <li>
+                                        <a runat="server" href="PuntoDeCompra/Index.aspx"><span>Punto de Compra</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--
                             <li>
                                 <a href="#"><i class="fas fa-file-alt"></i><span class="item">Reportes</span></a>
                                 <ul class="submenu">
@@ -124,6 +135,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            -->
                             <li>
                                 <a href="#"><i class="fas fa-cog"></i><span class="item">Configuración</span></a>
                                 <ul class="submenu">
@@ -136,7 +148,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fas fa-sign-out-alt"></i><span class="item">Salir</span></a>
+                                <a id="salir" href="#" runat="server" onserverclick="salir_OnServerClick"><i class="fas fa-sign-out-alt"></i><span class="item">Salir</span></a>
                             </li>
                         </ul>
 
@@ -162,7 +174,7 @@
                                 <i class="fas fa-bell campana"></i>
                             </div>
                             <div class="contenedor-usuario">
-                                <span>Nombre Usuario</span>
+                                <span id="spanNombreUsuario" runat="server"></span>
                                 <a href="#" class="imagen">
                                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt=""></a>
                             </div>

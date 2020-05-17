@@ -17,10 +17,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarTipoUsuarios
-
-
-
 
 /*Insertar Tipo Usuario*/
 IF OBJECT_ID('InsertarTipoUsuario') IS NOT NULL
@@ -50,8 +46,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarTipoUsuario 'admin'
-
 
 
 /*Actualizar TipoUsuario*/
@@ -76,8 +70,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarTipoUsuario
-
 
 
 /*Eliminar TipoUsuario*/
@@ -100,5 +92,3 @@ AS
 		WHERE idTipoUsuario = @idTipoUsuario
 	COMMIT
 GO
-
-EXEC EliminarTipoUsuario

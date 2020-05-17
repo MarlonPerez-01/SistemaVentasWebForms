@@ -5,65 +5,53 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="Styles/bootstrap.min.css" rel="stylesheet" />
-    <link href="Styles/login.css" rel="stylesheet" />
-    <title></title>
-    <style>
-        body {
-            background-image: url("https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 50%;
-        }
+    <title>Formulario</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <div class="container" style="top: 12em; position: relative;">
-                <div class="row">
-                    <div class="col-md-8">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 login-imagen">
+            </div>
+            <div class="col-6">
+                <div class="row justify-content-center align-content-center" style="height: 100vh;">
+                    <div class="col-12 text-center mb-2">
+                        <h3 class="font-weight-light mb-4">E-Technology</h3>
+                        <p class="lead">Bienvenido! Ingrese a Su cuenta</p>
                     </div>
-                    <div class="col-md-4">
-                        <h3 class="text-center">E-Tecnology</h3>
-                        <p class="text-center">Bienvenido! Ingrese su cuenta</p>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Usuario</label>
-                            <asp:TextBox ID="user_text" runat="server" class="form-control"></asp:TextBox>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Contraseña</label>
-                            <asp:TextBox ID="password_text" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                        <br />
-                        <div class="d-flex">
-                            <div class="col-4 form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-                            </div>
-                            <div class="col-8 align-content-end" style="position: absolute; left: 11em;">
-                                <asp:LinkButton ID="LinkButton1" runat="server">¿Olvidaste tu Contraseña?</asp:LinkButton>
-                            </div>
-                        </div>
-                        <asp:Label ID="test" runat="server" Text=""></asp:Label>
-                        <br />
-                        <br />
-                        <br />
-                        <div class="col-12">
-                            <asp:LinkButton ID="login_btn" runat="server" class="btn btn-primary btn-sm btn-block" OnClick="login_btn_Click">Iniciar Sesión</asp:LinkButton>
-                        </div>
+                    <div class="alert alert-danger" id="alerta" role="alert" runat="server">
+                        Los datos ingresados son inválidos.
                     </div>
+                    <div class="w-100"></div>
+                    <form id="form1" runat="server" class="col-12 col-md-10 col-lg-8 col-xl-6">
+                        <div class="form-group">
+                            <label for="txtNombreUsuario">Usuario</label>
+                            <asp:TextBox ID="txtNombreUsuario" runat="server" class="form-control col-12"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtContraseniaUsuario">Contraseña</label>
+                            <asp:TextBox ID="txtContraseniaUsuario" runat="server" class="form-control col-12" type="password"></asp:TextBox>
+                        </div>
+                        <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" class="btn btn-block btn-primary" OnClick="btnIngresar_OnClick" />
+                    </form>
                 </div>
             </div>
         </div>
-    </form>
-    <script src="Scripts/jquery-3.4.1.slim.min.js"></script>
+    </div>
+    <script src="Scripts/jquery-3.0.0.slim.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <style>
+        .login-imagen {
+            background-image: url('/Images/login-img.jpg');
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
 </body>
 </html>

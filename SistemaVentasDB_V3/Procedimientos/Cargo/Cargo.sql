@@ -1,3 +1,4 @@
+/*SELECCIONAR CARGO POR ID*/
 IF OBJECT_ID('SeleccionarCargoById') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.SeleccionarCargoById
@@ -38,8 +39,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarCargos
-
 
 /*INSERTAR CARGO*/
 IF OBJECT_ID('InsertarCargo') IS NOT NULL
@@ -71,9 +70,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarCargo 'vendedor', 500
-
-SELECT c.* FROM dbo.Cargo c
 
 /*Actualizar Cargo*/
 IF OBJECT_ID('ActualizarCargo') IS NOT NULL
@@ -98,7 +94,7 @@ AS
 	COMMIT
 GO
 
-
+/*Eliminar Cargo*/
 IF OBJECT_ID('EliminarCargo') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.EliminarCargo
@@ -118,5 +114,3 @@ AS
 		WHERE idCargo = @idCargo
 	COMMIT
 GO
-
-EXEC EliminarCargo

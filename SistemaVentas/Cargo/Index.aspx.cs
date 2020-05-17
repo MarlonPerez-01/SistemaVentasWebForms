@@ -23,12 +23,24 @@ namespace SistemaVentas.Cargo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            //Validando el tipo de usuario para permitir o restrigir el acceso 1 = admin || 2 = basico
+
+            string idTipoUsuario = Session["idTipoUsuario"] as string;
+
+            if (idTipoUsuario == null || idTipoUsuario == "2")
             {
-                Bind();
+                Response.Redirect("/Default.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    Bind();
+                }
             }
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal
         protected void Bind()
         {
             var dataTable = new Crud().Seleccionar("SeleccionarCargos");
@@ -38,14 +50,14 @@ namespace SistemaVentas.Cargo
             txtBuscar.Text = cantidad.ToString();
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             Bind();
         }
 
-
-
+        //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "detalles")
@@ -67,9 +79,7 @@ namespace SistemaVentas.Cargo
                     lblIdCargo.Text = dataTable.Rows[0][0].ToString();
                     lblNombreCargo.Text = dataTable.Rows[0][1].ToString();
                     lblSalarioCargo.Text = dataTable.Rows[0][2].ToString();
-
                 }
-
                 ModalDetalles(true);
             }
             else if (e.CommandName == "editar")
@@ -105,11 +115,10 @@ namespace SistemaVentas.Cargo
             }
         }
 
+      
+
         protected void btnCrearCargo_OnClick(object sender, EventArgs e)
         {
-            //Limpiando el formulario 
-
-
             ModalCrear(true);
         }
 
@@ -265,6 +274,9 @@ namespace SistemaVentas.Cargo
         }
 
 
+      
+
+
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
             //TODO: programar el filtro
@@ -284,5 +296,12 @@ namespace SistemaVentas.Cargo
             }*/
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
     }
 }

@@ -60,6 +60,15 @@ namespace SistemaVentas.Cargo
         protected global::System.Web.UI.WebControls.Panel modalCrear;
 
         /// <summary>
+        /// Control cerrarCrearX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarCrearX;
+
+        /// <summary>
         /// Control inpNombreCargo_c.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace SistemaVentas.Cargo
         protected global::System.Web.UI.WebControls.Button btnCrear;
 
         /// <summary>
+        /// Control cerrarCrear.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarCrear;
+
+        /// <summary>
         /// Control modalDetalles.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace SistemaVentas.Cargo
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalDetalles;
+
+        /// <summary>
+        /// Control cerrarDetallesX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarDetallesX;
 
         /// <summary>
         /// Control lblIdCargo.
@@ -132,6 +159,15 @@ namespace SistemaVentas.Cargo
         protected global::System.Web.UI.WebControls.Button btnImprimir;
 
         /// <summary>
+        /// Control cerrarDetalles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarDetalles;
+
+        /// <summary>
         /// Control modalEditar.
         /// </summary>
         /// <remarks>
@@ -139,6 +175,15 @@ namespace SistemaVentas.Cargo
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalEditar;
+
+        /// <summary>
+        /// Control cerrarEditarX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarEditarX;
 
         /// <summary>
         /// Control inpIdCargo_e.
@@ -177,6 +222,15 @@ namespace SistemaVentas.Cargo
         protected global::System.Web.UI.WebControls.Button btnActualizar;
 
         /// <summary>
+        /// Control cerrarEditar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarEditar;
+
+        /// <summary>
         /// Control modalEliminar.
         /// </summary>
         /// <remarks>
@@ -184,6 +238,15 @@ namespace SistemaVentas.Cargo
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalEliminar;
+
+        /// <summary>
+        /// Control cerrarEliminarX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarEliminarX;
 
         /// <summary>
         /// Control lblIdCargoEliminar.
@@ -202,5 +265,14 @@ namespace SistemaVentas.Cargo
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
+
+        /// <summary>
+        /// Control cerrarEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarEliminar;
     }
 }

@@ -22,13 +22,22 @@ namespace SistemaVentas.PuntoDeCompra
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            //1 = admin || 2 = basico
+            string idTipoUsuario = Session["idTipoUsuario"] as string;
+            if (idTipoUsuario == null || idTipoUsuario == "2")
             {
-                ddlProductoBind_dc();
+                Response.Redirect("/Default.aspx");
             }
-            BindUltimaCompra();
-            ModalCrear(false);
-            BindDetalleCompra();
+            else
+            {
+                if (!IsPostBack)
+                {
+                    ddlProductoBind_dc();
+                }
+                BindUltimaCompra();
+                ModalCrear(false);
+                BindDetalleCompra();
+            }
         }
 
         protected void BindUltimaCompra()

@@ -11,7 +11,14 @@ namespace SistemaVentas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string nombreUsuario = Session["nombreUsuario"] as string;
+            spanNombreUsuario.InnerText = nombreUsuario;
+        }
+        
+        protected void salir_OnServerClick(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/Login/Index.aspx");
         }
     }
 }

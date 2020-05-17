@@ -1,17 +1,50 @@
-create procedure SP_LoginUser
-(@nombreUsuario varchar(50), @contraseniaUsuario varchar(50))
-as
-Begin
-	if exists ( select * from Usuario Where nombreUsuario=@nombreUsuario and contraseniaUsuario=HASHBYTES('MD5',@contraseniaUsuario))
-	Begin
-		select 1 as Resultado, TU.nombreTipoUsuario, US.nombreUsuario from TipoUsuario as TU INNER JOIN Usuario as US ON Tu.idTipoUsuario= US.idTipoUsuario where US.nombreUsuario=@nombreUsuario
-	End
-	Else
-	begin
-		Select 0 as Resutado,'Credenciales incorrectas' as 'Mensaje'
-	End
-End
+IF OBJECT_ID('ValidarUsuario') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ValidarUsuario
+END
+GO
+CREATE PROCEDURE dbo.ValidarUsuario
+	@nombreUsuario varchar(max),
+	@contraseniaUsuario varchar(max)
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+IF EXISTS ( SELECT nombreUsuario, contraseniaUsuario
+	FROM Usuario
+	WHERE (nombreUsuario= @nombreUsuario AND
+	contraseniaUsuario=HASHBYTES('MD5', @contraseniaUsuario))
+)
+BEGIN
+	SELECT 1 AS RESULTADO, nombreUsuario, contraseniaUsuario, idTipoUsuario
+	FROM Usuario
+	WHERE nombreUsuario = @nombreUsuario AND contraseniaUsuario=HASHBYTES('MD5', @contraseniaUsuario)
+END
+ELSE
+BEGIN
+	SELECT 0 AS RESULTADO, 'Usuario o contraseña incorrecta' AS Mensaje
+END
+COMMIT
+GO
+
+ValidarUsuario 'marlonBasico', 1234
 
 
-exec SP_LoginUser 'lopez1731s', 'admin123'
-
+/*INSERT dbo.Usuario
+(
+    --idUsuario - column value is auto-generated
+    idEmpleado,
+    idTipoUsuario,
+    nombreUsuario,
+    contraseniaUsuario,
+    estado
+)
+VALUES
+(
+    -- idUsuario - int
+    2,
+    2,
+    'usuarioEliminar',
+	HASHBYTES('MD5','1234'),
+    1
+)*/

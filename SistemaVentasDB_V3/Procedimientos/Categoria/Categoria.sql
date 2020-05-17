@@ -19,8 +19,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarCategorias 
-
 
 /*Seleccionar Categoria By ID*/
 IF OBJECT_ID('SeleccionarCategoriaById') IS NOT NULL
@@ -71,8 +69,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarCategoria 'Monitores'
-
 
 /*Actualizar Categoria*/
 IF OBJECT_ID('ActualizarCategoria') IS NOT NULL
@@ -96,10 +92,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarCategoria
-
-
-
 /*Eliminar Categoria*/
 IF OBJECT_ID('EliminarCategoria') IS NOT NULL
 BEGIN
@@ -120,5 +112,3 @@ AS
 		WHERE idCategoria = @idCategoria
 	COMMIT
 GO
-
-EXEC EliminarCategoria

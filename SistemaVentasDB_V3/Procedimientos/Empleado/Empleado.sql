@@ -46,10 +46,6 @@ AS
 	COMMIT
 GO
 
- EXEC SeleccionarEmpleadoById_e 14
- SELECT e.* FROM dbo.Empleado e
-
-
 
 /*SELECCIONAR EMPLEADOS*/
 
@@ -73,8 +69,6 @@ AS
 
 	COMMIT
 GO
-
-EXEC SeleccionarEmpleados
 
 
 /*Insertar Empleado*/
@@ -134,8 +128,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarEmpleado 1, 'pedro', 'rene', 'reyes', 'hernandez', '12345678-9', '12345678', NULL, '20001212', '20201212', 74585858, 'marlon@gmail.com', 'F', 'san salvador', 'soyapango', 'casa xd'
-
 /*Actualizar Empleado*/
 IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
 BEGIN
@@ -174,8 +166,6 @@ AS
 GO
 
 
-
-
 /*Actualizar Empleado*/
 IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
 BEGIN
@@ -212,7 +202,6 @@ AS
 		WHERE idEmpleado = @idEmpleado
 	COMMIT
 GO
-
 
 
 /*Actualizar Empleado*/
@@ -254,29 +243,6 @@ AS
 GO
 
 
-ActualizarEmpleado 15, 1
-
-seleccionarEmpleados
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -305,6 +271,3 @@ AS
 		WHERE idEmpleado = @idEmpleado
 	COMMIT
 GO
-
-SELECT e.* FROM dbo.Empleado e
-EliminarEmpleado 4

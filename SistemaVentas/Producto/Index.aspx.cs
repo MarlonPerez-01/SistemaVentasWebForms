@@ -22,9 +22,18 @@ namespace SistemaVentas.Producto
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            //1 = admin || 2 = basico
+            string idTipoUsuario = Session["idTipoUsuario"] as string;
+            if (idTipoUsuario == null || idTipoUsuario == "2")
             {
-                Bind();
+                Response.Redirect("/Default.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    Bind();
+                }
             }
         }
 

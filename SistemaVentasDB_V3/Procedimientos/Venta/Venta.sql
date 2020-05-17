@@ -28,9 +28,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarVentas
-
-EXEC SeleccionarClientes
 
 /*INSERTAR VENTA*/
 IF OBJECT_ID('InsertarVenta') IS NOT NULL
@@ -68,7 +65,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarVenta ''
 
 
 /*Actualizar Venta*/
@@ -98,8 +94,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarVenta
-
 
 
 /*Eliminar Venta*/
@@ -122,7 +116,3 @@ AS
 		WHERE idVenta = @idVenta
 	COMMIT
 GO
-
-EXEC EliminarVenta
-
-SeleccionarClientes

@@ -17,41 +17,39 @@ namespace SistemaVentas.Login
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            alerta.Visible = false;
         }
 
-        protected void login_btn_Click(object sender, EventArgs e)
+        protected void btnIngresar_OnClick(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection conex = new SqlConnection(cadenaConexion);
-                conex.Open();
-                SqlCommand cmd = new SqlCommand("SP_LoginUser", conex);
-                cmd.Parameters.Add("@nombreUsuario", SqlDbType.VarChar).Value = user_text.Text;
-                cmd.Parameters.Add("@contraseniaUsuario", SqlDbType.VarChar).Value = password_text.Text;
+                SqlConnection connection = new SqlConnection(cadenaConexion);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("ValidarUsuario", connection);
+                cmd.Parameters.Add("@nombreUsuario", SqlDbType.VarChar).Value = txtNombreUsuario.Text;
+                cmd.Parameters.Add("@contraseniaUsuario", SqlDbType.VarChar).Value = txtContraseniaUsuario.Text;
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataReader rd = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable tb = new DataTable();
-                tb.Load(rd);
-                conex.Close();
-
-                if (tb.Rows[0][0].ToString() == "1")
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                DataTable table = new DataTable();
+                table.Load(reader);
+                connection.Close();
+                if (table.Rows[0][0].ToString() == "1")
                 {
-                    Session["nombreTipoUsuario"] = tb.Rows[0][1].ToString();
-                    Session["nombreUsuario"] = tb.Rows[0][2].ToString();
-                    string result = Session["nombreUsuario"].ToString() + " " + Session["nombreTipoUsuario"].ToString();
-                    test.Text = result.ToString();
-
+                    Session["nombreUsuario"] = table.Rows[0][1].ToString();
+                    Session["idTipoUsuario"] = table.Rows[0][3].ToString();
+                    Response.Redirect("/Dashboard/Index.aspx");
                 }
-                else if (tb.Rows[0][0].ToString() == "0")
+                else
                 {
-                    test.Text = tb.Rows[0][1].ToString();
+                    alerta.Visible = true;
                 }
+
+                
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                test.Text = ex.ToString();
             }
         }
     }

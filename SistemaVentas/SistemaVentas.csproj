@@ -121,6 +121,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Dashboard\Index.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Empleado\Index.aspx" />
     <Content Include="favicon.ico" />
@@ -130,7 +131,11 @@
     <Content Include="Fonts\fa-regular-400.svg" />
     <Content Include="Fonts\fa-solid-900.svg" />
     <Content Include="Fonts\fontawesome.min.css" />
+    <Content Include="Fonts\Roboto\LICENSE.txt" />
     <Content Include="Global.asax" />
+    <Content Include="Images\login-img.jpg" />
+    <Content Include="Images\logo-icon.png" />
+    <Content Include="Images\logo-text.png" />
     <Content Include="Login\Index.aspx" />
     <Content Include="Marca\Index.aspx" />
     <Content Include="Producto\Index.aspx" />
@@ -176,6 +181,32 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Fonts\Nunito\Nunito-Black.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-BlackItalic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-Bold.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-BoldItalic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-ExtraBold.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-ExtraBoldItalic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-ExtraLight.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-ExtraLightItalic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-Italic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-Light.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-LightItalic.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-Regular.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-SemiBold.ttf" />
+    <Content Include="Fonts\Nunito\Nunito-SemiBoldItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -358,6 +389,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -457,9 +495,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Dashboard\" />
     <Folder Include="Icons\" />
-    <Folder Include="Images\" />
     <Folder Include="JS\" />
   </ItemGroup>
   <ItemGroup>

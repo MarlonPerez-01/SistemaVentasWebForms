@@ -24,12 +24,6 @@ AS
 	COMMIT
 GO
 
-EXEC SeleccionarUsuarios
-
-EXEC TipoUsuarioList
-
-
-
 
 
 --SeleccionarUsuarioById
@@ -58,8 +52,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarUsuarioById 8
-
 
 
 --Para llenar el modal editar
@@ -83,12 +75,6 @@ AS
 	WHERE u.idUsuario = @idUsuario AND u.estado = 1
 	COMMIT
 GO
-
-SeleccionarUsuarioByIdEditar 13
-
-
-
-
 
 
 
@@ -127,12 +113,6 @@ AS
 	COMMIT
 GO
 
-EXEC InsertarUsuario 1, 1, 'marlonUser', '1234'
-
-InsertarTipoUsuario 'Basico'
-
-SELECT u.* FROM dbo.Usuario u
-
 
 /*Actualizar Usuario*/
 IF OBJECT_ID('ActualizarUsuario') IS NOT NULL
@@ -158,13 +138,6 @@ AS
 	COMMIT
 GO
 
-EXEC ActualizarUsuario
-
-SELECT u.* FROM dbo.Usuario u WHERE estado = 1
-
-GO
-
-SeleccionarUsuarios
 
 /*Eliminar Usuario*/
 IF OBJECT_ID('EliminarUsuario') IS NOT NULL
@@ -186,5 +159,3 @@ AS
 		WHERE idUsuario = @idUsuario
 	COMMIT
 GO
-
-EXEC EliminarUsuario
