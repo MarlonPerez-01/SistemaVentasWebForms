@@ -54,8 +54,7 @@
         <!--contador de botones para cambiar de index-->
 
         <div class="mt-3">
-
-            <p class="d-inline-block ml-3 font-weight-light p-size">Mostrando del 1 al 10 de 100 clientes</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <label id="cantidadProveedores" runat="server"></label> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
@@ -199,7 +198,7 @@
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpIdProveedor_e" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control d-inline" id="inpIdProveedor_e" runat="server" />
+                        <input type="text" class="form-control d-inline" id="inpIdProveedor_e" runat="server" readonly="readonly"/>
                     </div>
                     <div class="d-inline">
                         <label for="inpPrimerNombreProveedor_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>

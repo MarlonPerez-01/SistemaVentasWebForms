@@ -22,7 +22,7 @@ namespace SistemaVentas
             //Este codigo es para redireccionar sin loguearme, eliminar en la entrega
             Session["nombreUsuario"] = "Pedro1234";
             Session["idTipoUsuario"] = "1234";
-            Response.Redirect("/Venta/Index.aspx");
+            Response.Redirect("/Proveedor/Index.aspx");
         }
 
         protected void btnIngresar_OnClick(object sender, EventArgs e)

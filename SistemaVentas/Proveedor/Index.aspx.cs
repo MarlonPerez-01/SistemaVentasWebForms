@@ -42,7 +42,7 @@ namespace SistemaVentas.Proveedor
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadProveedores.InnerText = cantidad.ToString();
         }
 
 
