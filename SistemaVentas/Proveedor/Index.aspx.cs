@@ -286,6 +286,15 @@ namespace SistemaVentas.Proveedor
         }
 
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
+
+
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
             //TODO: programar el filtro

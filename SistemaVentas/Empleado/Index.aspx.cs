@@ -411,6 +411,13 @@ namespace SistemaVentas.Empleado
             }
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
     }
 }

@@ -114,13 +114,13 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Button btnCrear;
 
         /// <summary>
-        /// Control btnCerrar.
+        /// Control cerrarCrear.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCerrar;
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarCrear;
 
         /// <summary>
         /// Control modalDetalles.

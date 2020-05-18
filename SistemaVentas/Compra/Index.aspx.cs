@@ -241,6 +241,12 @@ namespace SistemaCompras.Compra
             }
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
 
 

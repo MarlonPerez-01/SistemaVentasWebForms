@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Categoria.Categoria" ClientIDMode="Static" %>
+﻿<%@ Page Title="Categoria" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Categoria.Categoria" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -73,8 +73,8 @@
          <!--contador de botones para cambiar de index-->
 
         <div class="mt-3">
-
-            <p class="d-inline-block ml-2 font-weight-light p-size">Mostrando del 1 al 10 de 100 marcas</p>
+            
+            <p class="d-inline-block ml-2 font-weight-light p-size">Han sido encontrados <label id="cantidadCategorias" runat="server"></label> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move mr-3">
                 <ul class="pagination">
@@ -111,7 +111,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Detalles Categoria</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="cerrarDetallesX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -125,7 +125,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -137,7 +137,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Categoria</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a id="cerrarEditarX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 
@@ -156,8 +156,8 @@
 
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -169,7 +169,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Eliminar Categoria</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -179,7 +179,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>

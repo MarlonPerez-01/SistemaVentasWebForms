@@ -66,7 +66,6 @@ AS
 		@nombreCargo,
 		@salarioCargo
 	)
-	
 	COMMIT
 GO
 

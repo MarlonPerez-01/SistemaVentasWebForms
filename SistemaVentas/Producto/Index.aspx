@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Producto.Index" ClientIDMode="Static" %>
+﻿<%@ Page Title="Producto" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Producto.Index" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="col">
-    
+
         <h5 class="mt-3 d-block titulo">Listado de Productos</h5>
 
-        <div class="row mt-2"> 
-        
+        <div class="row mt-2">
+
             <div class="col text-left">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>
-        
+
             <div class="col text-right">
                 <asp:LinkButton ID="btnCrearProducto" CssClass="btn btn-small btn-primary b-inline-block mr-3" runat="server" CommandName="crear" CommandArgument='<%#Eval("idProducto") %>' OnClick="btnCrearProducto_OnClick">Crear Producto</asp:LinkButton>
             </div>
@@ -96,7 +96,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Crear Producto</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -105,7 +105,7 @@
                         <asp:FileUpload runat="server" ID="FileUpload1_c" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="nombreProducto" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -116,7 +116,7 @@
                         <asp:DropDownList ID="ddlCategoria_c" CssClass="d-inline drop" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="ddlMarca_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -131,7 +131,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnCrear" CssClass="mod" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <asp:Button ID="btnCerrar" CssClass="mod" CommandName="Cerrar" runat="server" Text="Cancelar" OnClick="cerrar" />
+                <button type="button" class="mod" id="cerrarCrear" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -143,13 +143,13 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Detalles Productos</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
                     <asp:Image ID="imgProducto_d" CssClass="m-auto" runat="server" />
                 </div>
-                
+
                 <div>
                     <label for="lblIdProducto" class="mt-2">ID:</label>
                     <asp:Label ID="lblIdProducto" runat="server"></asp:Label>
@@ -170,7 +170,7 @@
                     <label for="lblDescripciónProducto">Descripción:</label>
                     <asp:Label ID="lblDescripciónProducto" runat="server"></asp:Label>
                 </div>
-                
+
                 <div>
                     <label for="lblPrecioCompraUnidad">Precio Compra Unidad:</label>
                     <asp:Label ID="lblPrecioCompraUnidad" runat="server"></asp:Label>
@@ -190,7 +190,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -202,17 +202,17 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Producto</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                
+
                 <div class="">
                     <div>
                         <img src="" alt="" id="imgProducto_e" class="col-form-label m-auto d-block" runat="server" />
                         <asp:FileUpload ID="FileUpload1_e" CssClass="mt-2" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="inpIdProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -222,8 +222,8 @@
                         <label for="ddlCategoria_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                         <asp:DropDownList ID="ddlCategoria_e" CssClass="d-inline drop" runat="server"></asp:DropDownList>
                     </div>
-               </div>
-                
+                </div>
+
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="ddlMarca_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -234,18 +234,18 @@
                         <input type="text" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="txtDescripcionProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2 mb-2"></i></label>
                         <textarea id="txtDescripcionProducto_e" class="drop pt-2" cols="20" rows="2" runat="server"></textarea>
                     </div>
                 </div>
-                
+
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -257,7 +257,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Eliminar Producto</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -267,7 +267,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -290,13 +290,13 @@
         }
 
 
-         /*mi css*/
+        /*mi css*/
 
         .titulo {
-        text-align: center;
-        margin-bottom: 1em;
-        color: rgb(100, 47, 224);
-        font-weight: 400;
+            text-align: center;
+            margin-bottom: 1em;
+            color: rgb(100, 47, 224);
+            font-weight: 400;
         }
 
         .down {
@@ -327,7 +327,7 @@
         }
 
         tr:first-of-type {
-            background-color: rgb(119, 100, 228)!important;
+            background-color: rgb(119, 100, 228) !important;
             color: white;
             border-radius: 100px;
         }
@@ -370,14 +370,14 @@
         }
 
         /*mover paginacion a la derecha*/
-        
+
         .move {
             margin-left: 41.5rem;
             font-size: 0.7rem;
         }
 
         /*tamaño texto*/
-        
+
         .p-size {
             font-size: 0.8rem;
         }
@@ -396,103 +396,84 @@
             color: white;
         }
 
-        
+
 
         /*empleado*/
 
         .img-fix {
-
             width: 4rem;
             height: 4rem;
             border-radius: 100px;
         }
 
-        #GridView1 td{
-        
+        #GridView1 td {
             line-height: 4rem;
-        
         }
 
         /*empleado crear*/
 
 
         #vistaPreviaImagen {
-            
             background-color: darkgray;
             width: 6rem;
             height: 6rem;
         }
 
 
-        #vistaPreviaImagen img{
-        
-            width: 6rem;
-            height: 6rem;
+            #vistaPreviaImagen img {
+                width: 6rem;
+                height: 6rem;
+            }
 
-        
+        /*dropdowns*/
+
+        .drop {
+            border-radius: 5px;
+            width: 18rem;
+            height: 2.4rem !important;
+            border-color: #ced4da;
+            color: #495057;
         }
 
-       /*dropdowns*/
-
-       .drop {
-       
-           border-radius: 5px;
-           width: 18rem;
-           height: 2.4rem!important; 
-           border-color: #ced4da;
-           color: #495057;
-       }
-
-       /*empleado detalles detalles*/
+        /*empleado detalles detalles*/
 
         #imgFotografiaEmpleado {
-        
-            width:6rem;
-            height:6rem;
+            width: 6rem;
+            height: 6rem;
             border-radius: 100px;
-        
-        } 
+        }
 
         /*empleado editar*/
 
         #imgFotografiaEmpleado_e {
-        
-            width:6rem;
-            height:6rem;
-            
+            width: 6rem;
+            height: 6rem;
         }
 
         /*producto detalles*/
 
         #imgProducto_d {
-        
-            width:6rem;
-            height:6rem;
+            width: 6rem;
+            height: 6rem;
             border-radius: 100px;
-        
         }
 
         /*producto editar*/
 
         #imgProducto_e {
-        
-            width:7rem;
-            height:7rem;
+            width: 7rem;
+            height: 7rem;
             border-radius: 100px;
         }
 
 
         .success {
-        
             border-color: #2ecc71;
-        
         }
 
         .fail {
-            border-color: #e74c3c; 
+            border-color: #e74c3c;
         }
-
-
     </style>
 
     <script>
@@ -702,9 +683,6 @@
             input.css("border-color", "#2ecc71")
             input.removeClass("fail").addClass("success")
         }
-
-
-
 
     </script>
 </asp:Content>

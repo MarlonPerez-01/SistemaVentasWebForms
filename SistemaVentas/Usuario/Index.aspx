@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Usuario.Index" ClientIDMode="Static" %>
+﻿<%@ Page Title="Usuario" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Usuario.Index" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -92,7 +92,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Detalles Usuarios</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -114,7 +114,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -126,7 +126,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Usuario</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 
@@ -162,7 +162,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -174,7 +174,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Eliminar Usuario</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -184,7 +184,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -195,7 +195,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Crear Usuario</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 
@@ -224,7 +224,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnCrear" CssClass="mod" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>

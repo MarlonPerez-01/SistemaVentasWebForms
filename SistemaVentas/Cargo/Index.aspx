@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Cargo.Index" ClientIDMode="Static" %>
+﻿<%@ Page Title="Cargo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Cargo.Index" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -25,7 +25,7 @@
             <asp:GridView ID="GridView1" CssClass="table table-sm  table-striped text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="idCargo" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
                 <Columns>
 
-                    <asp:BoundField DataField="idCargo" HeaderText="ID" />
+                    <asp:BoundField DataField="idCargo" HeaderText="ID" SortExpression="idCargo"/>
                     <asp:BoundField DataField="nombreCargo" HeaderText="Cargo" />
                     <asp:BoundField DataField="salarioCargo" HeaderText="Salario" />
 
@@ -54,7 +54,7 @@
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-3 font-weight-light p-size">Mostrando del 1 al 10 de 100 clientes</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <span id="cantidadCargos" runat="server"></span> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
@@ -101,11 +101,11 @@
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpNombreCargo_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
-                        <input type="text" placeholder="Nombre cargo" class="form-control d-inline" id="inpNombreCargo_c" required="required" runat="server" />
+                        <input type="text" placeholder="Cargo" class="form-control d-inline" id="inpNombreCargo_c" runat="server" />
                     </div>
                     <div class="d-inline">
                         <label for="inpSalarioCargo_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
-                        <input type="text" placeholder="Salario" class="form-control d-inline" id="inpSalarioCargo_c" required="required" runat="server" />
+                        <input type="text" placeholder="Salario" class="form-control d-inline" id="inpSalarioCargo_c" runat="server" />
                     </div>
                 </div>
                 
@@ -168,7 +168,7 @@
                     </div>
                     <div class="d-inline">
                         <label for="inpNombreCargo_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpNombreCargo_e" runat="server" />
+                        <input type="text" class="form-control d-inline" id="inpNombreCargo_e" runat="server" placeholder="Cargo"/>
                     </div>
                 </div>
 
@@ -176,7 +176,7 @@
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpSalarioCargo_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpSalarioCargo_e" runat="server" />
+                        <input type="text" class="form-control d-inline" id="inpSalarioCargo_e" runat="server" placeholder="Salario"/>
                     </div>
                 </div>
 
@@ -200,7 +200,7 @@
             </div>
             <div class="modal-body-mio text-center">
                 <div>
-                    <label for="lblIdCargoEliminar" class="col-form-label">Está a punto de eliminar el cliente con el identificador:</label>
+                    <label for="lblIdCargoEliminar" class="col-form-label">Está a punto de eliminar el cargo con el identificador:</label>
                     <asp:Label ID="lblIdCargoEliminar" runat="server" Text=""></asp:Label>
                 </div>
             </div>

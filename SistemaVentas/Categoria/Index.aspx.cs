@@ -14,14 +14,13 @@ namespace SistemaVentas.Categoria
 {
     public partial class Categoria : System.Web.UI.Page
     {
-
         //CONEXION
         string cadenaConexion = ConfigurationManager.ConnectionStrings["conexion"].ToString();
         private int filasAfectadas { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //1 = admin || 2 = basico
+            //Validando el tipo de usuario para permitir o restrigir el acceso 1 = admin || 2 = basico
             string idTipoUsuario = Session["idTipoUsuario"] as string;
             if (idTipoUsuario == null || idTipoUsuario == "2")
             {
@@ -36,23 +35,25 @@ namespace SistemaVentas.Categoria
             }
         }
 
+        //Obteniendo el listado de categorias para el GridView principal
         protected void Bind()
         {
             var dataTable = new Crud().Seleccionar("SeleccionarCategorias");
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadCategorias.InnerText = cantidad.ToString();
+            
         }
 
+        //Obteniendo el listado de cateorias para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             Bind();
         }
 
-
-
+        //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "detalles")
@@ -110,6 +111,7 @@ namespace SistemaVentas.Categoria
             }
         }
 
+        //Insertando el valor del input correspondiente al presionar el boton crear
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -121,7 +123,7 @@ namespace SistemaVentas.Categoria
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_c.Value);
-
+                    Response.Redirect(Request.Url.ToString(), false);
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
 
@@ -134,12 +136,13 @@ namespace SistemaVentas.Categoria
                     //TODO: Mensaje de fracaso
                 }
 
-                //Limpiando el campo
+                //Limpiando el campo despues de haber usado su valor
                 inpNombreCategoria_c.Value = String.Empty;
                 Bind();
             }
         }
 
+        //Actualizando los datos del modal Actualizar
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -170,6 +173,7 @@ namespace SistemaVentas.Categoria
             ModalEditar(false);
         }
 
+        //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
@@ -194,8 +198,7 @@ namespace SistemaVentas.Categoria
             }
         }
 
-
-
+        //Metodos para Mostrar y Ocultar los Modals
         void ModalDetalles(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -256,10 +259,18 @@ namespace SistemaVentas.Categoria
             }
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
+
+        //TODO: programar el filtro
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
-            //TODO: programar el filtro
             /*
             try
             {

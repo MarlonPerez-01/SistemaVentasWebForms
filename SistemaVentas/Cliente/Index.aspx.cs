@@ -23,7 +23,8 @@ namespace SistemaVentas.Cliente
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //1 = admin || 2 = basico
+            //Validando el tipo de usuario para permitir o restrigir el acceso 1 = admin || 2 = basico
+
             string idTipoUsuario = Session["idTipoUsuario"] as string;
             if (idTipoUsuario == null)
             {
@@ -38,23 +39,24 @@ namespace SistemaVentas.Cliente
             }
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal
         protected void Bind()
         {
             var dataTable = new Crud().Seleccionar("SeleccionarClientes");
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadClientes.InnerText = cantidad.ToString();
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             Bind();
         }
 
-
-
+        //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "detalles")
@@ -123,20 +125,13 @@ namespace SistemaVentas.Cliente
             }
         }
 
+        //Mostrando Modal Crear cuando el boton CrearCliente sea presionado
         protected void btnCrearCliente_OnClick(object sender, EventArgs e)
         {
-            //Limpiando el formulario 
-            inpPrimerNombreCliente_e.Value = String.Empty;
-            inpSegundoNombreCliente_e.Value = String.Empty;
-            inpPrimerApellidoCliente_e.Value = String.Empty;
-            inpSegundoApellidoCliente_e.Value = String.Empty;
-            inpDuiCliente_e.Value = String.Empty;
-            inpNitCliente_e.Value = String.Empty;
-            inpTelefonoCliente_e.Value = String.Empty;
-
             ModalCrear(true);
         }
 
+        //Insertar el nuevo cliente al presionar el boton "Crear" del modal CrearCliente
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -155,21 +150,29 @@ namespace SistemaVentas.Cliente
                     sqlCommand.Parameters.AddWithValue("@nitCliente", inpNitCliente_c.Value);
                     sqlCommand.Parameters.AddWithValue("@telefonoCliente", inpTelefonoCliente_c.Value);
 
+                    Response.Redirect(Request.Url.ToString(), false);
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
 
                 if (filasAfectadas != 0)
                 {
                     //TODO: Mensaje exitoso
+
+                    //Limpiando el modal despues de la insercion
+                    inpPrimerNombreCliente_e.Value = String.Empty;
+                    inpSegundoNombreCliente_e.Value = String.Empty;
+                    inpPrimerApellidoCliente_e.Value = String.Empty;
+                    inpSegundoApellidoCliente_e.Value = String.Empty;
+                    inpDuiCliente_e.Value = String.Empty;
+                    inpNitCliente_e.Value = String.Empty;
+                    inpTelefonoCliente_e.Value = String.Empty;
                 }
                 else
                 {
                     //TODO: Mensaje de fracaso
                 }
 
-                var dataTable = new Crud().Seleccionar("SeleccionarClientes");
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
+                Bind();
             }
 
             ModalCrear(false);
@@ -206,13 +209,12 @@ namespace SistemaVentas.Cliente
                     //TODO: Mensaje de fracaso
                 }
 
-                var dataTable = new Crud().Seleccionar("SeleccionarClientes");
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
+                Bind();
             }
             ModalEditar(false);
         }
 
+        //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
@@ -238,7 +240,7 @@ namespace SistemaVentas.Cliente
         }
 
 
-
+        //Metodos para Mostrar y Ocultar los Modals
         void ModalDetalles(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -299,10 +301,18 @@ namespace SistemaVentas.Cliente
             }
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
+
+        //TODO: programar el filtro
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
-            //TODO: programar el filtro
             /*
             try
             {

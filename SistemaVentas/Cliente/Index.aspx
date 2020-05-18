@@ -1,28 +1,28 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Cliente.Index" ClientIDMode="Static" %>
+﻿<%@ Page Title="Cliente" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="SistemaVentas.Cliente.Index" ClientIDMode="Static" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
-     <div class="col">
-    
+
+    <div class="col">
+
         <h5 class="mt-3 d-block titulo">Listado de Clientes</h5>
-    
-        <div class="row mt-2">  
+
+        <div class="row mt-2">
             <div class="col text-left">
-                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
-                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick"/>
+                <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
+                <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>
-            
+
             <div class="col text-right">
                 <asp:LinkButton ID="btnCrearCliente" CssClass="btn btn-small btn-primary b-inline-block mr-3" runat="server" CommandName="crear" CommandArgument='<%#Eval("idCliente") %>' OnClick="btnCrearCliente_OnClick">Crear Cliente</asp:LinkButton>
             </div>
 
-        </div>  
+        </div>
 
-        
-   
+
+
         <div class="round-border mt-3">
 
-            <asp:GridView ID="GridView1" CssClass="table table-sm  table-striped text-center"  runat="server" AutoGenerateColumns="False" DataKeyNames="idCliente" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="20" OnPageIndexChanging="GridView1_OnPageIndexChanging">
+            <asp:GridView ID="GridView1" CssClass="table table-sm  table-striped text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="idCliente" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="20" OnPageIndexChanging="GridView1_OnPageIndexChanging">
                 <Columns>
 
                     <asp:BoundField DataField="idCliente" HeaderText="ID" />
@@ -59,7 +59,7 @@
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-3 font-weight-light p-size">Mostrando del 1 al 10 de 100 clientes</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <span id="cantidadClientes" runat="server"></span> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
@@ -97,11 +97,11 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Crear Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
-            
+
             <div class="modal-body-mio text-center">
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpPrimerNombreCliente_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -111,16 +111,16 @@
                         <label for="inpSegundoNombreCliente_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                         <input type="text" placeholder="Segundo nombre" class="form-control d-inline" id="inpSegundoNombreCliente_c" runat="server" />
                     </div>
-               </div>
-                
+                </div>
+
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpPrimerApellidoCliente_c" class="col-form-label"> <i class="far fa-user d-inline mr-2"></i> </label>
+                        <label for="inpPrimerApellidoCliente_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
                         <input type="text" placeholder="Primer apellido" class="form-control d-inline" id="inpPrimerApellidoCliente_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpSegundoApellidoCliente_c" class="col-form-label"> <i class="far fa-user d-inline mx-2"></i> </label>
+                        <label for="inpSegundoApellidoCliente_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                         <input type="text" placeholder="Segundo apellido" class="form-control d-inline" id="inpSegundoApellidoCliente_c" runat="server" />
                     </div>
                 </div>
@@ -128,39 +128,38 @@
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpDuiCliente_c" class="col-form-label"> <i class="far fa-user d-inline mr-2"></i> </label>
+                        <label for="inpDuiCliente_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
                         <input type="text" placeholder="DUI" class="form-control d-inline" id="inpDuiCliente_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpNitCliente_c" class="col-form-label"> <i class="far fa-user d-inline mx-2"></i> </label>
+                        <label for="inpNitCliente_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                         <input type="text" placeholder="NIT" class="form-control d-inline" id="inpNitCliente_c" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
-                    <label for="inpTelefonoCliente_c" class="col-form-label"> <i class="far fa-user d-inline mx-2"></i> </label>
+                    <label for="inpTelefonoCliente_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                     <input type="text" placeholder="Telefono" class="form-control d-inline" id="inpTelefonoCliente_c" runat="server" />
                 </div>
-            
+
             </div>
-           
 
 
             <div class="modal-footer-mio mt-5 text-center">
                 <asp:Button ID="btnCrear" CssClass="mod d-inline" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
     <!--Termina Modal Crear-->
-    
+
 
     <!--Inicia Modal Detalles-->
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Detalles Clientes</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -198,33 +197,33 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
     <!--Termina Modal Detalles-->
-    
+
 
     <!--Inicia Modal Editar-->
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpIdCliente_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpIdCliente_e" runat="server" />
+                        <input type="text" class="form-control d-inline" id="inpIdCliente_e" runat="server" readonly="readonly" />
                     </div>
                     <div class="d-inline">
                         <label for="inpPrimerNombreCliente_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpPrimerNombreCliente_e" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpSegundoNombreCliente_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -235,8 +234,8 @@
                         <input type="text" class="form-control d-inline" id="inpPrimerApellidoCliente_e" runat="server" />
                     </div>
                 </div>
-                
-                
+
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpSegundoApellidoCliente_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -247,7 +246,7 @@
                         <input type="text" class="form-control d-inline" id="inpDuiCliente_e" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpNitCliente_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -258,23 +257,23 @@
                         <input type="text" class="form-control d-inline" id="inpTelefonoCliente_e" runat="server" />
                     </div>
                 </div>
-            
+
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
     <!--Termina Modal Editar-->
 
-    
+
     <!--Inicia Modal Eliminar-->
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor text-center">
             <div class="modal-header-mio">
                 <label>Eliminar Cliente</label>
-                <a id="closebtn" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -284,7 +283,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="cerrar mod">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -309,10 +308,10 @@
         /*mi css*/
 
         .titulo {
-        text-align: center;
-        margin-bottom: 1em;
-        color: rgb(100, 47, 224);
-        font-weight: 400;
+            text-align: center;
+            margin-bottom: 1em;
+            color: rgb(100, 47, 224);
+            font-weight: 400;
         }
 
         .down {
@@ -343,7 +342,7 @@
         }
 
         tr:first-of-type {
-            background-color: rgb(119, 100, 228)!important;
+            background-color: rgb(119, 100, 228) !important;
             color: white;
             border-radius: 100px;
         }
@@ -386,14 +385,14 @@
         }
 
         /*mover paginacion a la derecha*/
-        
+
         .move {
             margin-left: 41.5rem;
             font-size: 0.7rem;
         }
 
         /*tamaño texto*/
-        
+
         .p-size {
             font-size: 0.8rem;
         }
@@ -413,17 +412,12 @@
         }
 
         .success {
-        
             border-color: #2ecc71;
-        
         }
 
         .fail {
-            border-color: #e74c3c; 
+            border-color: #e74c3c;
         }
-
-
-
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -471,14 +465,6 @@
             $('#<%=modalCrear.ClientID%>').hide();
         }
 
-        $(".cerrar").on('click', function () {
-            esconderDetalles();
-            $('#fondoModal').hide();
-            $('#<%=modalDetalles.ClientID %>').hide();
-            $('#<%=modalEliminar.ClientID %>').hide();
-            $('#<%=modalEditar.ClientID %>').hide();
-            $('#<%=modalCrear.ClientID%>').hide();
-        });
 
         //verificacion
 
@@ -658,5 +644,5 @@
         }
 
     </script>
-    
+
 </asp:Content>

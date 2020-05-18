@@ -60,6 +60,15 @@ namespace SistemaVentas.Categoria
         protected global::System.Web.UI.WebControls.Button btnCrear;
 
         /// <summary>
+        /// Control cantidadCategorias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cantidadCategorias;
+
+        /// <summary>
         /// Control modalDetalles.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace SistemaVentas.Categoria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalDetalles;
+
+        /// <summary>
+        /// Control cerrarDetallesX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarDetallesX;
 
         /// <summary>
         /// Control lblIdCategoria.
@@ -96,6 +114,15 @@ namespace SistemaVentas.Categoria
         protected global::System.Web.UI.WebControls.Button btnImprimir;
 
         /// <summary>
+        /// Control cerrarDetalles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton cerrarDetalles;
+
+        /// <summary>
         /// Control modalEditar.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace SistemaVentas.Categoria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel modalEditar;
+
+        /// <summary>
+        /// Control cerrarEditarX.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cerrarEditarX;
 
         /// <summary>
         /// Control inpIdCategoria_e.

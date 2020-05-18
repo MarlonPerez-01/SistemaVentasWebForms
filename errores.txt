@@ -1,0 +1,13 @@
+Cargo, Categoria, Clientes
+-Cierre de modals (arreglado)
+-Al refrescar la pagina el formulario realizaba otra vez la insercion de datos (arreglado)
+-"Mostrando cargos ..." ahora muestra un valor dinamico (arreglado)
+-titulo de las paginas (arreglado)
+-programar boton imprimir
+
+-restringir limite de salario en el cliente
+-Agregar placeHolder (donde sea necesario)
+-Cambiar iconos de fontawesome
+-Todos los botones con esquinas redondeadas y un poco más de padding en la parte superior en inferior, tambien mejorar los colores de hover, algunos botones no tienen estilos
+-Colocar required en todos los input (que sea necesario)
+-revisar regla validacion nit en el lado del cliente

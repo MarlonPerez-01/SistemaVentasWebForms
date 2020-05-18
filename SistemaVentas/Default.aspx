@@ -21,7 +21,7 @@
             <div class="col-6">
                 <div class="row justify-content-center align-content-center" style="height: 100vh;">
                     <div class="col-12 text-center mb-2">
-                        <h3 class="font-weight-light mb-4">Universidad Evangélica de El Salvador</h3>
+                        <h3 class="font-weight-light mb-4">E-Technology</h3>
                         <p class="lead">Bienvenido! Ingrese a Su cuenta</p>
                     </div>
                     <div class="alert alert-danger" id="alerta" role="alert" runat="server">

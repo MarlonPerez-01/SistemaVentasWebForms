@@ -47,7 +47,7 @@ namespace SistemaVentas.Cargo
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadCargos.InnerText = cantidad.ToString();
         }
 
         //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
@@ -115,13 +115,14 @@ namespace SistemaVentas.Cargo
             }
         }
 
-      
-
+        //Mostrando Modal Crear cuando el boton CrearCargo sea presionado
         protected void btnCrearCargo_OnClick(object sender, EventArgs e)
         {
             ModalCrear(true);
         }
 
+
+        //Insertar el nuevo cargo al presionar el boton "Crear" del modal CrearCargo
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -134,27 +135,32 @@ namespace SistemaVentas.Cargo
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@nombreCargo", inpNombreCargo_c.Value);
                     sqlCommand.Parameters.AddWithValue("@salarioCargo", Convert.ToDecimal(inpSalarioCargo_c.Value));
-
+                    
+                    Response.Redirect(Request.Url.ToString(), false);
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
 
                 if (filasAfectadas != 0)
                 {
                     //TODO: Mensaje exitoso
+
+                    //Limpiando el modal despues de la insercion
+                    inpNombreCargo_c.Value = String.Empty;
+                    inpSalarioCargo_c.Value = String.Empty;
                 }
                 else
                 {
                     //TODO: Mensaje de fracaso
                 }
 
-                var dataTable = new Crud().Seleccionar("SeleccionarCargos");
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
+                Bind();
             }
 
             ModalCrear(false);
+
         }
 
+        //Actualizando los datos del modal Actualizar
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -168,6 +174,7 @@ namespace SistemaVentas.Cargo
                     sqlCommand.Parameters.AddWithValue("@idCargo", inpIdCargo_e.Value);
                     sqlCommand.Parameters.AddWithValue("@nombreCargo", inpNombreCargo_e.Value);
                     sqlCommand.Parameters.AddWithValue("@salarioCargo", Convert.ToDecimal(inpSalarioCargo_e.Value));
+                    
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
 
@@ -180,13 +187,12 @@ namespace SistemaVentas.Cargo
                     //TODO: Mensaje de fracaso
                 }
 
-                var dataTable = new Crud().Seleccionar("SeleccionarCargos");
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
+                Bind();
             }
             ModalEditar(false);
         }
 
+        //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
@@ -212,7 +218,7 @@ namespace SistemaVentas.Cargo
         }
 
 
-
+        //Metodos para Mostrar y Ocultar los Modals
         void ModalDetalles(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -228,6 +234,7 @@ namespace SistemaVentas.Cargo
             }
 
         }
+
         void ModalEditar(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -273,13 +280,18 @@ namespace SistemaVentas.Cargo
             }
         }
 
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalCrear(false);
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
-      
 
-
+        //TODO: programar el filtro
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
-            //TODO: programar el filtro
             /*
             try
             {
@@ -296,12 +308,5 @@ namespace SistemaVentas.Cargo
             }*/
         }
 
-        protected void cerrarTodo(object sender, EventArgs e)
-        {
-            ModalCrear(false);
-            ModalDetalles(false);
-            ModalEliminar(false);
-            ModalEditar(false);
-        }
     }
 }

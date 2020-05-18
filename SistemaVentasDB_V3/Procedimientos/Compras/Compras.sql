@@ -14,21 +14,21 @@ AS
 	SELECT c.idCompra, CONCAT(p.primerNombreProveedor, ' ', p.primerApellidoProveedor) AS nombreProveedor, CONCAT(e.primerNombreEmpleado, ' ', e.primerApellidoEmpleado) AS nombreEmpleado, fechaCompra, horaCompra, SUM(dc.cantidadProductoComprado*dc.precioCompraUnidad) AS monto
 
 	FROM dbo.Compra AS c
-	INNER JOIN dbo.Proveedor p
-	ON c.idProveedor = p.idProveedor
-	INNER JOIN dbo.Usuario u
-	ON c.idUsuario = u.idUsuario
-	INNER JOIN dbo.Empleado e
-	ON u.idEmpleado = e.idEmpleado
-	INNER JOIN dbo.DetalleCompra dc
-	ON c.idCompra = dc.idCompra
+	INNER JOIN dbo.Proveedor p ON c.idProveedor = p.idProveedor
+	INNER JOIN dbo.Usuario u ON c.idUsuario = u.idUsuario
+	INNER JOIN dbo.Empleado e ON u.idEmpleado = e.idEmpleado
+	INNER JOIN dbo.DetalleCompra dc ON c.idCompra = dc.idCompra
 	WHERE c.estado = 1
 	GROUP BY c.idCompra, p.primerNombreProveedor, p.primerApellidoProveedor, e.primerNombreEmpleado, e.primerApellidoEmpleado, fechaCompra, horaCompra
 	
 	COMMIT
 GO
 
-
+SeleccionarCompras
+go
+SELECT v.* FROM dbo.Venta v
+SeleccionarVentas
+go
 
 /*Seleccionar Compra By Id*/
 IF OBJECT_ID('SeleccionarCompraById_e') IS NOT NULL
