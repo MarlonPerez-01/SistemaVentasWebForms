@@ -28,26 +28,6 @@ AS
 GO
 
 
-IF OBJECT_ID('SeleccionarUltimaCompra') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.SeleccionarUltimaCompra
-END
-GO
-CREATE PROCEDURE dbo.SeleccionarUltimaCompra
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-
-	SELECT TOP 1 *
-	FROM Compra
-	WHERE estado = 1
-	ORDER BY idCompra DESC
-	COMMIT
-GO
-
-
 
 IF OBJECT_ID('crud_DetalleCompraSelect') IS NOT NULL
 BEGIN
@@ -82,8 +62,7 @@ CREATE PROCEDURE dbo.InsertarDetalleCompra
 		@idProducto [int],
 		@cantidadProductoComprado [int],
 		@precioCompraUnidad [decimal](6, 2),
-		@precioVentaUnidad [decimal](6, 2),
-		@observaciones [varchar](100)
+		@precioVentaUnidad [decimal](6, 2)
 	)
 AS
 	SET NOCOUNT ON
@@ -93,7 +72,7 @@ AS
 
 	INSERT INTO dbo.DetalleCompra
 	(
-		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones
+		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad
 	)
 	VALUES
 	(
@@ -101,8 +80,7 @@ AS
 		@idProducto,
 		@cantidadProductoComprado,
 		@precioCompraUnidad,
-		@precioVentaUnidad,
-		@observaciones
+		@precioVentaUnidad
 	)
 	COMMIT
 GO

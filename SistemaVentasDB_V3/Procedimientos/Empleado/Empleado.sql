@@ -204,51 +204,6 @@ AS
 GO
 
 
-/*Actualizar Empleado*/
-IF OBJECT_ID('ActualizarEmpleado') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.ActualizarEmpleado
-END
-GO
-CREATE PROCEDURE dbo.ActualizarEmpleado
-	(
-		@idEmpleado [int],
-		@idCargo [int],
-		@primerNombreEmpleado [varchar](50),
-		@segundoNombreEmpleado [varchar](50),
-		@primerApellidoEmpleado [varchar](50),
-		@segundoApellidoEmpleado [varchar](50),
-		@duiEmpleado [varchar](10),
-		@nitEmpleado [varchar](14),
-		@fotografiaEmpleado [varbinary](max),
-		@fechaNacimientoEmpleado [date],
-		@fechaContrato [date],
-		@telefonoEmpleado [int],
-		@correoEmpleado [varchar](50),
-		@sexoEmpleado [char](1),
-		@departamentoEmpleado [varchar](50),
-		@municipioEmpleado [varchar](50),
-		@detallesDireccionEmpleado [varchar](50)
-	)
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-		UPDATE dbo.Empleado
-		SET  idCargo = @idCargo, primerNombreEmpleado = @primerNombreEmpleado, segundoNombreEmpleado = @segundoNombreEmpleado, primerApellidoEmpleado = @primerApellidoEmpleado, segundoApellidoEmpleado = @segundoApellidoEmpleado, duiEmpleado = @duiEmpleado, nitEmpleado = @nitEmpleado, fotografiaEmpleado = @fotografiaEmpleado,fechaNacimientoEmpleado = @fechaNacimientoEmpleado, fechaContrato = @fechaContrato, telefonoEmpleado = @telefonoEmpleado, correoEmpleado = @correoEmpleado, sexoEmpleado = @sexoEmpleado, departamentoEmpleado = @departamentoEmpleado,
-		municipioEmpleado = @municipioEmpleado, detallesDireccionEmpleado = @detallesDireccionEmpleado
-		WHERE idEmpleado = @idEmpleado
-	COMMIT
-GO
-
-
-
-
-
-
-
-
 
 /*Eliminar Empleado*/
 

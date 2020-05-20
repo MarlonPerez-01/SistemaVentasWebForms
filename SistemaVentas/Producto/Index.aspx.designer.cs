@@ -105,6 +105,24 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpDescripcionProducto_c;
 
         /// <summary>
+        /// Control inpPrecioProducto_c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioProducto_c;
+
+        /// <summary>
+        /// Control inpDescuentoProducto_c.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDescuentoProducto_c;
+
+        /// <summary>
         /// Control btnCrear.
         /// </summary>
         /// <remarks>

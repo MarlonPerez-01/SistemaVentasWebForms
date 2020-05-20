@@ -127,6 +127,18 @@
                         <input type="text" class="form-control d-inline" placeholder="Descripcion" id="inpDescripcionProducto_c" runat="server" />
                     </div>
                 </div>
+                
+                <div class="mt-4">
+                    <div class="d-inline">
+                        <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <input type="text" class="form-control d-inline" placeholder="Precio" id="inpPrecioProducto_c" runat="server" />
+                    </div>
+                    <div class="d-inline">
+                        <label for="inpDescuentoProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <input type="text" class="form-control d-inline" placeholder="Descuento" id="inpDescuentoProducto_c" runat="server" />
+                    </div>
+                </div>
+                
 
             </div>
             <div class="modal-footer-mio text-center mt-4">

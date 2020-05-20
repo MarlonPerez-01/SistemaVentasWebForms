@@ -62,7 +62,7 @@
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-3 font-weight-light p-size">Mostrando del 1 al 10 de 100 clientes</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <label id="cantidadEmpleados" runat="server"></label> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">

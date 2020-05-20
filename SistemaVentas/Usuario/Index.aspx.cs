@@ -43,7 +43,7 @@ namespace SistemaVentas.Usuario
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadUsuarios.InnerText = cantidad.ToString();
         }
 
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -102,8 +102,12 @@ namespace SistemaVentas.Usuario
 
                     inpIdUsuario_e.Value = dataTable.Rows[0][0].ToString();
                     inpEmpleado_e.Value = dataTable.Rows[0][1].ToString();
-                    inpNombreUsuario_e.Value = dataTable.Rows[0][2].ToString();
-                    inpContraseniaUsuario_e.Value = dataTable.Rows[0][3].ToString();
+
+                    string tipoUsuarioDB = dataTable.Rows[0][2].ToString();
+                    ddlTipoUsuario_e.SelectedIndex = ddlTipoUsuario_e.Items.IndexOf(ddlTipoUsuario_e.Items.FindByValue(tipoUsuarioDB));
+
+                    inpNombreUsuario_e.Value = dataTable.Rows[0][3].ToString();
+                    inpContraseniaUsuario_e.Value = dataTable.Rows[0][4].ToString();
                 }
                 ModalEditar(true);
             }

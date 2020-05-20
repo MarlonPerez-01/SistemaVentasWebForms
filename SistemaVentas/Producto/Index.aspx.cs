@@ -171,6 +171,8 @@ namespace SistemaVentas.Producto
                     sqlCommand.Parameters.AddWithValue("@idCategoria", ddlCategoria_c.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@idMarca", ddlMarca_c.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@nombreProducto", inpNombreProducto_c.Value);
+                    sqlCommand.Parameters.AddWithValue("@precio", inpPrecioProducto_c.Value);
+                    sqlCommand.Parameters.AddWithValue("@descuento", inpDescuentoProducto_c.Value);
                     sqlCommand.Parameters.AddWithValue("@descripcionProducto", inpDescripcionProducto_c.Value);
                     sqlCommand.Parameters.AddWithValue("@imagenProducto", SqlDbType.Image).Value = ImagenOriginal;
 

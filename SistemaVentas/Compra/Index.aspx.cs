@@ -44,7 +44,7 @@ namespace SistemaCompras.Compra
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadCompras.InnerText = cantidad.ToString();
         }
 
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -87,7 +87,7 @@ namespace SistemaCompras.Compra
                 ddlUsuarioBind_e();
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarComprasById_e", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCompraById_e", sqlConnection);
                     SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@idCompra", idCompra);

@@ -45,7 +45,7 @@ namespace SistemaVentas.Empleado
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadEmpleados.InnerText = cantidad.ToString();
         }
 
 
@@ -220,6 +220,7 @@ namespace SistemaVentas.Empleado
                     sqlCommand.Parameters.AddWithValue("@municipioEmpleado", inpMunicipioEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@detallesDireccionEmpleado", txtDetallesDireccionEmpleado_c.Value);
 
+                    Response.Redirect(Request.Url.ToString(), false);
                     sqlCommand.ExecuteNonQuery();
                 }
 

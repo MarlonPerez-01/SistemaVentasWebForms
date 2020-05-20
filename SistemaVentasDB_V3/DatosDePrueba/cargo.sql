@@ -1,19 +1,22 @@
-insert into cargo([nombreCargo]
-      ,[salarioCargo])
-values('Consejero',300)
+
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
-values('Cajero',500)
+values('Vendedor',500)
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
-values('Administrador',700)
+values('Cajero',600)
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
-values('vendedor',400)
+values('Administrador',800)
+
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
 values('organizador',500)
+
+insert into cargo([nombreCargo]
+      ,[salarioCargo])
+values('Consejero',300)

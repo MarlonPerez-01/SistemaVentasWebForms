@@ -68,7 +68,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT u.idUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, u.nombreUsuario, u.contraseniaUsuario
+	SELECT u.idUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, u.idTipoUsuario, u.nombreUsuario, u.contraseniaUsuario
 	FROM Usuario AS u
 	INNER JOIN dbo.Empleado e
 	ON u.idEmpleado = e.idEmpleado
@@ -76,7 +76,8 @@ AS
 	COMMIT
 GO
 
-
+SeleccionarUsuarioByIdEditar 1
+select * from Usuario
 
 /*Insertar Usuario*/
 

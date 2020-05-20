@@ -181,8 +181,8 @@ namespace SistemaVentas.PuntoDeCompra
 
                     sqlCommand.Parameters.AddWithValue("@idProveedor", ddlProveedor_c.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@idUsuario", ddlUsuario_c.SelectedValue);
-                    sqlCommand.Parameters.AddWithValue("@fechaCompra", inpFechaCompra.Value);
-                    sqlCommand.Parameters.AddWithValue("@horaCompra", inpHoraCompra.Value);
+                    sqlCommand.Parameters.AddWithValue("@fechaCompra", inpFechaCompra_c.Value);
+                    sqlCommand.Parameters.AddWithValue("@horaCompra", inpHoraCompra_c.Value);
 
                     Response.Redirect(Request.Url.ToString(), false);
                     string id = sqlCommand.ExecuteScalar().ToString();
@@ -218,8 +218,8 @@ namespace SistemaVentas.PuntoDeCompra
                     sqlCommand.Parameters.AddWithValue("@idDetalleCompra", Convert.ToInt32(inpIdDetalleCompra_e.Value));
                     sqlCommand.Parameters.AddWithValue("@idProducto", ddlProducto_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@cantidadProductoComprado", Convert.ToInt32(inpCantidadProductoComprado_e.Value));
-                    sqlCommand.Parameters.AddWithValue("@precioCompraUnidad", Convert.ToInt32(inpPrecioCompraUnidad_e.Value));
-                    sqlCommand.Parameters.AddWithValue("@precioVentaUnidad", Convert.ToInt32(inpPrecioVentaUnidad_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@precioCompraUnidad", Convert.ToDecimal(inpPrecioCompraUnidad_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@precioVentaUnidad", Convert.ToDecimal(inpPrecioVentaUnidad_e.Value));
                     sqlCommand.Parameters.AddWithValue("@observaciones", inpObservaciones_e.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
@@ -233,9 +233,7 @@ namespace SistemaVentas.PuntoDeCompra
                 {
                     //TODO: Mensaje de fracaso
                 }
-
-                var dataTable = new Crud().Seleccionar("SeleccionarProveedores");
-
+                BindDetalleCompra();
             }
 
             ModalEditar(false);

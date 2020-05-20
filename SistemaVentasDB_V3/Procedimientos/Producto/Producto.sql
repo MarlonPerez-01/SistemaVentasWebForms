@@ -1,3 +1,4 @@
+SELECT * FROM dbo.Producto p
 IF OBJECT_ID('SeleccionarProductoById_e') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.SeleccionarProductoById_e
@@ -11,7 +12,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idProducto, idCategoria, idMarca, nombreProducto, descripcionProducto, imagenProducto, estado
+	SELECT idProducto, idCategoria, idMarca, nombreProducto, precio, descuento, descripcionProducto, imagenProducto, estado
 	FROM dbo.Producto
 	WHERE idProducto = @idProducto AND estado = 1
 
@@ -88,7 +89,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idProducto, idCategoria, idMarca, nombreProducto, descripcionProducto, imagenProducto, estado
+	SELECT idProducto, idCategoria, idMarca, nombreProducto, precio, descuento, descripcionProducto, imagenProducto, estado
 	FROM dbo.Producto
 	WHERE idProducto = @idProducto AND estado = 1
 
@@ -137,6 +138,8 @@ CREATE PROCEDURE dbo.InsertarProducto
 		@idCategoria [int],
 		@idMarca [int],
 		@nombreProducto [varchar](100),
+		@precio [decimal](6, 2),
+		@descuento [decimal](6, 2),
 		@descripcionProducto [varchar](max),
 		@imagenProducto [varbinary](max)
 	)
@@ -148,17 +151,19 @@ AS
 
 	INSERT INTO dbo.Producto
 	(
-		idCategoria, idMarca, nombreProducto, descripcionProducto, imagenProducto
+		idCategoria, idMarca, nombreProducto, precio, descuento, descripcionProducto, imagenProducto
 	)
 	VALUES
 	(
 		@idCategoria,
 		@idMarca,
 		@nombreProducto,
+		@precio,
+		@descuento,
 		@descripcionProducto,
 		@imagenProducto
 	)
-	
+
 	COMMIT
 GO
 
