@@ -44,7 +44,7 @@ namespace SistemaVentas.Producto
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadProductos.InnerText = cantidad.ToString();
         }
 
 
@@ -79,21 +79,13 @@ namespace SistemaVentas.Producto
                     lblNombreProducto.Text = dataTable.Rows[0][3].ToString();
                     lblDescripciónProducto.Text = dataTable.Rows[0][4].ToString();
 
-                    lblPrecioCompraUnidad.Text = dataTable.Rows[0][6].ToString();
-                    lblPrecioVentaUnidad.Text = dataTable.Rows[0][7].ToString();
-                    lblObservaciones.Text = dataTable.Rows[0][8].ToString();
-                    lblStock.Text = dataTable.Rows[0][9].ToString();
-
-
-
-
-
                     byte[] img = (byte[])dataTable.Rows[0][5];
                     if (img != null && img.Length > 0)
                     {
                         imgProducto_d.ImageUrl = "data:image;base64," + Convert.ToBase64String(img);
                     }
 
+                    lblPrecio.Text = dataTable.Rows[0][6].ToString();
                 }
 
                 ModalDetalles(true);
@@ -126,14 +118,16 @@ namespace SistemaVentas.Producto
                     ddlMarca_e.SelectedIndex = ddlMarca_e.Items.IndexOf(ddlMarca_e.Items.FindByValue(marcaDB));
 
                     inpNombreProducto_e.Value = dataTable.Rows[0][3].ToString();
+                    inpPrecioProducto_e.Value = dataTable.Rows[0][4].ToString();
+                    inpDescuentoProducto_e.Value = dataTable.Rows[0][5].ToString();
+                    txtDescripcionProducto_e.Value = dataTable.Rows[0][6].ToString();
 
-                    byte[] img = (byte[])dataTable.Rows[0][5];
+                    byte[] img = (byte[])dataTable.Rows[0][7];
                     if (img != null && img.Length > 0)
                     {
                         imgProducto_e.Src = "data:image;base64," + Convert.ToBase64String(img);
                     }
 
-                    txtDescripcionProducto_e.Value = dataTable.Rows[0][4].ToString();
                 }
                 ModalEditar(true);
 
@@ -226,6 +220,8 @@ namespace SistemaVentas.Producto
                     sqlCommand.Parameters.AddWithValue("@idCategoria", ddlCategoria_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@idMarca", ddlMarca_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@nombreProducto", inpNombreProducto_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@precio", inpPrecioProducto_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@descuento", inpDescuentoProducto_e.Value);
                     sqlCommand.Parameters.AddWithValue("@descripcionProducto", txtDescripcionProducto_e.Value);
                     sqlCommand.Parameters.AddWithValue("@imagenProducto", ImagenOriginal);
 

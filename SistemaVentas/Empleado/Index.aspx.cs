@@ -210,7 +210,6 @@ namespace SistemaVentas.Empleado
                     sqlCommand.Parameters.AddWithValue("@duiEmpleado", inpDuiEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@nitEmpleado", inpNitEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@fotografiaEmpleado", ImagenOriginal);
-                    //sqlCommand.Parameters.Add("@fotografiaEmpleado", SqlDbType.Image).Value = ImagenOriginal;
                     sqlCommand.Parameters.AddWithValue("@fechaNacimientoEmpleado", inpFechaNacimientoEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@fechaContrato", inpFechaContratoEmpleado_c.Value);
                     sqlCommand.Parameters.AddWithValue("@telefonoEmpleado", inpTelefonoEmpleado_c.Value);
@@ -261,14 +260,16 @@ namespace SistemaVentas.Empleado
             FileUpload1_e.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio);
             Bitmap ImagenOriginalBinaria = new Bitmap(FileUpload1_e.PostedFile.InputStream);
 
+         
+
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
                 using (var sqlCommand = new SqlCommand("ActualizarEmpleado", sqlConnection))
                 {
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idEmpleado", inpIdEmpleado_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@idCargo", ddlCargo_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@idEmpleado", Convert.ToInt32(inpIdEmpleado_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@idCargo", Convert.ToInt32(ddlCargo_e.SelectedValue));
                     sqlCommand.Parameters.AddWithValue("@primerNombreEmpleado", inpPrimerNombreEmpleado_e.Value);
                     sqlCommand.Parameters.AddWithValue("@segundoNombreEmpleado", inpSegundoNombreEmpleado_e.Value);
                     sqlCommand.Parameters.AddWithValue("@primerApellidoEmpleado", inpPrimerApellidoEmpleado_e.Value);
@@ -276,9 +277,9 @@ namespace SistemaVentas.Empleado
                     sqlCommand.Parameters.AddWithValue("@duiEmpleado", inpDuiEmpleado_e.Value);
                     sqlCommand.Parameters.AddWithValue("@nitEmpleado", inpNitEmpleado_e.Value);
                     sqlCommand.Parameters.AddWithValue("@fotografiaEmpleado", ImagenOriginal);
-                    sqlCommand.Parameters.AddWithValue("@fechaNacimientoEmpleado", inpFechaNacimientoEmpleado_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@fechaContrato", inpFechaContrato_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@telefonoEmpleado", inpTelefonoEmpleado_e.Value);
+                    sqlCommand.Parameters.AddWithValue("@fechaNacimientoEmpleado", Convert.ToDateTime(inpFechaNacimientoEmpleado_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@fechaContrato", Convert.ToDateTime(inpFechaContrato_e.Value));
+                    sqlCommand.Parameters.AddWithValue("@telefonoEmpleado", Convert.ToInt32(inpTelefonoEmpleado_e.Value));
                     sqlCommand.Parameters.AddWithValue("@correoEmpleado", inpCorreoEmpleado_e.Value);
                     sqlCommand.Parameters.AddWithValue("@sexoEmpleado", ddlSexo_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@departamentoEmpleado", ddlDepartamento_e.SelectedValue);

@@ -25,7 +25,11 @@ AS
 GO
 
 SeleccionarCompras
-go
+GO
+SELECT c.* FROM dbo.Compra c
+
+
+
 SELECT v.* FROM dbo.Venta v
 SeleccionarVentas
 go

@@ -51,6 +51,15 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
+        /// Control cantidadProductos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cantidadProductos;
+
+        /// <summary>
         /// Control modalCrear.
         /// </summary>
         /// <remarks>
@@ -204,40 +213,13 @@ namespace SistemaVentas.Producto
         protected global::System.Web.UI.WebControls.Label lblDescripciónProducto;
 
         /// <summary>
-        /// Control lblPrecioCompraUnidad.
+        /// Control lblPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecioCompraUnidad;
-
-        /// <summary>
-        /// Control lblPrecioVentaUnidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecioVentaUnidad;
-
-        /// <summary>
-        /// Control lblObservaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblObservaciones;
-
-        /// <summary>
-        /// Control lblStock.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStock;
+        protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
         /// Control btnImprimir.
@@ -310,6 +292,24 @@ namespace SistemaVentas.Producto
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreProducto_e;
+
+        /// <summary>
+        /// Control inpPrecioProducto_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioProducto_e;
+
+        /// <summary>
+        /// Control inpDescuentoProducto_e.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpDescuentoProducto_e;
 
         /// <summary>
         /// Control txtDescripcionProducto_e.

@@ -109,7 +109,7 @@ AS
 		@idEmpleado,
 		@idTipoUsuario,
 		@nombreUsuario,
-		@contraseniaUsuario
+		HashBytes('MD5', @contraseniaUsuario)
 	)
 	COMMIT
 GO
@@ -134,10 +134,13 @@ AS
 	
 	BEGIN TRANSACTION
 		UPDATE dbo.Usuario
-		SET idTipoUsuario = @idTipoUsuario, nombreUsuario = @nombreUsuario, contraseniaUsuario = @contraseniaUsuario
+		SET idTipoUsuario = @idTipoUsuario, nombreUsuario = @nombreUsuario, contraseniaUsuario = HashBytes('MD5', @contraseniaUsuario)
 		WHERE idUsuario = @idUsuario
 	COMMIT
 GO
+
+ActualizarUsuario 3, 2, 'Carlos', 1234
+select * from Usuario
 
 
 /*Eliminar Usuario*/

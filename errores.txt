@@ -3,7 +3,14 @@ Cargo, Categoria, Clientes
 -Al refrescar la pagina el formulario realizaba otra vez la insercion de datos (arreglado)
 -"Mostrando cargos ..." ahora muestra un valor dinamico (arreglado)
 -titulo de las paginas (arreglado)
+-encriptacion contraseña desde formulario usuario (arreglado)
+-editar empleado, error en la fecha (arreglado)
+
 -programar boton imprimir
+-al actualizar form con imagen es obligatorio ingresar la imagen
+-formulario venta, compra, balance, dashboard, punto de venta y compra faltan arreglar
+
+
 
 -restringir limite de salario en el cliente
 -Agregar placeHolder (donde sea necesario)

@@ -308,6 +308,7 @@
                     <div class="d-inline">
                         <label for="inpFechaNacimientoEmpleado_e" class="col-form-label mr-2">Nacimiento:</label>
                         <input type="text" class="form-control d-inline" id="inpFechaNacimientoEmpleado_e" runat="server" />
+
                     </div>
                     <div class="d-inline">
                         <label for="inpFechaContrato_e" class="col-form-label mx-2">Contrato:</label>

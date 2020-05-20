@@ -1,4 +1,3 @@
-SELECT * FROM dbo.Producto p
 IF OBJECT_ID('SeleccionarProductoById_e') IS NOT NULL
 BEGIN
 	DROP PROCEDURE dbo.SeleccionarProductoById_e
@@ -12,7 +11,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idProducto, idCategoria, idMarca, nombreProducto, precio, descuento, descripcionProducto, imagenProducto, estado
+	SELECT idProducto, idCategoria, idMarca, nombreProducto, precio, descuento, descripcionProducto, imagenProducto
 	FROM dbo.Producto
 	WHERE idProducto = @idProducto AND estado = 1
 
@@ -60,20 +59,18 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, AVG(dc.precioCompraUnidad) AS precioCompraUnidad, AVG(dc.precioVentaUnidad) AS precioVentaUnidad, dc.observaciones, SUM(dc.cantidadProductoComprado) AS cantidadProductoComprado
+	SELECT p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, p.precio
 	FROM dbo.Producto AS p
-	INNER JOIN dbo.DetalleCompra dc
-	ON p.idProducto = dc.idProducto
 	INNER JOIN dbo.Categoria c
 	ON p.idCategoria = c.idCategoria
 	INNER JOIN dbo.Marca m
 	ON p.idMarca = m.idMarca
 
 	WHERE p.idProducto = @idProducto AND p.estado = 1
-	GROUP BY p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, dc.observaciones
 
 	COMMIT
 GO
+
 
 /*Seleccionar Productos By Id*/
 IF OBJECT_ID('SeleccionarProductoById') IS NOT NULL
@@ -179,6 +176,8 @@ CREATE PROCEDURE dbo.ActualizarProducto
 		@idCategoria [int],
 		@idMarca [int],
 		@nombreProducto [varchar](100),
+		@precio [decimal](6, 2),
+		@descuento [decimal](6, 2),
 		@descripcionProducto [varchar](max),
 		@imagenProducto [varbinary](max)
 	)
@@ -188,10 +187,12 @@ AS
 	
 	BEGIN TRANSACTION
 		UPDATE dbo.Producto
-		SET  idCategoria = @idCategoria, idMarca = @idMarca, nombreProducto = @nombreProducto, descripcionProducto = @descripcionProducto, imagenProducto = @imagenProducto
+		SET  idCategoria = @idCategoria, idMarca = @idMarca, nombreProducto = @nombreProducto, precio = @precio, descuento = @descuento, descripcionProducto = @descripcionProducto, imagenProducto = @imagenProducto
 		WHERE idProducto = @idProducto
 	COMMIT
 GO
+
+SeleccionarProductoById_e 1 
 
 /*Eliminar Producto*/
 IF OBJECT_ID('EliminarProducto') IS NOT NULL

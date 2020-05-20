@@ -57,7 +57,7 @@
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-3 font-weight-light p-size">Mostrando del 1 al 10 de 100 clientes</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <label id="cantidadProductos" runat="server"></label> registros en la base de datos</p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
@@ -184,20 +184,8 @@
                 </div>
 
                 <div>
-                    <label for="lblPrecioCompraUnidad">Precio Compra Unidad:</label>
-                    <asp:Label ID="lblPrecioCompraUnidad" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblPrecioVentaUnidad">Precio Venta Unidad:</label>
-                    <asp:Label ID="lblPrecioVentaUnidad" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblObservaciones">Observaciones:</label>
-                    <asp:Label ID="lblObservaciones" runat="server"></asp:Label>
-                </div>
-                <div>
-                    <label for="lblStock">Stock:</label>
-                    <asp:Label ID="lblStock" runat="server"></asp:Label>
+                    <label for="lblPrecio">Precio Venta:</label>
+                    <asp:Label ID="lblPrecio" runat="server"></asp:Label>
                 </div>
             </div>
             <div class="modal-footer-mio text-center">
@@ -246,6 +234,18 @@
                         <input type="text" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
                     </div>
                 </div>
+                
+                <div class="mt-3">
+                    <div class="d-inline">
+                        <label for="inpPrecioProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <input type="text" class="form-control d-inline" id="inpPrecioProducto_e" runat="server" />
+                    </div>
+                    <div class="d-inline">
+                        <label for="inpDescuentoProducto_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <input type="text" class="form-control d-inline" id="inpDescuentoProducto_e" runat="server" />
+                    </div>
+                </div>
+                
 
                 <div class="mt-3">
                     <div class="d-inline">

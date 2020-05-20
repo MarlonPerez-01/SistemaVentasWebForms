@@ -178,6 +178,7 @@ namespace SistemaVentas.Usuario
                     sqlCommand.Parameters.AddWithValue("@nombreUsuario", inpNombreUsuario_c.Value);
                     sqlCommand.Parameters.AddWithValue("@contraseniaUsuario", inpContraseniaUsuario_c.Value);
 
+                    Response.Redirect(Request.Url.ToString(), false);
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
 

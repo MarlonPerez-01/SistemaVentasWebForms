@@ -23,6 +23,7 @@ GO
  SeleccionarEmpleadoById 9
 
 
+ 
 
 
  /*SeleccionarEmpleadoById MODAL EDITAR*/
@@ -46,7 +47,7 @@ AS
 	COMMIT
 GO
 
-
+SeleccionarEmpleadoById_e 1 
 /*SELECCIONAR EMPLEADOS*/
 
 IF OBJECT_ID('SeleccionarEmpleados') IS NOT NULL
@@ -188,9 +189,9 @@ CREATE PROCEDURE dbo.ActualizarEmpleado
 		@telefonoEmpleado [int],
 		@correoEmpleado [varchar](50),
 		@sexoEmpleado [char](1),
-		@departamentoEmpleado [int],
-		@municipioEmpleado [int],
-		@detallesDireccionEmpleado [int]
+		@departamentoEmpleado [varchar](50),
+		@municipioEmpleado [varchar](50),
+		@detallesDireccionEmpleado [varchar](50)
 	)
 AS
 	SET NOCOUNT ON
