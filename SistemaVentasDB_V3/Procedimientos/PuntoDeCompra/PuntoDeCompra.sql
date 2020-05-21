@@ -124,9 +124,7 @@ CREATE PROCEDURE dbo.ActualizarDetalleCompra
 		@idDetalleCompra [int],
 		@idProducto [int],
 		@cantidadProductoComprado [int],
-		@precioCompraUnidad [decimal](6, 2),
-		@precioVentaUnidad [decimal](6, 2),
-		@observaciones [varchar](100)
+		@precioCompraUnidad [decimal](6, 2)
 	)
 AS
 	SET NOCOUNT ON
@@ -134,7 +132,7 @@ AS
 	
 	BEGIN TRANSACTION
 		UPDATE dbo.DetalleCompra
-		SET  idProducto = @idProducto, cantidadProductoComprado = @cantidadProductoComprado, precioCompraUnidad = @precioCompraUnidad, precioVentaUnidad = @precioVentaUnidad, observaciones = @observaciones
+		SET  idProducto = @idProducto, cantidadProductoComprado = @cantidadProductoComprado, precioCompraUnidad = @precioCompraUnidad
 		WHERE idDetalleCompra = @idDetalleCompra
 	COMMIT
 GO

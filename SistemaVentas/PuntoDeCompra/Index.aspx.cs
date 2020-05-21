@@ -116,8 +116,6 @@ namespace SistemaVentas.PuntoDeCompra
 
                     inpCantidadProductoComprado_e.Value = dataTable.Rows[0][2].ToString();
                     inpPrecioCompraUnidad_e.Value = dataTable.Rows[0][3].ToString();
-                    inpPrecioVentaUnidad_e.Value = dataTable.Rows[0][4].ToString();
-                    inpObservaciones_e.Value = dataTable.Rows[0][5].ToString();
 
                     ModalEditar(true);
                 }
@@ -219,8 +217,6 @@ namespace SistemaVentas.PuntoDeCompra
                     sqlCommand.Parameters.AddWithValue("@idProducto", ddlProducto_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@cantidadProductoComprado", Convert.ToInt32(inpCantidadProductoComprado_e.Value));
                     sqlCommand.Parameters.AddWithValue("@precioCompraUnidad", Convert.ToDecimal(inpPrecioCompraUnidad_e.Value));
-                    sqlCommand.Parameters.AddWithValue("@precioVentaUnidad", Convert.ToDecimal(inpPrecioVentaUnidad_e.Value));
-                    sqlCommand.Parameters.AddWithValue("@observaciones", inpObservaciones_e.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
@@ -336,8 +332,6 @@ namespace SistemaVentas.PuntoDeCompra
                     sqlCommand.Parameters.AddWithValue("@idProducto", ddlProducto_dc.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@cantidadProductoComprado", inpCantidadProductoComprado.Value);
                     sqlCommand.Parameters.AddWithValue("@precioCompraUnidad", inpPrecioCompraUnidad.Value);
-                    sqlCommand.Parameters.AddWithValue("@precioVentaUnidad", inpPrecioVentaUnidad.Value);
-                    sqlCommand.Parameters.AddWithValue("@observaciones", inpObservaciones.Value);
                     Response.Redirect(Request.Url.ToString(), false);
                     sqlCommand.ExecuteNonQuery();
                 }

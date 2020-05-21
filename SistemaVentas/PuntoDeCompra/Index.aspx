@@ -50,14 +50,6 @@
             <input id="inpPrecioCompraUnidad" runat="server" type="text" />
         </div>
         <div>
-            <label for="inpPrecioVentaUnidad">Precio Venta Unidad</label>
-            <input id="inpPrecioVentaUnidad" runat="server" type="text" />
-        </div>
-        <div>
-            <label for="inpObservaciones">Observaciones</label>
-            <input id="inpObservaciones" runat="server" type="text" />
-        </div>
-        <div>
             <asp:Button ID="btnAgregarProducto" CommandName="Agregar" runat="server" Text="Agregar" OnClick="btnAgregarProducto_OnClick" />
         </div>
     </div>
@@ -74,8 +66,6 @@
             <asp:BoundField DataField="nombreProducto" HeaderText="Producto" />
             <asp:BoundField DataField="cantidadProductoComprado" HeaderText="Cantidad" />
             <asp:BoundField DataField="precioCompraUnidad" HeaderText="Precio Compra Unidad" />
-            <asp:BoundField DataField="precioVentaUnidad" HeaderText="Precio Venta Unidad" />
-            <asp:BoundField DataField="observaciones" HeaderText="Observaciones" />
 
             <asp:TemplateField HeaderText="Editar" SortExpression="">
                 <ItemTemplate>
@@ -157,14 +147,6 @@
                 <div>
                     <label for="inpPrecioCompraUnidad_e" class="col-form-label">Precio Compra Unidad:</label>
                     <input type="text" class="form-control" id="inpPrecioCompraUnidad_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpPrecioVentaUnidad_e" class="col-form-label">Precio Venta Unidad:</label>
-                    <input type="text" class="form-control" id="inpPrecioVentaUnidad_e" runat="server" />
-                </div>
-                <div>
-                    <label for="inpObservaciones_e" class="col-form-label">Observaciones:</label>
-                    <input type="text" class="form-control" id="inpObservaciones_e" runat="server" />
                 </div>
             </div>
             <div class="modal-footer-mio">

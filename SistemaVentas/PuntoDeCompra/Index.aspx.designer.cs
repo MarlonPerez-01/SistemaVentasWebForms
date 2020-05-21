@@ -96,24 +96,6 @@ namespace SistemaVentas.PuntoDeCompra
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioCompraUnidad;
 
         /// <summary>
-        /// Control inpPrecioVentaUnidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioVentaUnidad;
-
-        /// <summary>
-        /// Control inpObservaciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpObservaciones;
-
-        /// <summary>
         /// Control btnAgregarProducto.
         /// </summary>
         /// <remarks>
@@ -238,24 +220,6 @@ namespace SistemaVentas.PuntoDeCompra
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioCompraUnidad_e;
-
-        /// <summary>
-        /// Control inpPrecioVentaUnidad_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrecioVentaUnidad_e;
-
-        /// <summary>
-        /// Control inpObservaciones_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpObservaciones_e;
 
         /// <summary>
         /// Control btnActualizar.
