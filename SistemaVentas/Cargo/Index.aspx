@@ -58,27 +58,15 @@
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+                    
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                   
+                   
                 </ul>
             </nav>
 
@@ -93,7 +81,7 @@
     <asp:Panel ID="modalCrear" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Crear Cargo</label>
+                <h5>Crear Cargo</h5>
                 <a id="cerrarCrearX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo"></a>
             </div>
             <div class="modal-body-mio text-center">
@@ -104,7 +92,7 @@
                         <input type="text" placeholder="Cargo" class="form-control d-inline" id="inpNombreCargo_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpSalarioCargo_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpSalarioCargo_c" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
                         <input type="text" placeholder="Salario" class="form-control d-inline" id="inpSalarioCargo_c" runat="server" />
                     </div>
                 </div>
@@ -112,8 +100,8 @@
             </div>
             <div>
                 <div class="modal-footer-mio text-center mt-3">
-                    <asp:Button ID="btnCrear" CssClass="mod" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                    <button type="button" class="mod" id="cerrarCrear" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                    <asp:Button ID="btnCrear" CssClass="mod btn" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
+                    <button type="button" class="mod btn" id="cerrarCrear" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
                 </div>
             </div>
         </div>
@@ -125,7 +113,7 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles Cargos</label>
+                <h5>Detalles Cargos</h5>
                 <a style="float: right; text-decoration: none" runat="server" id="cerrarDetallesX" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -143,8 +131,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+                <button type="button" class="mod btn" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -155,7 +143,7 @@
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Editar Cargo</label>
+                <h5>Editar Cargo</h5>
                 <a id="cerrarEditarX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -175,7 +163,7 @@
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpSalarioCargo_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpSalarioCargo_e" class="col-form-label"><i class="far fa-money-bill-alt d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpSalarioCargo_e" runat="server" placeholder="Salario"/>
                     </div>
                 </div>
@@ -183,8 +171,8 @@
 
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnActualizar" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" id="cerrarEditar" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" id="cerrarEditar" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -195,7 +183,7 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Eliminar Cargo</label>
+                <h5>Eliminar Cargo</h5>
                 <a id="cerrarEliminarX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -205,8 +193,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" id="cerrarEliminar" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnEliminar" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" id="cerrarEliminar" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -244,7 +232,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -329,10 +317,12 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
         .success {
@@ -342,6 +332,22 @@
         .fail {
             border-color: #e74c3c;
         }
+
+         /*pagination*/
+
+        tbody tr:last-child{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -349,6 +355,18 @@
             border: "0",
             cellpadding: "0",
             cellspacing: "0"
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector("tbody tr:last-child td a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector("tbody tr:last-child td a").click();
+            });
+
         });
 
         function mostrarDetalles() {
@@ -386,5 +404,124 @@
             $('#fondoModal').hide();
             $('#<%=modalCrear.ClientID%>').hide();
         }
+
+
+        //verificacion
+
+        var bForm = $("#btnCrear");
+        var bFormE = $("#btnActualizar")
+
+
+        var crearCargo = [$("#inpNombreCargo_c"), $("#inpSalarioCargo_c")]
+
+
+        var updaCargo = [$("#inpNombreCargo_e"), $("#inpSalarioCargo_e"), $("#inpIdCargo_e")]
+
+        bForm.on("click", function (event) {
+
+            checkInputs(crearCargo);
+
+            if (crearCargo[0].hasClass("fail") || crearCargo[1].hasClass("fail")) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+
+        bFormE.on("click", function (event) {
+
+            checkInputs(updaCargo);
+
+            if (updaCargo[0].hasClass("fail") || updaCargo[1].hasClass("fail") || updaCargo[2].hasClass("fail")) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+
+        function checkInputs(lista) {
+
+
+            var nombre = lista[0];
+            var salario = lista[1]
+            var id = lista[2];
+
+
+
+
+
+
+            //verificacion primer nombre
+
+            if (nombre.val().trim() === '') {
+                setErrorFor(nombre, "Categoria");
+            }
+            else {
+                setSuccessFor(nombre);
+            }
+
+
+            //salario
+
+            if (isGr(salario.val().trim())) {
+
+                setSuccessFor(salario);
+
+            }
+
+            else if (salario.val().trim() === '') {
+                setErrorFor(salario, "salario");
+            }
+
+            else {
+                setErrorFor(salario, "El salario es muy bajo");
+            }
+
+
+
+
+
+
+
+
+
+            // una vez se verifica todo (si uno de los elementos tiene la clase fail no se envia la form)
+
+
+
+        }
+
+        function setErrorFor(input, message) {
+            input.val("");
+            input.attr("placeholder", message)
+            input.addClass("fail")
+
+        }
+
+        function setSuccessFor(input) {
+            input.css("border-color", "#2ecc71")
+            input.removeClass("fail").addClass("success")
+        }
+
+
+        function isGr(s) {
+
+            s = parseInt(s);
+
+            if (s > 300) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+
+
+
+
     </script>
 </asp:Content>

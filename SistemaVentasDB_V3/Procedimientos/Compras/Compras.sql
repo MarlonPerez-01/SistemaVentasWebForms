@@ -30,6 +30,8 @@ SELECT c.* FROM dbo.Compra c
 
 
 
+
+
 SELECT v.* FROM dbo.Venta v
 SeleccionarVentas
 go
@@ -93,6 +95,12 @@ AS
 	SELECT SCOPE_IDENTITY()
 	COMMIT
 GO
+
+InsertarCompra 1, 1, '20190106', '1200'
+
+
+
+
 
 IF OBJECT_ID('ActualizarCompra') IS NOT NULL
 BEGIN

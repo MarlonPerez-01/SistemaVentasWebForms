@@ -18,7 +18,7 @@ namespace SistemaVentas
         protected void salir_OnServerClick(object sender, EventArgs e)
         {
             Session.Clear();
-            Response.Redirect("~/Login/Index.aspx");
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

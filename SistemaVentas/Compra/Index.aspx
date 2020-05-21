@@ -107,8 +107,6 @@
                             <asp:BoundField DataField="nombreProducto" HeaderText="Nombre Producto" />
                             <asp:BoundField DataField="cantidadProductoComprado" HeaderText="Cantidad Producto Comprado" />
                             <asp:BoundField DataField="precioCompraUnidad" HeaderText="Precio Compra Unidad" />
-                            <asp:BoundField DataField="precioCompraUnidad" HeaderText="Precio Compra Unidad" />
-                            <asp:BoundField DataField="observaciones" HeaderText="observaciones" />
                         </Columns>
                     </asp:GridView>
                 </div>

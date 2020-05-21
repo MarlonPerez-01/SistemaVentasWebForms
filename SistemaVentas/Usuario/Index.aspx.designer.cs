@@ -159,15 +159,6 @@ namespace SistemaVentas.Usuario
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpNombreUsuario_e;
 
         /// <summary>
-        /// Control inpContraseniaUsuario_e.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpContraseniaUsuario_e;
-
-        /// <summary>
         /// Control btnActualizar.
         /// </summary>
         /// <remarks>

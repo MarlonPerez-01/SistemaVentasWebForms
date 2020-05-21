@@ -151,14 +151,7 @@
                         <input type="text" class="form-control d-inline" id="inpNombreUsuario_e" runat="server" />
                     </div>
                 </div>
-            
-                <div class="mt-4">
-                    <div>
-                        <label for="inpContraseniaUsuario_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpContraseniaUsuario_e" runat="server" />
-                    </div>
-                </div>
-            
+
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />

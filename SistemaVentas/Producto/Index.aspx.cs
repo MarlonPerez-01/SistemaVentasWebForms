@@ -154,8 +154,7 @@ namespace SistemaVentas.Producto
             int tamanio = FileUpload1_c.PostedFile.ContentLength;
             byte[] ImagenOriginal = new byte[tamanio];
             FileUpload1_c.PostedFile.InputStream.Read(ImagenOriginal, 0, tamanio);
-            Bitmap ImagenOriginalBinaria = new Bitmap(FileUpload1_c.PostedFile.InputStream);
-
+            
             using (var sqlConnection = new SqlConnection(cadenaConexion))
             {
                 using (var sqlCommand = new SqlCommand("InsertarProducto", sqlConnection))
@@ -169,7 +168,8 @@ namespace SistemaVentas.Producto
                     sqlCommand.Parameters.AddWithValue("@descuento", inpDescuentoProducto_c.Value);
                     sqlCommand.Parameters.AddWithValue("@descripcionProducto", inpDescripcionProducto_c.Value);
                     sqlCommand.Parameters.AddWithValue("@imagenProducto", SqlDbType.Image).Value = ImagenOriginal;
-
+                    
+                    Response.Redirect(Request.Url.ToString(), false);
                     sqlCommand.ExecuteNonQuery();
                 }
 

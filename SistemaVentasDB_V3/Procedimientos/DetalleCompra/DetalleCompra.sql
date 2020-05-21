@@ -11,7 +11,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT dc.idCompra, dc.idDetalleCompra, p.nombreProducto, dc.cantidadProductoComprado, dc.precioCompraUnidad, dc.precioVentaUnidad, dc.observaciones
+	SELECT dc.idCompra, dc.idDetalleCompra, p.nombreProducto, dc.cantidadProductoComprado, dc.precioCompraUnidad
 	FROM DetalleCompra AS dc
 	INNER JOIN dbo.Producto p
 	ON dc.idProducto = p.idProducto
@@ -19,6 +19,8 @@ AS
 
 	COMMIT
 GO
+
+
 
 
 IF OBJECT_ID('SeleccionarDetalleCompra_e') IS NOT NULL
@@ -34,7 +36,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT idDetalleCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones
+	SELECT idDetalleCompra, idProducto, cantidadProductoComprado, precioCompraUnidad
 	FROM DetalleCompra
 	WHERE idDetalleCompra = @idDetalleCompra AND estado = 1
 
@@ -52,9 +54,7 @@ CREATE PROCEDURE dbo.InsertarDetalleCompra
 		@idCompra [int],
 		@idProducto [int],
 		@cantidadProductoComprado [int],
-		@precioCompraUnidad [decimal](6, 2),
-		@precioVentaUnidad [decimal](6, 2),
-		@observaciones [varchar](100)
+		@precioCompraUnidad [decimal](6, 2)
 	)
 AS
 	SET NOCOUNT ON
@@ -64,16 +64,14 @@ AS
 
 	INSERT INTO dbo.DetalleCompra
 	(
-		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad, precioVentaUnidad, observaciones
+		idCompra, idProducto, cantidadProductoComprado, precioCompraUnidad
 	)
 	VALUES
 	(
 		@idCompra,
 		@idProducto,
 		@cantidadProductoComprado,
-		@precioCompraUnidad,
-		@precioVentaUnidad,
-		@observaciones
+		@precioCompraUnidad
 	)
 	COMMIT
 GO

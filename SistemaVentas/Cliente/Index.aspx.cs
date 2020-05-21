@@ -178,6 +178,7 @@ namespace SistemaVentas.Cliente
             ModalCrear(false);
         }
 
+        //Actualizando Cliente
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -313,20 +314,6 @@ namespace SistemaVentas.Cliente
         //TODO: programar el filtro
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
-            /*
-            try
-            {
-                
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from cliente where primerNombreCliente like '" + txtBuscar.Text + "%'", cadenaConexion);
-                var dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                this.GridView1.DataSource = dataTable;
-                txtBuscar.Text = dataTable.Rows[0][3].ToString();
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }*/
         }
 
     }

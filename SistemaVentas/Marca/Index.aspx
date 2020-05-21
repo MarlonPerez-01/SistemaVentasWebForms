@@ -3,18 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="col">
-    
-    
+
+
         <h3 class="mt-3 d-block titulo">Listado de Marcas</h3>
 
-        <div class="row mt-2">  
+        <div class="row mt-2">
             <div class="col text-left pl-3">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>
         </div>
 
-        
+
         <div class="row">
 
             <div class="col-8 pl-4">
@@ -42,11 +42,31 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <PagerStyle HorizontalAlign="Left" CssClass="GridPager prueba" />
                     </asp:GridView>
 
                 </div>
 
             </div>
+            
+            
+            <style>
+                .prueba table {
+                    border-collapse: separate;
+                    border-spacing: 2em 0;
+                }
+                .prueba tr {
+                    
+                }
+
+                .prueba tr > td{
+                    background: #6f42c1 !important;
+                    border-radius: 10em;
+                    padding-left: 1em;
+                    padding-right: 1em;
+                    margin-left: 1em;
+                }
+            </style>
 
             <!--Inicia Modal Crear-->
             <div class="col-4 pl-5">
@@ -64,17 +84,16 @@
                     </div>
                 </div>
             </div>
-        
+
             <!--Termina Modal Crear-->
         </div>
-           
+
 
         <!--contador de botones para cambiar de index-->
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-2 font-weight-light p-size">Mostrando del 1 al 10 de 100 marcas</p>
-
+            <p class="d-inline-block ml-2 font-weight-light p-size">Han sido encontrados <span id="cantidadMarcas" runat="server"></span>registros en la base de datos</p>
             <nav class="d-inline-block text-sm-right move mr-3">
                 <ul class="pagination">
                     <li class="page-item">
@@ -102,9 +121,9 @@
             </nav>
 
         </div>
-    
+
         <div id="fondoModal"></div>
-    
+
 
 
     </div>
@@ -114,7 +133,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Detalles Marca</label>
-                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -128,7 +147,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -140,10 +159,10 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Marca</label>
-                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpIdMarca_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -158,7 +177,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-4">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -170,7 +189,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Eliminar Marca</label>
-                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -180,7 +199,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -188,7 +207,6 @@
 
 
     <style type="text/css">
-        
         #fondoModal {
             position: fixed;
             left: 0px;
@@ -203,13 +221,13 @@
             height: 100%;
         }
 
-         /*mi css*/
+        /*mi css*/
 
         .titulo {
-        text-align: center;
-        margin-bottom: 1em;
-        color: rgb(100, 47, 224);
-        font-weight: 400;
+            text-align: center;
+            margin-bottom: 1em;
+            color: rgb(100, 47, 224);
+            font-weight: 400;
         }
 
         .down {
@@ -240,7 +258,7 @@
         }
 
         tr:first-of-type {
-            background-color: rgb(119, 100, 228)!important;
+            background-color: rgb(119, 100, 228) !important;
             color: white;
             border-radius: 100px;
         }
@@ -283,14 +301,14 @@
         }
 
         /*mover paginacion a la derecha*/
-        
+
         .move {
             margin-left: 41.5rem;
             font-size: 0.7rem;
         }
 
         /*tamaño texto*/
-        
+
         .p-size {
             font-size: 0.8rem;
         }
@@ -309,11 +327,11 @@
             color: white;
         }
 
-        
+
 
         /*marca*/
 
-         .btn-small-m {
+        .btn-small-m {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 15rem;
@@ -329,15 +347,12 @@
         }
 
         .success {
-        
             border-color: #2ecc71;
-        
         }
 
         .fail {
-            border-color: #e74c3c; 
+            border-color: #e74c3c;
         }
-
     </style>
 
     <script type="text/javascript" language="javascript">

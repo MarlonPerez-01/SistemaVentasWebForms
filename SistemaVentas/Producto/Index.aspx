@@ -21,7 +21,7 @@
 
         <div class="round-border mt-3">
 
-            <asp:GridView ID="GridView1" CssClass="table table-sm  table-striped text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="idProducto" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
+            <asp:GridView ID="GridView1" CssClass="table table-sm  table-striped text-center" runat="server" AutoGenerateColumns="False" DataKeyNames="idProducto" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="5" OnPageIndexChanging="GridView1_OnPageIndexChanging">
                 <Columns>
                     <asp:BoundField DataField="idProducto" HeaderText="ID" />
                     <asp:TemplateField HeaderText="Imagen" SortExpression="">
@@ -49,15 +49,39 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                
             </asp:GridView>
-
         </div>
+
+        <style>
+
+            /*.prueba {
+                background: #2ecc71 !important;
+            }
+
+                .prueba span {
+                    color: white;
+                }
+
+                .prueba > tr td{
+                    background-color: blue !important;
+                }
+
+            .prueba > tr {
+                background-color: red !important;
+            }*/
+
+        </style>
 
         <!--contador de botones para cambiar de index-->
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <label id="cantidadProductos" runat="server"></label> registros en la base de datos</p>
+            <p class="d-inline-block ml-3 font-weight-light p-size">
+                Han sido encontrados
+                <label id="cantidadProductos" runat="server"></label>
+                registros en la base de datos
+            </p>
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
@@ -127,7 +151,7 @@
                         <input type="text" class="form-control d-inline" placeholder="Descripcion" id="inpDescripcionProducto_c" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
@@ -138,7 +162,7 @@
                         <input type="text" class="form-control d-inline" placeholder="Descuento" id="inpDescuentoProducto_c" runat="server" />
                     </div>
                 </div>
-                
+
 
             </div>
             <div class="modal-footer-mio text-center mt-4">
@@ -190,7 +214,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -202,7 +226,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Editar Producto</label>
-                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
 
@@ -234,7 +258,7 @@
                         <input type="text" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
                     </div>
                 </div>
-                
+
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="inpPrecioProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
@@ -245,7 +269,7 @@
                         <input type="text" class="form-control d-inline" id="inpDescuentoProducto_e" runat="server" />
                     </div>
                 </div>
-                
+
 
                 <div class="mt-3">
                     <div class="d-inline">
@@ -257,7 +281,7 @@
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -269,7 +293,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
                 <label>Eliminar Producto</label>
-                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
+                <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
@@ -279,7 +303,7 @@
             </div>
             <div class="modal-footer-mio text-center mt-3">
                 <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -568,133 +592,7 @@
 
         //verificacion
 
-        var bForm = $("#btnCrear");
-        var bFormE = $("#btnActualizar")
-        var imageC = $("#FileUpload1_c").val();
-        var imageE = $("#imgProducto_e").attr("src");
 
-
-        var crearProducto = [imageC, $("#inpNombreProducto_c"), $("#ddlCategoria_c"), $("#ddlMarca_c"),
-            $("#inpDescripcionProducto_c"), $("#FileUpload1_c")]
-
-
-        var updaProducto = [imageE, $("#inpNombreProducto_e"), $("#ddlCategoria_e"), $("#ddlMarca_e"),
-            $("#txtDescripcionProducto_e"), $("#imgProducto_e")]
-
-        bForm.on("click", function (event) {
-
-            checkInputs(crearProducto);
-
-            if (crearProducto[1].hasClass("fail") || crearProducto[2].hasClass("fail") || crearProducto[3].hasClass("fail") || crearProducto[4].hasClass("fail") || crearProducto[5].hasClass("fail")) {
-
-                event.preventDefault();
-
-            }
-
-        });
-
-
-        bFormE.on("click", function (event) {
-
-            checkInputs(updaProducto);
-
-            if (updaProducto[5].hasClass("fail") || updaProducto[1].hasClass("fail") || updaProducto[2].hasClass("fail") || updaProducto[3].hasClass("fail") || updaProducto[4].hasClass("fail")) {
-
-                event.preventDefault();
-
-            }
-
-        });
-
-
-        function checkInputs(lista) {
-
-
-            var imgVal = lista[0];
-            var nombre = lista[1];
-            var categoria = lista[2];
-            var marca = lista[3];
-            var descripcion = lista[4];
-            var imgPos = lista[5];
-
-
-
-            /*esto da problemas
-
-            if (id.val().trim() === '') {
-                setErrorFor(id, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(id);
-            }*/
-
-
-            //verificacion img
-
-            if (imgVal == '') {
-                setErrorFor(imgPos, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(imgPos);
-            }
-
-            //verificacion nombre
-
-            if (nombre.val().trim() == '') {
-                setErrorFor(nombre, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(nombre);
-            }
-
-            //verificacion categoria
-
-            if (categoria.val().trim() === '') {
-                setErrorFor(categoria, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(categoria);
-            }
-
-            //verificacion marca
-
-            if (marca.val().trim() === '') {
-                setErrorFor(marca, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(marca);
-            }
-
-            //verificacion descripcion
-
-            if (descripcion.val().trim() === '') {
-                setErrorFor(descripcion, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(descripcion);
-            }
-
-
-
-
-
-            // una vez se verifica todo (si uno de los elementos tiene la clase fail no se envia la form)
-
-
-
-        }
-
-        function setErrorFor(input, message) {
-            input.val("");
-            input.attr("placeholder", message)
-            input.addClass("fail")
-
-        }
-
-        function setSuccessFor(input) {
-            input.css("border-color", "#2ecc71")
-            input.removeClass("fail").addClass("success")
-        }
 
     </script>
 </asp:Content>

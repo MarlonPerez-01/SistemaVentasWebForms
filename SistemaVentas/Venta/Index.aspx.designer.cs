@@ -87,22 +87,22 @@ namespace SistemaVentas.Venta
         protected global::System.Web.UI.HtmlControls.HtmlInputText inpIdVenta_e;
 
         /// <summary>
-        /// Control ddlProveedor_e.
+        /// Control ddlCliente_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor_e;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCliente_e;
 
         /// <summary>
-        /// Control ddlUsuario_e.
+        /// Control ddlEmpleado_e.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUsuario_e;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmpleado_e;
 
         /// <summary>
         /// Control inpFechaVenta.

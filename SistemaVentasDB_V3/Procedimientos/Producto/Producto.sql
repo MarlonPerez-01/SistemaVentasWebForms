@@ -187,10 +187,13 @@ AS
 	
 	BEGIN TRANSACTION
 		UPDATE dbo.Producto
-		SET  idCategoria = @idCategoria, idMarca = @idMarca, nombreProducto = @nombreProducto, precio = @precio, descuento = @descuento, descripcionProducto = @descripcionProducto, imagenProducto = @imagenProducto
+		SET  idCategoria = @idCategoria, idMarca = @idMarca, nombreProducto = @nombreProducto, precio = @precio, descuento = @descuento, descripcionProducto = @descripcionProducto, imagenProducto = ISNULL (@imagenProducto, imagenProducto)
 		WHERE idProducto = @idProducto
 	COMMIT
 GO
+
+
+
 
 SeleccionarProductoById_e 1 
 

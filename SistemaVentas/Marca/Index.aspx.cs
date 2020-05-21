@@ -43,7 +43,7 @@ namespace SistemaVentas.Marca
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
             var cantidad = dataTable.Rows.Count;
-            txtBuscar.Text = cantidad.ToString();
+            cantidadMarcas.InnerText = cantidad.ToString();
         }
 
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)

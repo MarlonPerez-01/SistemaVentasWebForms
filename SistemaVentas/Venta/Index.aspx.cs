@@ -82,8 +82,8 @@ namespace SistemaVentas.Venta
                 GridViewRow gvrow = (GridViewRow)btnEditar.NamingContainer;
 
                 int idVenta = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
-                ddlProveedorBind_e();
-                ddlUsuarioBind_e();
+                ddlEmpleadoBind_e();
+                ddlClienteBind_e();
                 using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
                     SqlCommand sqlCommand = new SqlCommand("SeleccionarVentasById_e", sqlConnection);
@@ -94,8 +94,8 @@ namespace SistemaVentas.Venta
                     SqlDataAdapter.Fill(dataTable);
 
                     inpIdVenta_e.Value = dataTable.Rows[0][0].ToString();
-                    ddlProveedor_e.SelectedValue = dataTable.Rows[0][1].ToString();
-                    ddlUsuario_e.SelectedValue = dataTable.Rows[0][2].ToString();
+                    ddlEmpleado_e.SelectedValue = dataTable.Rows[0][1].ToString();
+                    ddlCliente_e.SelectedValue = dataTable.Rows[0][2].ToString();
                     DateTime sdate = (DateTime)dataTable.Rows[0][3];
                     inpFechaVenta.Value = sdate.ToShortDateString();
 
@@ -115,23 +115,23 @@ namespace SistemaVentas.Venta
         }
 
 
-        protected void ddlProveedorBind_e()
+        protected void ddlEmpleadoBind_e()
         {
-            var dataTable = new Crud().Seleccionar("ProveedorList");
-            ddlProveedor_e.DataSource = dataTable;
-            ddlProveedor_e.DataTextField = "nombreProveedor";
-            ddlProveedor_e.DataValueField = "idProveedor";
-            ddlProveedor_e.DataBind();
+            var dataTable = new Crud().Seleccionar("EmpleadoList");
+            ddlEmpleado_e.DataSource = dataTable;
+            ddlEmpleado_e.DataTextField = "nombreEmpleado";
+            ddlEmpleado_e.DataValueField = "idEmpleado";
+            ddlEmpleado_e.DataBind();
         }
 
 
-        protected void ddlUsuarioBind_e()
+        protected void ddlClienteBind_e()
         {
-            var dataTable = new Crud().Seleccionar("UsuarioList");
-            ddlUsuario_e.DataSource = dataTable;
-            ddlUsuario_e.DataTextField = "nombreUsuario";
-            ddlUsuario_e.DataValueField = "idUsuario";
-            ddlUsuario_e.DataBind();
+            var dataTable = new Crud().Seleccionar("ClienteList");
+            ddlCliente_e.DataSource = dataTable;
+            ddlCliente_e.DataTextField = "nombreCliente";
+            ddlCliente_e.DataValueField = "idCliente";
+            ddlCliente_e.DataBind();
         }
 
         protected void btnActualizar_OnClick(object sender, EventArgs e)
@@ -145,8 +145,8 @@ namespace SistemaVentas.Venta
                     sqlConnection.Open();
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("@idVenta", inpIdVenta_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@idProveedor", ddlProveedor_e.SelectedValue);
-                    sqlCommand.Parameters.AddWithValue("@idUsuario", ddlUsuario_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@idCliente", ddlCliente_e.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@idEmpleado", ddlEmpleado_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@fechaVenta", inpFechaVenta.Value);
                     sqlCommand.Parameters.AddWithValue("@horaVenta", inpHoraVenta.Value);
 
@@ -240,7 +240,12 @@ namespace SistemaVentas.Venta
             }
         }
 
-
+        protected void cerrarTodo(object sender, EventArgs e)
+        {
+            ModalDetalles(false);
+            ModalEliminar(false);
+            ModalEditar(false);
+        }
 
 
         protected void btnBuscar_OnClick(object sender, EventArgs e)

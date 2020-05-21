@@ -22,7 +22,8 @@ namespace SistemaVentas.Usuario
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //1 = admin || 2 = basico
+            //Validando el tipo de usuario para permitir o restrigir el acceso 1 = admin || 2 = basico
+
             string idTipoUsuario = Session["idTipoUsuario"] as string;
             if (idTipoUsuario == null || idTipoUsuario == "2")
             {
@@ -37,6 +38,7 @@ namespace SistemaVentas.Usuario
             }
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal
         protected void Bind()
         {
             var dataTable = new Crud().Seleccionar("SeleccionarUsuarios");
@@ -46,14 +48,14 @@ namespace SistemaVentas.Usuario
             cantidadUsuarios.InnerText = cantidad.ToString();
         }
 
+        //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
             Bind();
         }
 
-
-
+        //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "detalles")
@@ -107,7 +109,6 @@ namespace SistemaVentas.Usuario
                     ddlTipoUsuario_e.SelectedIndex = ddlTipoUsuario_e.Items.IndexOf(ddlTipoUsuario_e.Items.FindByValue(tipoUsuarioDB));
 
                     inpNombreUsuario_e.Value = dataTable.Rows[0][3].ToString();
-                    inpContraseniaUsuario_e.Value = dataTable.Rows[0][4].ToString();
                 }
                 ModalEditar(true);
             }
@@ -123,7 +124,6 @@ namespace SistemaVentas.Usuario
         }
 
         //DropDownlist para el modal editar
-
         protected void ddlTipoUsuarioBind_e()
         {
             var dataTable = new Crud().Seleccionar("TipoUsuarioList");
@@ -152,6 +152,7 @@ namespace SistemaVentas.Usuario
         }
 
 
+        //Mostrando Modal Crear cuando el boton CrearUsuario sea presionado
         protected void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             ddlEmpleadoBind_c();
@@ -163,6 +164,7 @@ namespace SistemaVentas.Usuario
             ModalCrear(true);
         }
 
+        //Insertar el nuevo usuario al presionar el boton "Crear" del modal CrearUsuario
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -197,6 +199,7 @@ namespace SistemaVentas.Usuario
             ModalCrear(false);
         }
 
+        //Actualizando Usuario
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
@@ -210,7 +213,6 @@ namespace SistemaVentas.Usuario
                     sqlCommand.Parameters.AddWithValue("@idUsuario", inpIdUsuario_e.Value);
                     sqlCommand.Parameters.AddWithValue("@idTipoUsuario", ddlTipoUsuario_e.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@nombreUsuario", inpNombreUsuario_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@contraseniaUsuario", inpContraseniaUsuario_e.Value);
 
                     filasAfectadas = sqlCommand.ExecuteNonQuery();
                 }
@@ -229,6 +231,7 @@ namespace SistemaVentas.Usuario
             ModalEditar(false);
         }
 
+        //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
             using (var sqlConnection = new SqlConnection(cadenaConexion))
@@ -254,7 +257,7 @@ namespace SistemaVentas.Usuario
         }
 
 
-
+        //Metodos para Mostrar y Ocultar los Modals
         void ModalDetalles(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -284,7 +287,6 @@ namespace SistemaVentas.Usuario
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "esconderEditar", builder.ToString());
             }
         }
-
         void ModalEliminar(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -299,7 +301,6 @@ namespace SistemaVentas.Usuario
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "esconderEliminar", builder.ToString());
             }
         }
-
         void ModalCrear(bool isDisplay)
         {
             StringBuilder builder = new StringBuilder();
@@ -324,9 +325,9 @@ namespace SistemaVentas.Usuario
         }
 
 
+        //TODO: programar el filtro
         protected void btnBuscar_OnClick(object sender, EventArgs e)
         {
-            //TODO: programar el filtro
         }
     }
 }

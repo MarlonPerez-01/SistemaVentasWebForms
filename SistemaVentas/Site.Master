@@ -107,9 +107,6 @@
                                     <li>
                                         <a runat="server" href="Compra/Index.aspx"><span>Compra</span></a>
                                     </li>
-                                    <li>
-                                        <a href="#"><span>Balance</span></a>
-                                    </li>
                                 </ul>
                             </li>
                             <li>
@@ -137,15 +134,7 @@
                             </li>
                             -->
                             <li>
-                                <a href="#"><i class="fas fa-cog"></i><span class="item">Configuración</span></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="#"><span>General</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>Usuario</span></a>
-                                    </li>
-                                </ul>
+                                <a runat="server" href="Configuracion/Index.aspx" ><i class="fas fa-cog"></i><span class="item">Configuración</span></a>
                             </li>
                             <li>
                                 <a id="salir" href="#" runat="server" onserverclick="salir_OnServerClick"><i class="fas fa-sign-out-alt"></i><span class="item">Salir</span></a>

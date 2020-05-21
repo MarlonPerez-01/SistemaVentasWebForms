@@ -112,6 +112,7 @@
     <Content Include="Categoria\Index.aspx" />
     <Content Include="Cliente\Index.aspx" />
     <Content Include="Compra\Index.aspx" />
+    <Content Include="Configuracion\Index.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -370,6 +371,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Compra\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard\Index.aspx.cs">

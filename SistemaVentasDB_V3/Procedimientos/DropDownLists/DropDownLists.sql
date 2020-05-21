@@ -182,3 +182,23 @@ AS
 	COMMIT
 GO
 
+
+
+/*Listado Nombre Cliente*/
+IF OBJECT_ID('ClienteList') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ClienteList
+END
+GO
+CREATE PROCEDURE dbo.ClienteList
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+	
+	BEGIN TRANSACTION
+
+	SELECT c.idCliente, CONCAT(c.primerNombreCliente, ' ', c.segundoNombreCliente) AS nombreCliente
+	FROM dbo.Cliente c
+	WHERE c.estado = 1
+	COMMIT
+GO

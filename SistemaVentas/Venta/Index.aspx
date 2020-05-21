@@ -16,7 +16,7 @@
         <Columns>
 
             <asp:BoundField DataField="idVenta" HeaderText="ID" />
-            <asp:BoundField DataField="nombreProveedor" HeaderText="Proveedor" />
+            <asp:BoundField DataField="nombreCliente" HeaderText="Cliente" />
             <asp:BoundField DataField="nombreEmpleado" HeaderText="Empleado" />
             <asp:BoundField DataField="fechaVenta" HeaderText="Fecha" />
             <asp:BoundField DataField="horaVenta" HeaderText="Hora" />
@@ -47,23 +47,21 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Detalles</label>
-                <a style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio">
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="idDetalleVenta" OnRowCommand="GridView1_OnRowCommand" AllowPaging="True" PageSize="10" OnPageIndexChanging="GridView1_OnPageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="idDetalleVenta" HeaderText="ID" />
                         <asp:BoundField DataField="nombreProducto" HeaderText="Nombre Producto" />
-                        <asp:BoundField DataField="cantidadProductoVentado" HeaderText="Cantidad Producto Ventado" />
-                        <asp:BoundField DataField="precioVentaUnidad" HeaderText="Precio Venta Unidad" />
-                        <asp:BoundField DataField="precioVentaUnidad" HeaderText="Precio Venta Unidad" />
-                        <asp:BoundField DataField="observaciones" HeaderText="observaciones" />
+                        <asp:BoundField DataField="cantidadProducto" HeaderText="Cantidad Producto Vendido" />
+                        <asp:BoundField DataField="precio" HeaderText="Precio Venta Unidad" />
                     </Columns>
                 </asp:GridView>
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnImprimir" CommandName="" runat="server" Text="Imprimir" OnClick="btnImprimir_OnClick" />
-                <button type="button" class="cerrar">Cerrar</button>
+                <button type="button" runat="server" OnServerClick="cerrarTodo">Cerrar</button>
             </div>
         </div>
     </asp:Panel>
@@ -75,7 +73,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Editar Venta</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
@@ -83,12 +81,12 @@
                     <input type="text" class="form-control" id="inpIdVenta_e" runat="server" />
                 </div>
                 <div>
-                    <label for="inpPrimerNombreVenta_e" class="col-form-label">Proveedor:</label>
-                    <asp:DropDownList ID="ddlProveedor_e" runat="server"></asp:DropDownList>
+                    <label for="ddlCliente_e" class="col-form-label">Cliente:</label>
+                    <asp:DropDownList ID="ddlCliente_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
-                    <label for="inpSegundoNombreVenta_e" class="col-form-label">Usuario:</label>
-                    <asp:DropDownList ID="ddlUsuario_e" runat="server"></asp:DropDownList>
+                    <label for="ddlEmpleado_e" class="col-form-label">Empleado:</label>
+                    <asp:DropDownList ID="ddlEmpleado_e" runat="server"></asp:DropDownList>
                 </div>
                 <div>
                     <label for="inpFechaVenta" class="col-form-label">Fecha de Venta:</label>
@@ -101,7 +99,7 @@
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnActualizar" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="cerrar">Cancelar</button>
+                <button type="button" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -113,7 +111,7 @@
         <div class="modal-contenedor">
             <div class="modal-header-mio">
                 <label>Eliminar Venta</label>
-                <a id="" style="float: right; text-decoration: none" class="cerrar">X</a>
+                <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio">
                 <div>
@@ -123,7 +121,7 @@
             </div>
             <div class="modal-footer-mio">
                 <asp:Button ID="btnEliminar" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="cerrar">Cancelar</button>
+                <button type="button" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
