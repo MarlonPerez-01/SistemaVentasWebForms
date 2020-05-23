@@ -1,83 +1,85 @@
 
 --Cantidad Vendida en dinero
+IF OBJECT_ID('obtenerCantidadVentasDinero') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.obtenerCantidadVentasDinero
+END
+GO
+CREATE PROCEDURE dbo.obtenerCantidadVentasDinero
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+
 SELECT SUM(dv.cantidadProducto * p.precio) FROM dbo.DetalleVenta dv
 INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
 
+COMMIT
+GO
+
 
 --Venta Mayor
-SELECT MAX(dv.cantidadProducto * p.precio) FROM dbo.DetalleVenta dv
+IF OBJECT_ID('obtenerVentaMayor') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.obtenerVentaMayor
+END
+GO
+CREATE PROCEDURE dbo.obtenerVentaMayor
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+
+SELECT TOP 1 SUM(dv.cantidadProducto * p.precio) AS ventaMayor
+FROM dbo.DetalleVenta dv
 INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+GROUP BY dv.idVenta
+ORDER BY ventaMayor DESC
+
+COMMIT
+GO
+
 
 
 --Cantidad de Ventas
+
+IF OBJECT_ID('obtenerCantidadVentas') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.obtenerCantidadVentas
+END
+GO
+CREATE PROCEDURE dbo.obtenerCantidadVentas
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+
 SELECT COUNT(v.idVenta) FROM dbo.Venta v
 
-
-SELECT v.* FROM dbo.Venta v
-
-SELECT Count(idVenta)
-FROM dbo.Venta v
-GROUP BY dateadd(DAY,0, datediff(day,0, v.fechaVenta)), v.idVenta
-
-Selec
-
-SELECT SUM(total) FROM invoices
-  WHERE created_at BETWEEN '2017-08-24 00:00:00' AND '2017-08-24 23:59:59';
-
-
-
-
-
-
-  
-
-
-IF OBJECT_ID('obtenerVentasPordia') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.obtenerVentasPordia
-END
-GO
-CREATE PROCEDURE dbo.obtenerVentasPordia
-	@nombreUsuario varchar(max),
-	@contraseniaUsuario varchar(max)
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-BEGIN TRANSACTION
-
-SELECT DATEPART(YEAR, fechaVenta) AS 'Anio',
-		DATEPART(MONTH, fechaVenta) AS 'Mes',
-        DATEPART(DAY, fechaVenta) AS 'Dia',
-        COUNT(*) AS 'Venta'
-FROM      Venta
-GROUP BY  DATEPART(DAY, fechaVenta),
-          DATEPART(MONTH, fechaVenta),
-          DATEPART(YEAR, fechaVenta)
-ORDER BY  'Anio',
-          'Mes',
-          'Dia'
-
-
 COMMIT
 GO
 
 
 
-
-IF OBJECT_ID('obtenerProductosMasVendidos') IS NOT NULL
+--Producto mas vendido
+IF OBJECT_ID('obtenerProductoMasVendido') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.obtenerProductosMasVendidos
+	DROP PROCEDURE dbo.obtenerProductoMasVendido
 END
 GO
-CREATE PROCEDURE dbo.obtenerProductosMasVendidos
+CREATE PROCEDURE dbo.obtenerProductoMasVendido
 
 AS
 	SET NOCOUNT ON
 	SET XACT_ABORT ON
 BEGIN TRANSACTION
 
-SELECT p.nombreProducto, dv.cantidadProducto FROM dbo.DetalleVenta dv
+SELECT TOP 1 p.nombreProducto FROM dbo.DetalleVenta dv
 INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+ORDER BY dv.cantidadProducto DESC
 
 COMMIT
 GO
@@ -85,22 +87,112 @@ GO
 obtenerProductosMasVendidos
 
 
-IF OBJECT_ID('obtenerProductosMasVendidos') IS NOT NULL
+--Cantidad Empleados
+IF OBJECT_ID('obtenerCantidadEmpleados') IS NOT NULL
 BEGIN
-	DROP PROCEDURE dbo.obtenerProductosMasVendidos
+	DROP PROCEDURE dbo.obtenerCantidadEmpleados
 END
 GO
-CREATE PROCEDURE dbo.obtenerProductosMasVendidos
+CREATE PROCEDURE dbo.obtenerCantidadEmpleados
 
 AS
 	SET NOCOUNT ON
 	SET XACT_ABORT ON
 BEGIN TRANSACTION
 
-SELECT p.nombreProducto AS PlanName, dv.cantidadProducto as PaymentAmount FROM dbo.DetalleVenta dv
-INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+SELECT COUNT(idEmpleado) AS cantidadEmpleado
+FROM empleado
+COMMIT
+GO
+
+
+--Cantidad Categorias
+IF OBJECT_ID('ObtenerCantidadCategorias') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.ObtenerCantidadCategorias
+END
+GO
+CREATE PROCEDURE dbo.ObtenerCantidadCategorias
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+
+SELECT COUNT(idCategoria) AS cantidadCategorias
+FROM dbo.Categoria
+COMMIT
+GO
+
+
+
+SELECT
+
+	(SELECT SUM(dv.cantidadProducto * p.precio) FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto) AS cantidadVendidaDinero,
+
+	(SELECT TOP 1 SUM(dv.cantidadProducto * p.precio) AS ventaMayor
+	FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+	GROUP BY dv.idVenta
+	ORDER BY ventaMayor DESC) AS ventaMayor,
+	
+	(SELECT COUNT(v.idVenta) FROM dbo.Venta v) AS cantidadVentas,
+
+	(SELECT TOP 1 p.nombreProducto FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+	ORDER BY dv.cantidadProducto DESC) AS productoMasVendido,
+
+	(SELECT COUNT(idEmpleado) AS cantidadEmpleado
+	FROM empleado) AS cantidadEmpleado,
+
+	(SELECT COUNT(idCategoria) AS cantidadCategorias
+	FROM dbo.Categoria
+	) AS cantidadCategorias
+
+
+	
+
+IF OBJECT_ID('dashboardSP') IS NOT NULL
+BEGIN
+	DROP PROCEDURE dbo.dashboardSP
+END
+GO
+CREATE PROCEDURE dbo.dashboardSP
+
+AS
+	SET NOCOUNT ON
+	SET XACT_ABORT ON
+BEGIN TRANSACTION
+
+
+SELECT
+
+	(SELECT SUM(dv.cantidadProducto * p.precio) FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto) AS cantidadVendidaDinero,
+
+	(SELECT TOP 1 SUM(dv.cantidadProducto * p.precio) AS ventaMayor
+	FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+	GROUP BY dv.idVenta
+	ORDER BY ventaMayor DESC) AS ventaMayor,
+	
+	(SELECT COUNT(v.idVenta) FROM dbo.Venta v) AS cantidadVentas,
+
+	(SELECT TOP 1 p.nombreProducto FROM dbo.DetalleVenta dv
+	INNER JOIN dbo.Producto p ON dv.idProducto = p.idProducto
+	ORDER BY dv.cantidadProducto DESC) AS productoMasVendido,
+
+	(SELECT COUNT(idEmpleado) AS cantidadEmpleado
+	FROM empleado) AS cantidadEmpleado,
+
+	(SELECT COUNT(idCategoria) AS cantidadCategorias
+	FROM dbo.Categoria
+	) AS cantidadCategorias
+
 
 COMMIT
 GO
 
-obtenerProductosMasVendidos
+
+dashboardSP
