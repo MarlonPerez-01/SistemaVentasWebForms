@@ -68,7 +68,7 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT u.idUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, u.idTipoUsuario, u.nombreUsuario, u.contraseniaUsuario
+	SELECT u.idUsuario, CONCAT(e.primerNombreEmpleado, ' ', e.segundoNombreEmpleado, ' ', e.primerApellidoEmpleado, ' ', e.segundoApellidoEmpleado) AS nombreEmpleado, u.idTipoUsuario, u.nombreUsuario
 	FROM Usuario AS u
 	INNER JOIN dbo.Empleado e
 	ON u.idEmpleado = e.idEmpleado
@@ -125,8 +125,7 @@ CREATE PROCEDURE dbo.ActualizarUsuario
 	(
 		@idUsuario [int],
 		@idTipoUsuario [int],
-		@nombreUsuario [varchar](25),
-		@contraseniaUsuario [varchar](25)
+		@nombreUsuario [varchar](25)
 	)
 AS
 	SET NOCOUNT ON
@@ -134,13 +133,10 @@ AS
 	
 	BEGIN TRANSACTION
 		UPDATE dbo.Usuario
-		SET idTipoUsuario = @idTipoUsuario, nombreUsuario = @nombreUsuario, contraseniaUsuario = HashBytes('MD5', @contraseniaUsuario)
+		SET idTipoUsuario = @idTipoUsuario, nombreUsuario = @nombreUsuario
 		WHERE idUsuario = @idUsuario
 	COMMIT
 GO
-
-ActualizarUsuario 3, 2, 'Carlos', 1234
-select * from Usuario
 
 
 /*Eliminar Usuario*/
@@ -163,3 +159,5 @@ AS
 		WHERE idUsuario = @idUsuario
 	COMMIT
 GO
+
+SELECT u.* FROM dbo.Usuario u

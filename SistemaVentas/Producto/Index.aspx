@@ -49,29 +49,11 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                
+                <PagerStyle CssClass="GridPager prueba" />
             </asp:GridView>
         </div>
 
-        <style>
-
-            /*.prueba {
-                background: #2ecc71 !important;
-            }
-
-                .prueba span {
-                    color: white;
-                }
-
-                .prueba > tr td{
-                    background-color: blue !important;
-                }
-
-            .prueba > tr {
-                background-color: red !important;
-            }*/
-
-        </style>
+        
 
         <!--contador de botones para cambiar de index-->
 
@@ -85,27 +67,15 @@
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+                    
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                   
+                    
                 </ul>
             </nav>
 
@@ -116,49 +86,49 @@
 
     <div id="fondoModal"></div>
     <!--Inicia Modal Crear-->
-    <asp:Panel ID="modalCrear" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
+    <asp:Panel ID="modalCrear" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 60%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Crear Producto</label>
+                <h5>Crear Producto</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                 <div>
                     <div>
                         <label for="FileUpload1_c" class="col-form-label mr-2">Imagen:</label>
-                        <asp:FileUpload runat="server" ID="FileUpload1_c" />
+                        <asp:FileUpload runat="server" ID="FileUpload1_c" required="required" />
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="nombreProducto" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="nombreProducto" class="col-form-label"><i class="fas fa-box-open d-inline mr-2"></i></label>
                         <input type="text" placeholder="Nombre" class="form-control d-inline" id="inpNombreProducto_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="ddlCategoria_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="ddlCategoria_c" class="col-form-label"><i class="far fa-bookmark d-inline mx-2"></i></label>
                         <asp:DropDownList ID="ddlCategoria_c" CssClass="d-inline drop" runat="server" />
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="ddlMarca_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="ddlMarca_c" class="col-form-label"><i class="far fa-bookmark d-inline mr-2"></i></label>
                         <asp:DropDownList ID="ddlMarca_c" CssClass="d-inline drop" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpDescripcionProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpDescripcionProducto_c" class="col-form-label"><i class="fas fa-box-open d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" placeholder="Descripcion" id="inpDescripcionProducto_c" runat="server" />
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" placeholder="Precio" id="inpPrecioProducto_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpDescuentoProducto_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpDescuentoProducto_c" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" placeholder="Descuento" id="inpDescuentoProducto_c" runat="server" />
                     </div>
                 </div>
@@ -166,8 +136,8 @@
 
             </div>
             <div class="modal-footer-mio text-center mt-4">
-                <asp:Button ID="btnCrear" CssClass="mod" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <button type="button" class="mod" id="cerrarCrear" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnCrear" CssClass="mod btn" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
+                <button type="button" class="mod btn" id="cerrarCrear" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -178,7 +148,7 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles Productos</label>
+                <h5>Detalles Productos</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -213,8 +183,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -222,10 +192,10 @@
 
 
     <!--Inicia Modal Editar-->
-    <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
+    <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 60%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Editar Producto</label>
+                <h5>Editar Producto</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -239,33 +209,33 @@
 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpIdProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpIdProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpIdProducto_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="ddlCategoria_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="ddlCategoria_e" class="col-form-label"><i class="far fa-bookmark d-inline mx-2"></i></label>
                         <asp:DropDownList ID="ddlCategoria_e" CssClass="d-inline drop" runat="server"></asp:DropDownList>
                     </div>
                 </div>
 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="ddlMarca_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="ddlMarca_e" class="col-form-label"><i class="far fa-bookmark d-inline mr-2"></i></label>
                         <asp:DropDownList ID="ddlMarca_e" CssClass="d-inline drop" runat="server"></asp:DropDownList>
                     </div>
                     <div class="d-inline">
-                        <label for="inpNombreProducto_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpNombreProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
                     </div>
                 </div>
 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpPrecioProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpPrecioProducto_e" class="col-form-label"><i class="far fa-money-bill-alt d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpPrecioProducto_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpDescuentoProducto_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpDescuentoProducto_e" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpDescuentoProducto_e" runat="server" />
                     </div>
                 </div>
@@ -273,15 +243,15 @@
 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="txtDescripcionProducto_e" class="col-form-label"><i class="far fa-user d-inline mr-2 mb-2"></i></label>
+                        <label for="txtDescripcionProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2 mb-2"></i></label>
                         <textarea id="txtDescripcionProducto_e" class="drop pt-2" cols="20" rows="2" runat="server"></textarea>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -292,7 +262,7 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Eliminar Producto</label>
+                <h5>Eliminar Producto</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -302,8 +272,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnEliminar" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -341,7 +311,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -426,10 +396,12 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
 
@@ -510,6 +482,29 @@
         .fail {
             border-color: #e74c3c;
         }
+
+        /*pagination*/
+
+        .prueba tr{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
     </style>
 
     <script>
@@ -541,6 +536,18 @@
             border: "0",
             cellpadding: "0",
             cellspacing: "0"
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(1) a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(2) a").click();
+            });
+
         });
 
         function mostrarDetalles() {
@@ -591,6 +598,157 @@
 
 
         //verificacion
+
+        var bForm = $("#btnCrear");
+        var bFormE = $("#btnActualizar")
+       
+        var imageE = $("#imgProducto_e").attr("src");
+
+
+        var crearProducto = [undefined, $("#inpNombreProducto_c"), $("#ddlCategoria_c"), $("#ddlMarca_c"),
+            $("#inpDescripcionProducto_c"), $("#FileUpload1_c"), $("#inpPrecioProducto_c"), $("#inpDescuentoProducto_c")]
+
+
+        var updaProducto = [imageE, $("#inpNombreProducto_e"), $("#ddlCategoria_e"), $("#ddlMarca_e"),
+            $("#txtDescripcionProducto_e"), $("#imgProducto_e"), $("#inpPrecioProducto_e"), $("#inpDescuentoProducto_e")]
+
+        bForm.on("click", function (event) {
+
+            
+            checkInputs(crearProducto);
+
+            if (crearProducto[1].hasClass("fail") || crearProducto[2].hasClass("fail") || crearProducto[3].hasClass("fail") || crearProducto[4].hasClass("fail") || crearProducto[5].hasClass("fail") || crearProducto[6].hasClass("fail"), crearProducto[7].hasClass("fail")) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+
+        bFormE.on("click", function (event) {
+
+            checkInputs(updaProducto);
+
+            if (updaProducto[5].hasClass("fail") || updaProducto[1].hasClass("fail") || updaProducto[2].hasClass("fail") || updaProducto[3].hasClass("fail") || updaProducto[4].hasClass("fail") || updaProducto[6].hasClass("fail") || updaProducto[7].hasClass("fail")) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+
+        function checkInputs(lista) {
+
+
+            var imgVal = lista[0];
+            var nombre = lista[1];
+            var categoria = lista[2];
+            var marca = lista[3];
+            var descripcion = lista[4];
+            var imgPos = lista[5];
+            var precio = lista[6];
+            var descuento = lista[7];
+
+
+
+            /*esto da problemas
+
+            if (id.val().trim() === '') {
+                setErrorFor(id, "campo obligatorio");
+            }
+            else {
+                setSuccessFor(id);
+            }*/
+
+
+            //verificacion img
+
+            if (typeof dato6 != 'undefined') {
+                if (imgVal == '') {
+                    setErrorFor(imgPos, "campo obligatorio");
+                }
+                else {
+                    setSuccessFor(imgPos);
+                }
+            }
+
+            //verificacion nombre
+
+            if (nombre.val().trim() == '') {
+                setErrorFor(nombre, "Nombre producto");
+            }
+            else {
+                setSuccessFor(nombre);
+            }
+
+            //verificacion categoria
+
+            if (categoria.val().trim() === '') {
+                setErrorFor(categoria, "Categoria");
+            }
+            else {
+                setSuccessFor(categoria);
+            }
+
+            //verificacion marca
+
+            if (marca.val().trim() === '') {
+                setErrorFor(marca, "Marca");
+            }
+            else {
+                setSuccessFor(marca);
+            }
+
+            //verificacion descripcion
+
+            if (descripcion.val().trim() === '') {
+                setErrorFor(descripcion, "Descripcion");
+            }
+            else {
+                setSuccessFor(descripcion);
+            }
+
+            //verificacion descripcion
+
+            if (precio.val().trim() === '') {
+                setErrorFor(precio, "Precio");
+            }
+            else {
+                setSuccessFor(precio);
+            }
+
+            //verificacion descripcion
+
+            if (descuento.val().trim() === '') {
+                setErrorFor(descuento, "Descuento");
+            }
+            else {
+                setSuccessFor(descuento);
+            }
+
+
+
+
+
+            // una vez se verifica todo (si uno de los elementos tiene la clase fail no se envia la form)
+
+
+
+        }
+
+        function setErrorFor(input, message) {
+            input.val("");
+            input.attr("placeholder", message)
+            input.addClass("fail")
+
+        }
+
+        function setSuccessFor(input) {
+            input.css("border-color", "#2ecc71")
+            input.removeClass("fail").addClass("success")
+        }
 
 
 

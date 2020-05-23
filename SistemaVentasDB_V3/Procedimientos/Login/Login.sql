@@ -16,9 +16,10 @@ IF EXISTS ( SELECT nombreUsuario, contraseniaUsuario
 	contraseniaUsuario=HASHBYTES('MD5', @contraseniaUsuario))
 )
 BEGIN
-	SELECT 1 AS RESULTADO, nombreUsuario, contraseniaUsuario, idTipoUsuario
-	FROM Usuario
-	WHERE nombreUsuario = @nombreUsuario AND contraseniaUsuario=HASHBYTES('MD5', @contraseniaUsuario)
+	SELECT 1 AS RESULTADO, u.nombreUsuario, u.contraseniaUsuario, u.idTipoUsuario, u.idEmpleado, e.fotografiaEmpleado
+	FROM Usuario AS u
+	INNER JOIN dbo.Empleado e ON u.idEmpleado = e.idEmpleado
+	WHERE nombreUsuario = @nombreUsuario AND contraseniaUsuario=HASHBYTES('MD5', @contraseniaUsuario) AND u.estado = 1
 END
 ELSE
 BEGIN

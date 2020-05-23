@@ -22,7 +22,7 @@ namespace SistemaVentas
             //Este codigo es para redireccionar sin loguearme, eliminar en la entrega
             Session["nombreUsuario"] = "Pedro1234";
             Session["idTipoUsuario"] = "1234";
-            Response.Redirect("/Marca/Index.aspx");
+            Response.Redirect("/Dashboard/Index.aspx");
         }
 
         protected void btnIngresar_OnClick(object sender, EventArgs e)
@@ -41,8 +41,11 @@ namespace SistemaVentas
                 connection.Close();
                 if (table.Rows[0][0].ToString() == "1")
                 {
-                    Session["nombreUsuario"] = table.Rows[0][1].ToString();
+                    Session["resultado"] = table.Rows[0][1].ToString();
+                    Session["nombreUsuario"] = table.Rows[0][2].ToString();
                     Session["idTipoUsuario"] = table.Rows[0][3].ToString();
+                    Session["idEmpleado"] = table.Rows[0][4].ToString();
+                    Session["fotografiaEmpleado"] = table.Rows[0][5].ToString();
 
                     Response.Redirect("/Dashboard/Index.aspx");
                 }

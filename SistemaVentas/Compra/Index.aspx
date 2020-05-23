@@ -47,6 +47,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerStyle CssClass="GridPager prueba" />
             </asp:GridView>
 
         </div>
@@ -60,27 +61,15 @@
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+                    
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                   
+                    
                 </ul>
             </nav>
 
@@ -95,7 +84,7 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 60%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles</label>
+                <h5>Detalles</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -112,8 +101,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnImprimir" CssClass="mod" CommandName="" runat="server" Text="Imprimir" OnClick="btnImprimir_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cerrar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" CommandName="" runat="server" Text="Imprimir" OnClick="btnImprimir_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cerrar</button>
             </div>
         </div>
     </asp:Panel>
@@ -132,22 +121,22 @@
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpIdCompra_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpIdCompra_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpIdCompra_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpPrimerNombreCompra_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpPrimerNombreCompra_e" class="col-form-label"><i class="fas fa-box-open d-inline mx-2"></i></label>
                         <asp:DropDownList ID="ddlProveedor_e" CssClass="d-inline drop" runat="server"></asp:DropDownList>
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpSegundoNombreCompra_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpSegundoNombreCompra_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2"></i></label>
                         <asp:DropDownList ID="ddlUsuario_e" CssClass="d-inline drop" runat="server"></asp:DropDownList>
                     </div>
                     <div class="d-inline">
-                        <label for="inpFechaCompra" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpFechaCompra" class="col-form-label"><i class="far fa-calendar-alt d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpFechaCompra" runat="server" />
                     </div>
                 </div>
@@ -155,7 +144,7 @@
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpHoraCompra" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpHoraCompra" class="col-form-label"><i class="far fa-clock d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpHoraCompra" runat="server" />
                     </div>
                 </div>
@@ -164,8 +153,8 @@
 
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -185,9 +174,9 @@
                     <asp:Label ID="lblIdCompraEliminar" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-            <div class="modal-footer-mio text-center">
-                <asp:Button ID="Button1" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+            <div class="modal-footer-mio text-center mt-3">
+                <asp:Button ID="Button1" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -225,7 +214,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -314,10 +303,12 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
 
@@ -337,6 +328,29 @@
         .fail {
             border-color: #e74c3c;
         }
+
+        /*pagination*/
+
+        .prueba tr{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -345,6 +359,18 @@
             border: "0",
             cellpadding: "0",
             cellspacing: "0"
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(1) a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(2) a").click();
+            });
+
         });
 
 
@@ -374,5 +400,103 @@
             $('#fondoModal').hide();
             $('#<%=modalEliminar.ClientID %>').hide();
         }
+
+        //verificacion
+
+        
+        var bFormE = $("#MainContent_btnActualizar")
+
+
+        var updaCompra = [$("#MainContent_inpIdCompra_e"), $("#MainContent_ddlProveedor_e"), $("#MainContent_ddlUsuario_e"), $("#MainContent_inpFechaCompra"),
+            $("#MainContent_inpHoraCompra")]
+
+
+        bFormE.on("click", function (event) {
+
+            checkInputs(updaCompra);
+
+            if (updaCompra[0].hasClass("fail") || updaCompra[1].hasClass("fail") || updaCompra[2].hasClass("fail") || updaCompra[3].hasClass("fail") || updaCompra[4].hasClass("fail")) {
+
+                event.preventDefault();
+
+            }
+
+        });
+
+
+        function checkInputs(lista) {
+
+
+            var id = lista[0];
+            var proveedor = lista[1];
+            var usuario = lista[2];
+            var fecha = lista[3];
+            var hora = lista[4];
+          
+
+
+            //verificacion primer nombre
+
+            if (id.val().trim() === '') {
+                setErrorFor(id, "id");
+            }
+            else {
+                setSuccessFor(id);
+            }
+
+            //verificacion segundo nombre
+
+            if (proveedor.val().trim() === '') {
+                setErrorFor(proveedor, "Proveedor");
+            }
+            else {
+                setSuccessFor(proveedor);
+            }
+
+            //verificacion primer apellido
+
+            if (usuario.val().trim() === '') {
+                setErrorFor(usuario, "Usuario");
+            }
+            else {
+                setSuccessFor(usuario);
+            }
+
+            // segundo apellido
+
+            if (fecha.val().trim() === '') {
+                setErrorFor(fecha, "Fecha");
+            }
+            else {
+                setSuccessFor(fecha);
+            }
+
+            // segundo apellido
+
+            if (hora.val().trim() === '') {
+                setErrorFor(hora, "Hora");
+            }
+            else {
+                setSuccessFor(hora);
+            }
+
+
+
+        }
+
+        function setErrorFor(input, message) {
+            input.val("");
+            input.attr("placeholder", message)
+            input.addClass("fail")
+
+        }
+
+        function setSuccessFor(input) {
+            input.css("border-color", "#2ecc71")
+            input.removeClass("fail").addClass("success")
+        }
+
+        
+
     </script>
 </asp:Content>

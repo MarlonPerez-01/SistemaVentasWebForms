@@ -42,7 +42,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                        <PagerStyle HorizontalAlign="Left" CssClass="GridPager prueba" />
+                        <PagerStyle HorizontalAlign="right" CssClass="GridPager prueba" />
                     </asp:GridView>
 
                 </div>
@@ -50,23 +50,7 @@
             </div>
             
             
-            <style>
-                .prueba table {
-                    border-collapse: separate;
-                    border-spacing: 2em 0;
-                }
-                .prueba tr {
-                    
-                }
-
-                .prueba tr > td{
-                    background: #6f42c1 !important;
-                    border-radius: 10em;
-                    padding-left: 1em;
-                    padding-right: 1em;
-                    margin-left: 1em;
-                }
-            </style>
+            
 
             <!--Inicia Modal Crear-->
             <div class="col-4 pl-5">
@@ -93,30 +77,18 @@
 
         <div class="mt-3">
 
-            <p class="d-inline-block ml-2 font-weight-light p-size">Han sido encontrados <span id="cantidadMarcas" runat="server"></span>registros en la base de datos</p>
-            <nav class="d-inline-block text-sm-right move mr-3">
+            <p class="d-inline-block ml-3 font-weight-light p-size">Han sido encontrados <span id="cantidadMarcas" runat="server"></span>registros en la base de datos</p>
+            
+            <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
+
                     <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li class="page-item active">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                    
                 </ul>
             </nav>
 
@@ -132,11 +104,11 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles Marca</label>
+                <h5>Detalles Marca</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                <div>
+                <div style="display: none">
                     <label>ID:</label>
                     <asp:Label ID="lblIdMarca" runat="server"></asp:Label>
                 </div>
@@ -146,8 +118,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -158,26 +130,26 @@
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Editar Marca</label>
+                <h5>Editar Marca</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpIdMarca_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpIdMarca_e" class="col-form-label"><i class="far fa-bookmark d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpIdMarca_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpNombreMarca_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpNombreMarca_e" class="col-form-label"><i class="far fa-bookmark d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpNombreMarca_e" runat="server" />
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer-mio text-center mt-4">
-                <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -188,7 +160,7 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Eliminar Marca</label>
+                <h5>Eliminar Marca</h5>
                 <a style="float: right; text-decoration: none" runat="server" onserverclick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -198,8 +170,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" onserverclick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnEliminar" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" runat="server" onserverclick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -236,7 +208,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -321,17 +293,19 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
 
 
         /*marca*/
 
-        .btn-small-m {
+        .btn-small-m, .btn-small-m:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 15rem;
@@ -339,7 +313,7 @@
         }
 
 
-        .btn-opc-m {
+        .btn-opc-m, .btn-opc-m:hover {
             width: 15rem;
             border: 1px solid rgb(217, 212, 212);
             border-radius: 4px;
@@ -353,6 +327,31 @@
         .fail {
             border-color: #e74c3c;
         }
+
+
+        /*pagination*/
+
+        .prueba tr{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
+
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -361,6 +360,18 @@
             border: "0",
             cellpadding: "0",
             cellspacing: "0"
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(1) a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(2) a").click();
+            });
+
         });
 
         function mostrarDetalles() {
@@ -456,7 +467,7 @@
             //verificacion primer nombre
 
             if (nombre.val().trim() === '') {
-                setErrorFor(nombre, "campo obligatorio");
+                setErrorFor(nombre, "Nombre marca");
             }
             else {
                 setSuccessFor(nombre);
@@ -466,7 +477,7 @@
             //id
 
             if (id.val().trim() === '') {
-                setErrorFor(id, "campo obligatorio");
+                setErrorFor(id, "Id marca");
             }
             else {
                 setSuccessFor(id);

@@ -42,6 +42,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <PagerStyle CssClass="GridPager prueba" />
                     </asp:GridView>
                 </div>
             </div>
@@ -78,27 +79,15 @@
 
             <nav class="d-inline-block text-sm-right move mr-3">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+                    
                     <li class="page-item active">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                    
+                    
                 </ul>
             </nav>
 
@@ -110,11 +99,11 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles Categoria</label>
+                <h5>Detalles Categoria</h5>
                 <a id="cerrarDetallesX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                <div>
+                <div style="display: none">
                     <label>ID:</label>
                     <asp:Label ID="lblIdCategoria" runat="server"></asp:Label>
                 </div>
@@ -124,8 +113,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+                <button type="button" class="mod btn" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -136,7 +125,7 @@
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Editar Categoria</label>
+                <h5>Editar Categoria</h5>
                 <a id="cerrarEditarX" style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -144,11 +133,11 @@
                 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpIdCategoria_e" class="col-form-label">ID:</label>
-                        <input type="text" class="form-control d-inline" id="inpIdCategoria_e" runat="server" />
+                        <label for="inpIdCategoria_e" class="col-form-label"><i class="far fa-user mr-2"></i></label>
+                        <input type="text" class="form-control d-inline" id="inpIdCategoria_e" runat="server" disabled="True"/>
                     </div>
                     <div class="d-inline">
-                        <label for="inpNombreCategoria_e" class="col-form-label">Categoria:</label>
+                        <label for="inpNombreCategoria_e" class="col-form-label"><i class="far fa-bookmark mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpNombreCategoria_e" runat="server" />
                     </div>
                 </div>
@@ -156,8 +145,8 @@
 
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnActualizar" CssClass="mod" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -168,7 +157,7 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Eliminar Categoria</label>
+                <h5>Eliminar Categoria</h5>
                 <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -178,8 +167,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnEliminar" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -216,7 +205,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -301,10 +290,12 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
         
@@ -394,7 +385,7 @@
 
         /*marca*/
 
-         .btn-small-m {
+         .btn-small-m, .btn-small-m:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 15rem;
@@ -419,6 +410,28 @@
             border-color: #e74c3c; 
         }
 
+        /*pagination*/
+
+        .prueba tr{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -426,6 +439,18 @@
             border: "0",
             cellpadding: "0",
             cellspacing: "0"
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(1) a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(2) a").click();
+            });
+
         });
 
         function mostrarDetalles() {
@@ -519,7 +544,7 @@
             //verificacion primer nombre
 
             if (nombre.val().trim() === '') {
-                setErrorFor(nombre, "campo obligatorio");
+                setErrorFor(nombre, "Categoria");
             }
             else {
                 setSuccessFor(nombre);

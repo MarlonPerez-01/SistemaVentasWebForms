@@ -53,6 +53,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerStyle CssClass="GridPager prueba" />
             </asp:GridView>
 
         </div>
@@ -66,27 +67,15 @@
 
             <nav class="d-inline-block text-sm-right move">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
+                    
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">1</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link border rounded-circle ml-1" href="#">2</a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle mx-1" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle" href="#">
-                            <span>&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
+                   
+                    
                 </ul>
             </nav>
 
@@ -100,7 +89,7 @@
     <asp:Panel ID="modalCrear" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 1vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,1vw); -moz-transform: translate(-50%,1vw); -ms-transform: translate(-50%,1vw); -o-transform: translate(-50%,1vw); transform: translate(-50%,1vw); width: 80%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Crear Empleado</label>
+                <h5>Crear Empleado</h5>
                 <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -142,18 +131,18 @@
                         <input type="text" placeholder="Segundo apellido" class="form-control d-inline" id="inpSegundoApellidoEmpleado_c" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpDuiEmpleado_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpDuiEmpleado_c" class="col-form-label"><i class="far fa-address-card d-inline mx-2"></i></label>
                         <input type="text" placeholder="DUI" class="form-control d-inline" id="inpDuiEmpleado_c" runat="server" />
                     </div>
                      <div class="d-inline">
-                        <label for="inpTelefonoEmpleado_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpTelefonoEmpleado_c" class="col-form-label"><i class="fas fa-mobile-alt d-inline mx-2"></i></label>
                         <input type="tel" placeholder="Telefono" class="form-control d-inline" id="inpTelefonoEmpleado_c" runat="server" />
                     </div>
                 </div>
                 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpNitEmpleado_c" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpNitEmpleado_c" class="col-form-label"><i class="far fa-address-card d-inline mr-2"></i></label>
                         <input type="text" placeholder="NIT" class="form-control d-inline" id="inpNitEmpleado_c" runat="server" />
                     </div>
                     <div class="d-inline">
@@ -166,7 +155,7 @@
                         </asp:DropDownList>
                     </div>
                     <div class="d-inline">
-                        <label for="inpCorreoEmpleado_c" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpCorreoEmpleado_c" class="col-form-label"><i class="far fa-envelope d-inline mx-2"></i></label>
                         <input type="email" placeholder="Correo" class="form-control d-inline" id="inpCorreoEmpleado_c" runat="server" />
                     </div>
                 </div>
@@ -174,7 +163,7 @@
                 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="ddlDepartamento_c"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="ddlDepartamento_c"><i class="far fa-map d-inline mr-2"></i></label>
                         <asp:DropDownList runat="server" CssClass="d-inline drop" AppendDataBoundItems="true" ID="ddlDepartamento_c">
                             <Items>
                                 <asp:ListItem Text="Ahuachapán" Value="Ahuachapán"/>
@@ -194,7 +183,7 @@
                         </asp:DropDownList>
                     </div>
                     <div class="d-inline">
-                        <label for="inpMunicipioEmpleado_c"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpMunicipioEmpleado_c"><i class="far fa-map d-inline mx-2"></i></label>
                         <input type="text" placeholder="Municipio" class="form-control d-inline" id="inpMunicipioEmpleado_c" runat="server" />
                     </div>
                     <div class="d-inline">
@@ -205,7 +194,7 @@
 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="txtDetallesDireccionEmpleado_c" class="col-form-label"><i class="far fa-user d-inline mx-2 mb-3"></i></label>
+                        <label for="txtDetallesDireccionEmpleado_c" class="col-form-label"><i class="far fa-map d-inline mx-2 mb-3"></i></label>
                         <textarea  runat="server" placeholder="Detalles direcccion" class="form-control d-inline drop" id="txtDetallesDireccionEmpleado_c" cols="20" rows="2"></textarea>
                     </div>
                 </div>
@@ -213,8 +202,8 @@
             </div>
             <div class="modal-footer-mio text-center">
                 
-                <asp:Button ID="btnCrear" CssClass="mod" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnCrear" CssClass="mod btn" CommandName="Crear" runat="server" Text="Crear" OnClick="btnCrear_OnClick" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
 
         </div>
@@ -226,14 +215,14 @@
     <asp:Panel ID="modalDetalles" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 1vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,1vw); -moz-transform: translate(-50%,1vw); -ms-transform: translate(-50%,1vw); -o-transform: translate(-50%,1vw); transform: translate(-50%,1vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Detalles Empleados</label>
+                <h5>Detalles Empleados</h5>
                 <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
                  <div>
                     <asp:Image ID="imgFotografiaEmpleado" CssClass="m-auto" runat="server" />
                 </div>
-                <div>
+                <div style="display: none">
                     <label for="lblIdEmpleado" class="mt-2">ID:</label>
                     <asp:Label ID="lblIdEmpleado" runat="server"></asp:Label>
                 </div>
@@ -280,8 +269,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnImprimir" CssClass="mod" runat="server" Text="Imprimir" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -292,7 +281,7 @@
     <asp:Panel ID="modalEditar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 1vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,1vw); -moz-transform: translate(-50%,1vw); -ms-transform: translate(-50%,1vw); -o-transform: translate(-50%,1vw); transform: translate(-50%,1vw); width: 80%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Editar Empleado</label>
+                <h5>Editar Empleado</h5>
                 <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -349,15 +338,15 @@
                 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpDuiEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpDuiEmpleado_e" class="col-form-label"><i class="far fa-address-card d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpDuiEmpleado_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpNitEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpNitEmpleado_e" class="col-form-label"><i class="far fa-address-card d-inline mx-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpNitEmpleado_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="ddlDepartamento_e"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="ddlDepartamento_e"><i class="far fa-map d-inline mx-2"></i></label>
                         <asp:DropDownList runat="server" CssClass="d-inline drop" AppendDataBoundItems="true" ID="ddlDepartamento_e">
                             <Items>
                                 <asp:ListItem Text="Ahuachapán" Value="Ahuachapán"/>
@@ -380,18 +369,18 @@
                 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpMunicipioEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpMunicipioEmpleado_e" class="col-form-label"><i class="far fa-map d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" id="inpMunicipioEmpleado_e" runat="server" />
                     </div>
                     <div class="d-inline">
-                        <label for="inpTelefonoEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mx-2"></i></label>
+                        <label for="inpTelefonoEmpleado_e" class="col-form-label"><i class="fas fa-mobile-alt d-inline mx-2"></i></label>
                         <input type="tel" class="form-control d-inline" id="inpTelefonoEmpleado_e" runat="server" />
                     </div>
                 </div>
                 
                 <div class="mt-3">
                     <div class="d-inline">
-                        <label for="inpCorreoEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mr-2"></i></label>
+                        <label for="inpCorreoEmpleado_e" class="col-form-label"><i class="far fa-envelope d-inline mr-2"></i></label>
                         <input type="email" class="form-control d-inline" id="inpCorreoEmpleado_e" runat="server" />
                     </div>
                     <div class="d-inline">
@@ -407,7 +396,7 @@
                 
                 <div class="mt-3">
                     <div>
-                        <label for="txtDetallesDireccionEmpleado_e" class="col-form-label"><i class="far fa-user d-inline mr-2 mb-2"></i></label>
+                        <label for="txtDetallesDireccionEmpleado_e" class="col-form-label"><i class="far fa-map d-inline mr-2 mb-2"></i></label>
                         <textarea runat="server" id="txtDetallesDireccionEmpleado_e" cols="20" rows="2" class="form-control d-inline drop"></textarea>
                     </div>
                 </div>
@@ -415,8 +404,8 @@
 
             </div>
             <div class="modal-footer-mio text-center">
-                <asp:Button ID="btnActualizar" CssClass="mod" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnActualizar" CssClass="mod btn" CommandName="" runat="server" Text="Actualizar" OnClick="btnActualizar_OnClick" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -427,7 +416,7 @@
     <asp:Panel ID="modalEliminar" runat="server" BackColor="White" Style="z-index: 111; background-color: White; position: fixed; top: 2vw; left: 50%; width: auto; height: auto; -webkit-transform: translate(-50%,2vw); -moz-transform: translate(-50%,2vw); -ms-transform: translate(-50%,2vw); -o-transform: translate(-50%,2vw); transform: translate(-50%,2vw); width: 50%; border-radius: 1em; padding: 1em; display: none">
         <div class="modal-contenedor">
             <div class="modal-header-mio text-center">
-                <label>Eliminar Empleado</label>
+                <h5>Eliminar Empleado</h5>
                 <a style="float: right; text-decoration: none" runat="server" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
@@ -437,8 +426,8 @@
                 </div>
             </div>
             <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnEliminar" CssClass="mod" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
-                <button type="button" class="mod" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
+                <asp:Button ID="btnEliminar" CssClass="mod btn" CommandName="" runat="server" Text="Eliminar" OnClick="btnEliminar_OnClick" />
+                <button type="button" class="mod btn" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>
     </asp:Panel>
@@ -475,7 +464,7 @@
 
         /*crear nuevo*/
 
-        .btn-small {
+        .btn-small, .btn-small:hover {
             background-color: rgb(119, 100, 228);
             font-size: 0.7rem;
             width: 8rem;
@@ -560,10 +549,12 @@
             margin-left: 50%;
         }
 
-        .mod {
+        .mod, .mod:hover {
             background-color: rgb(119, 100, 228);
             width: 15rem;
             color: white;
+            border-radius: 4px;
+            border: 1px solid rgb(119, 100, 228);
         }
 
         
@@ -643,6 +634,28 @@
         }
 
 
+        /*pagination*/
+
+        .prueba tr{
+        
+            display: none;
+        
+        }
+
+        /*detalles*/
+
+        #modalDetalles label {
+        
+            font-weight: bold;
+        
+        }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
     </style>
 
     <script>
@@ -675,6 +688,20 @@
             cellpadding: "0",
             cellspacing: "0"
         });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            $(".pagination li:nth-child(1)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(1) a").click();
+            });
+
+            $(".pagination li:nth-child(2)").on("click", function () {
+                document.querySelector(".prueba td:nth-child(2) a").click();
+            });
+
+        });
+
 
         function mostrarDetalles() {
             $('#fondoModal').show();

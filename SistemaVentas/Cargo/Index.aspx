@@ -117,7 +117,7 @@
                 <a style="float: right; text-decoration: none" runat="server" id="cerrarDetallesX" OnServerClick="cerrarTodo">X</a>
             </div>
             <div class="modal-body-mio text-center">
-                <div>
+                <div style="display: none">
                     <label>ID:</label>
                     <asp:Label ID="lblIdCargo" runat="server"></asp:Label>
                 </div>
@@ -335,7 +335,7 @@
 
          /*pagination*/
 
-        tbody tr:last-child{
+        .prueba tr{
         
             display: none;
         
@@ -348,6 +348,13 @@
             font-weight: bold;
         
         }
+
+        .prueba td {
+        
+            background-color: white!important;
+        
+        }
+
     </style>
 
     <script type="text/javascript" language="javascript">
@@ -360,11 +367,11 @@
         document.addEventListener('DOMContentLoaded', function () {
 
             $(".pagination li:nth-child(1)").on("click", function () {
-                document.querySelector("tbody tr:last-child td a").click();
+                document.querySelector(".prueba td:nth-child(1) a").click();
             });
 
             $(".pagination li:nth-child(2)").on("click", function () {
-                document.querySelector("tbody tr:last-child td a").click();
+                document.querySelector(".prueba td:nth-child(2) a").click();
             });
 
         });
