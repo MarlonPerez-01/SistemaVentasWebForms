@@ -15,21 +15,21 @@ namespace SistemaVentas.Configuracion
     {
 
         /// <summary>
-        /// Control inpPrimerNombreCliente_c.
+        /// Control inpContraseniaAntigua.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpPrimerNombreCliente_c;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpContraseniaAntigua;
 
         /// <summary>
-        /// Control inpSegundoNombreCliente_c.
+        /// Control inpContraseniaNueva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inpSegundoNombreCliente_c;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inpContraseniaNueva;
     }
 }

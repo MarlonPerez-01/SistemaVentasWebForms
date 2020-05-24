@@ -95,33 +95,6 @@ GO
 
 
 
-/*SELECCIONAR PRODUCTOS2*/
-IF OBJECT_ID('SeleccionarProductos2') IS NOT NULL
-BEGIN
-	DROP PROCEDURE dbo.SeleccionarProductos2
-END
-GO
-CREATE PROCEDURE dbo.SeleccionarProductos2
-
-AS
-	SET NOCOUNT ON
-	SET XACT_ABORT ON
-	
-	BEGIN TRANSACTION
-
-	SELECT p.idProducto, p.imagenProducto, p.nombreProducto, m.nombreMarca, c.nombreCategoria, dc.precioVentaUnidad
-	FROM dbo.Producto AS p
-	INNER JOIN dbo.Marca m
-	ON p.idMarca = m.idMarca
-	INNER JOIN dbo.Categoria c
-	ON p.idCategoria = c.idCategoria
-	INNER JOIN dbo.DetalleCompra dc
-	ON p.idProducto = dc.idProducto
-
-	WHERE p.estado = 1
-
-	COMMIT
-GO
 
 
 /*INSERTAR PRODUCTOS*/
@@ -191,11 +164,6 @@ AS
 		WHERE idProducto = @idProducto
 	COMMIT
 GO
-
-
-
-
-SeleccionarProductoById_e 1 
 
 /*Eliminar Producto*/
 IF OBJECT_ID('EliminarProducto') IS NOT NULL

@@ -15,8 +15,8 @@ values('Administrador',800)
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
-values('organizador',500)
+values('Organizador',500)
 
 insert into cargo([nombreCargo]
       ,[salarioCargo])
-values('Consejero',300)
+values('Conserje',300)

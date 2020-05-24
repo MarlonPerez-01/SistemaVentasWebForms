@@ -38,19 +38,35 @@ namespace SistemaVentas.Categoria
         //Obteniendo el listado de categorias para el GridView principal
         protected void Bind()
         {
-            var dataTable = new Crud().Seleccionar("SeleccionarCategorias");
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
-            var cantidad = dataTable.Rows.Count;
-            cantidadCategorias.InnerText = cantidad.ToString();
-            
+            try
+            {
+                var dataTable = new Crud().Seleccionar("SeleccionarCategorias");
+                GridView1.DataSource = dataTable;
+                GridView1.DataBind();
+                var cantidad = dataTable.Rows.Count;
+                cantidadCategorias.InnerText = cantidad.ToString();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         //Obteniendo el listado de cateorias para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
-            Bind();
+            try
+            {
+                Bind();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
@@ -63,17 +79,25 @@ namespace SistemaVentas.Categoria
 
                 int idCategoria = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
-                using (var sqlConnection = new SqlConnection(cadenaConexion))
+                try
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
-                    SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter.Fill(dataTable);
+                    using (var sqlConnection = new SqlConnection(cadenaConexion))
+                    {
+                        SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
+                        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
+                        DataTable dataTable = new DataTable();
+                        SqlDataAdapter.Fill(dataTable);
 
-                    lblIdCategoria.Text = dataTable.Rows[0][0].ToString();
-                    lblNombreCategoria.Text = dataTable.Rows[0][1].ToString();
+                        lblIdCategoria.Text = dataTable.Rows[0][0].ToString();
+                        lblNombreCategoria.Text = dataTable.Rows[0][1].ToString();
+                    }
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
                 }
 
                 ModalDetalles(true);
@@ -85,20 +109,27 @@ namespace SistemaVentas.Categoria
 
                 int idCategoria = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
-                using (var sqlConnection = new SqlConnection(cadenaConexion))
+                try
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
-                    SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter.Fill(dataTable);
+                    using (var sqlConnection = new SqlConnection(cadenaConexion))
+                    {
+                        SqlCommand sqlCommand = new SqlCommand("SeleccionarCategoriaById", sqlConnection);
+                        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCategoria", idCategoria);
+                        DataTable dataTable = new DataTable();
+                        SqlDataAdapter.Fill(dataTable);
 
-                    inpIdCategoria_e.Value = dataTable.Rows[0][0].ToString();
-                    inpNombreCategoria_e.Value = dataTable.Rows[0][1].ToString();
-
+                        inpIdCategoria_e.Value = dataTable.Rows[0][0].ToString();
+                        inpNombreCategoria_e.Value = dataTable.Rows[0][1].ToString();
+                    }
+                    ModalEditar(true);
                 }
-                ModalEditar(true);
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
             else if (e.CommandName == "eliminar")
             {
@@ -115,30 +146,37 @@ namespace SistemaVentas.Categoria
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
-
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("InsertarCategoria", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_c.Value);
-                    Response.Redirect(Request.Url.ToString(), false);
-                    filasAfectadas = sqlCommand.ExecuteNonQuery();
-                }
+                    using (var sqlCommand = new SqlCommand("InsertarCategoria", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_c.Value);
+                        Response.Redirect(Request.Url.ToString(), false);
+                        filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
-                }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
 
-                //Limpiando el campo despues de haber usado su valor
-                inpNombreCategoria_c.Value = String.Empty;
-                Bind();
+                    //Limpiando el campo despues de haber usado su valor
+                    inpNombreCategoria_c.Value = String.Empty;
+                    Bind();
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
             }
         }
 
@@ -146,29 +184,36 @@ namespace SistemaVentas.Categoria
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
-
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("ActualizarCategoria", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCategoria", inpIdCategoria_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_e.Value);
+                    using (var sqlCommand = new SqlCommand("ActualizarCategoria", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCategoria", inpIdCategoria_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@nombreCategoria", inpNombreCategoria_e.Value);
 
-                    filasAfectadas = sqlCommand.ExecuteNonQuery();
-                }
+                        filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
-                }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
 
-                Bind();
+                    Bind();
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
             }
             ModalEditar(false);
         }
@@ -176,25 +221,33 @@ namespace SistemaVentas.Categoria
         //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("EliminarCategoria", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCategoria", Convert.ToInt32(lblIdCategoriaEliminar.Text));
-                    int filasAfectadas = sqlCommand.ExecuteNonQuery();
-                }
-                Bind();
+                    using (var sqlCommand = new SqlCommand("EliminarCategoria", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCategoria", Convert.ToInt32(lblIdCategoriaEliminar.Text));
+                        int filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
+                    Bind();
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
                 }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
             }
         }
 

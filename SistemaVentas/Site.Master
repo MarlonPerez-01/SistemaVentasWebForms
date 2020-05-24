@@ -121,22 +121,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!--
-                            <li>
-                                <a href="#"><i class="fas fa-file-alt"></i><span class="item">Reportes</span></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="#"><span>Reportes Compras</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span>Reportes Ventas</span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            -->
-                            <li>
-                                <a runat="server" href="Configuracion/Index.aspx" ><i class="fas fa-cog"></i><span class="item">Configuración</span></a>
-                            </li>
                             <li>
                                 <a id="salir" href="#" runat="server" onserverclick="salir_OnServerClick"><i class="fas fa-sign-out-alt"></i><span class="item">Salir</span></a>
                             </li>

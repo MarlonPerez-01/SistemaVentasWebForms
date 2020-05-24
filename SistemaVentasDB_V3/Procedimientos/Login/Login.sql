@@ -28,24 +28,4 @@ END
 COMMIT
 GO
 
-ValidarUsuario 'marlonBasico', 1234
-
-
-/*INSERT dbo.Usuario
-(
-    --idUsuario - column value is auto-generated
-    idEmpleado,
-    idTipoUsuario,
-    nombreUsuario,
-    contraseniaUsuario,
-    estado
-)
-VALUES
-(
-    -- idUsuario - int
-    2,
-    2,
-    'usuarioEliminar',
-	HASHBYTES('MD5','1234'),
-    1
-)*/
+--ValidarUsuario 'marlonBasico', 1234

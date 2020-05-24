@@ -43,6 +43,7 @@ namespace SistemaVentas.PuntoDeVenta
             }
         }
 
+
         void botar_tabla()
         {
             SqlConnection conex = new SqlConnection(ConexString);
@@ -76,37 +77,172 @@ namespace SistemaVentas.PuntoDeVenta
 
         protected void btncrear_Click(object sender, EventArgs e)
         {
-            String[] split = txtNombres.Text.Split(' ');
-            string nombre1 = split[0];
-            string nombre2 = split[1];
+            //Validacion del los textbox txtnombre y txtapellidos
 
-            String[] split2 = txtApellidos.Text.Split(' ');
-            string apellido1 = split2[0];
-            string apellido2 = split2[1];
+            if (string.IsNullOrEmpty(txtNombres.Text) && string.IsNullOrEmpty(txtApellidos.Text))
+            {
 
-
-            SqlConnection conex = new SqlConnection(ConexString);
-            conex.Open();
-            SqlCommand cmd = new SqlCommand("InsertarCliente1", conex);
-            cmd.Parameters.Add("@primerNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre1);
-            cmd.Parameters.Add("@segundoNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre2);
-            cmd.Parameters.Add("@primerApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido1);
-            cmd.Parameters.Add("@segundoApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido2);
-            cmd.Parameters.Add("@duiCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtDui.Text);
-            cmd.Parameters.Add("@nitCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNit.Text);
-            cmd.Parameters.Add("@telefonoCliente", System.Data.SqlDbType.Int).Value = Convert.ToString(txtNumerTelefono.Text);
+                crearcliente.Text = " Ingrese nombres y apellidos";
 
 
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            else if (string.IsNullOrEmpty(txtNombres.Text) == false && string.IsNullOrEmpty(txtApellidos.Text) == false)
+            {
+                Ingresarcliente();
+                crearcliente.Text = null;
+                crearexito.Text = " Cliente guardado";
+            }
+            else if (string.IsNullOrEmpty(txtNombres.Text) == false)
+            {
+                crearcliente.Text = " Ingrese almenos un apellido";
+            }
+            else
+            {
+                crearcliente.Text = " Ingrese almenos un nombre";
+            }
 
 
 
-            conex.Close();
+
+
 
 
 
         }
+
+        void Ingresarcliente()
+        {
+            String apellidos = txtApellidos.Text.Trim();
+
+            String nombres = txtNombres.Text.Trim();
+            if (apellidos.Contains(" ") && nombres.Contains(" "))
+            {
+                String[] split2 = apellidos.Split(' ');
+                string apellido1 = split2[0];
+                string apellido2 = split2[1];
+
+                String[] split = nombres.Split(' ');
+                string nombre1 = split[0];
+                string nombre2 = split[1];
+
+                SqlConnection conex = new SqlConnection(ConexString);
+                conex.Open();
+
+
+                SqlCommand cmd = new SqlCommand("InsertarCliente", conex);
+                cmd.Parameters.Add("@primerNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre1);
+                cmd.Parameters.Add("@segundoNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre2);
+                cmd.Parameters.Add("@primerApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido1);
+                cmd.Parameters.Add("@segundoApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido2);
+                cmd.Parameters.Add("@duiCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtDui.Text);
+                cmd.Parameters.Add("@nitCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNit.Text);
+                cmd.Parameters.Add("@telefonoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNumerTelefono.Text);
+
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+
+
+                conex.Close();
+
+            }
+            else if (apellidos.Contains(" ") == false && nombres.Contains(" ") == false)
+            {
+
+                string apellido1 = apellidos;
+                string apellido2 = "";
+
+
+                string nombre1 = nombres;
+                string nombre2 = "";
+
+                SqlConnection conex = new SqlConnection(ConexString);
+                conex.Open();
+
+
+                SqlCommand cmd = new SqlCommand("InsertarCliente", conex);
+                cmd.Parameters.Add("@primerNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre1);
+                cmd.Parameters.Add("@segundoNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre2);
+                cmd.Parameters.Add("@primerApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido1);
+                cmd.Parameters.Add("@segundoApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido2);
+                cmd.Parameters.Add("@duiCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtDui.Text);
+                cmd.Parameters.Add("@nitCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNit.Text);
+                cmd.Parameters.Add("@telefonoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNumerTelefono.Text);
+
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+
+
+                conex.Close();
+
+            }
+            else if (apellidos.Contains(" ") == false)
+            {
+
+                string apellido1 = apellidos;
+                string apellido2 = "";
+
+
+                string nombre1 = nombres;
+                string nombre2 = "";
+
+                SqlConnection conex = new SqlConnection(ConexString);
+                conex.Open();
+
+
+                SqlCommand cmd = new SqlCommand("InsertarCliente", conex);
+                cmd.Parameters.Add("@primerNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre1);
+                cmd.Parameters.Add("@segundoNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre2);
+                cmd.Parameters.Add("@primerApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido1);
+                cmd.Parameters.Add("@segundoApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido2);
+                cmd.Parameters.Add("@duiCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtDui.Text);
+                cmd.Parameters.Add("@nitCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNit.Text);
+                cmd.Parameters.Add("@telefonoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNumerTelefono.Text);
+
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+
+
+                conex.Close();
+
+            }
+            else
+            {
+                string nombre1 = nombres;
+                string nombre2 = "";
+
+                String[] split2 = apellidos.Split(' ');
+                string apellido1 = split2[0];
+                string apellido2 = split2[1];
+
+                SqlConnection conex = new SqlConnection(ConexString);
+                conex.Open();
+
+
+                SqlCommand cmd = new SqlCommand("InsertarCliente", conex);
+                cmd.Parameters.Add("@primerNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre1);
+                cmd.Parameters.Add("@segundoNombreCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(nombre2);
+                cmd.Parameters.Add("@primerApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido1);
+                cmd.Parameters.Add("@segundoApellidoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(apellido2);
+                cmd.Parameters.Add("@duiCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtDui.Text);
+                cmd.Parameters.Add("@nitCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNit.Text);
+                cmd.Parameters.Add("@telefonoCliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(txtNumerTelefono.Text);
+
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+
+
+                conex.Close();
+            }
+        }
+
 
         protected void ddlbuscar2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -188,6 +324,12 @@ namespace SistemaVentas.PuntoDeVenta
 
             mostrarProductos();
 
+            ddlbuscar.SelectedIndex = 0;
+            ddlbuscar2.SelectedIndex = 0;
+            ddlbuscar3.SelectedIndex = 0;
+
+            cantidad.Text = string.Empty;
+
         }
 
         //mostreo del gripview de los productos agregados
@@ -210,6 +352,7 @@ namespace SistemaVentas.PuntoDeVenta
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
             SqlConnection conex = new SqlConnection(ConexString);
             conex.Open();
             SqlCommand cmd = new SqlCommand("generarventa", conex);
@@ -238,24 +381,35 @@ namespace SistemaVentas.PuntoDeVenta
             }
 
 
+            ddlbuscar.SelectedIndex = 0;
+            ddlbuscar2.SelectedIndex = 0;
+            ddlbuscar3.SelectedIndex = 0;
 
+            cantidad.Text = string.Empty;
 
-
+            txtNombres.Text = string.Empty;
+            txtApellidos.Text = string.Empty;
+            txtDui.Text = string.Empty;
+            txtNit.Text = string.Empty;
+            txtNumerTelefono.Text = string.Empty;
 
         }
 
         void ingresar()
         {
-
+            string nombreUsuario = Session["nombreUsuario"] as string;
+            string contraseñaUsuario = Session["contraseniaUsuario"] as string;
             SqlConnection conex = new SqlConnection(ConexString);
             conex.Open();
             SqlCommand command = new SqlCommand("venta_", conex);
-            command.Parameters.Add("duicliente", System.Data.SqlDbType.VarChar).Value = Convert.ToString(duicliente.Text);
+            command.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.VarChar).Value = nombreUsuario;
+            command.Parameters.Add("@contraseniaUsuario", System.Data.SqlDbType.VarChar).Value = contraseñaUsuario;
 
 
 
             command.CommandType = CommandType.StoredProcedure;
             SqlDataReader rea = command.ExecuteReader(CommandBehavior.CloseConnection);
+
 
             conex.Close();
 
@@ -275,6 +429,8 @@ namespace SistemaVentas.PuntoDeVenta
             SqlDataReader rea = command.ExecuteReader(CommandBehavior.CloseConnection);
 
             conex.Close();
+            //exitoventa.Text = " Venta realizada";
+            crearexito.Text = string.Empty;
 
         }
 

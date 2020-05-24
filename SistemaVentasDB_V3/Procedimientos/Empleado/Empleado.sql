@@ -20,11 +20,6 @@ AS
 	COMMIT
 GO
 
- SeleccionarEmpleadoById 9
-
-
- 
-
 
  /*SeleccionarEmpleadoById MODAL EDITAR*/
 
@@ -47,7 +42,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarEmpleadoById_e 1 
 /*SELECCIONAR EMPLEADOS*/
 
 IF OBJECT_ID('SeleccionarEmpleados') IS NOT NULL

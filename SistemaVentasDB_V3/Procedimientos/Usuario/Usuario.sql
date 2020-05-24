@@ -76,9 +76,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarUsuarioByIdEditar 1
-select * from Usuario
-
 /*Insertar Usuario*/
 
 IF OBJECT_ID('InsertarUsuario') IS NOT NULL
@@ -160,4 +157,3 @@ AS
 	COMMIT
 GO
 
-SELECT u.* FROM dbo.Usuario u

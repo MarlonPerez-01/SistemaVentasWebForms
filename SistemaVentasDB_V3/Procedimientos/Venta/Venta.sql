@@ -73,17 +73,6 @@ AS
 	COMMIT
 GO
 
-SeleccionarVentasById_e 1
-
-
-
-
-SELECT v.* FROM dbo.Venta v
-
-
-
-
-
 
 
 IF OBJECT_ID('SeleccionarDetalleVenta') IS NOT NULL
@@ -109,27 +98,6 @@ AS
 	COMMIT
 GO
 
-
-
-	InsertarVenta 3, 4, '20190105', '1200'
-
-
-	
-
-
-	USE [SistemaVentasDB2]
-GO
-
-INSERT INTO [dbo].[DetalleVenta]
-           ([idVenta]
-           ,[idProducto]
-           ,[cantidadProducto])
-     VALUES
-           (
-           1
-           ,2
-           ,10)
-GO
 
 
 

@@ -43,19 +43,36 @@ namespace SistemaVentas.Cargo
         //Obteniendo el listado de Cargos para el GridView principal
         protected void Bind()
         {
-            var dataTable = new Crud().Seleccionar("SeleccionarCargos");
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
-            var cantidad = dataTable.Rows.Count;
-            cantidadCargos.InnerText = cantidad.ToString();
+            try
+            {
+                var dataTable = new Crud().Seleccionar("SeleccionarCargos");
+                GridView1.DataSource = dataTable;
+                GridView1.DataBind();
+                var cantidad = dataTable.Rows.Count;
+                cantidadCargos.InnerText = cantidad.ToString();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView1.PageIndex = e.NewPageIndex;
-            Bind();
+            try
+            {
+                GridView1.PageIndex = e.NewPageIndex;
+                Bind();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
+
 
         //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
         protected void GridView1_OnRowCommand(object sender, GridViewCommandEventArgs e)
@@ -67,20 +84,28 @@ namespace SistemaVentas.Cargo
 
                 int idCargo = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
-                using (var sqlConnection = new SqlConnection(cadenaConexion))
+                try
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarCargoById", sqlConnection);
-                    SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCargo", idCargo);
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter.Fill(dataTable);
+                    using (var sqlConnection = new SqlConnection(cadenaConexion))
+                    {
+                        SqlCommand sqlCommand = new SqlCommand("SeleccionarCargoById", sqlConnection);
+                        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCargo", idCargo);
+                        DataTable dataTable = new DataTable();
+                        SqlDataAdapter.Fill(dataTable);
 
-                    lblIdCargo.Text = dataTable.Rows[0][0].ToString();
-                    lblNombreCargo.Text = dataTable.Rows[0][1].ToString();
-                    lblSalarioCargo.Text = dataTable.Rows[0][2].ToString();
+                        lblIdCargo.Text = dataTable.Rows[0][0].ToString();
+                        lblNombreCargo.Text = dataTable.Rows[0][1].ToString();
+                        lblSalarioCargo.Text = dataTable.Rows[0][2].ToString();
+                    }
+                    ModalDetalles(true);
                 }
-                ModalDetalles(true);
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
             else if (e.CommandName == "editar")
             {
@@ -110,8 +135,16 @@ namespace SistemaVentas.Cargo
                 GridViewRow gvrow = (GridViewRow)btnEliminar.NamingContainer;
 
                 int idCargo = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
-                lblIdCargoEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
-                ModalEliminar(true);
+                try
+                {
+                    lblIdCargoEliminar.Text = HttpUtility.HtmlDecode(gvrow.Cells[0].Text);
+                    ModalEliminar(true);
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
         }
 
@@ -126,38 +159,44 @@ namespace SistemaVentas.Cargo
         protected void btnCrear_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
-
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("InsertarCargo", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@nombreCargo", inpNombreCargo_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@salarioCargo", Convert.ToDecimal(inpSalarioCargo_c.Value));
-                    
-                    Response.Redirect(Request.Url.ToString(), false);
-                    filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    using (var sqlCommand = new SqlCommand("InsertarCargo", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@nombreCargo", inpNombreCargo_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@salarioCargo", Convert.ToDecimal(inpSalarioCargo_c.Value));
+
+                        Response.Redirect(Request.Url.ToString(), false);
+                        filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
+
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+
+                        //Limpiando el modal despues de la insercion
+                        inpNombreCargo_c.Value = String.Empty;
+                        inpSalarioCargo_c.Value = String.Empty;
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
+
+                    Bind();
                 }
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
-
-                    //Limpiando el modal despues de la insercion
-                    inpNombreCargo_c.Value = String.Empty;
-                    inpSalarioCargo_c.Value = String.Empty;
-                }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
-
-                Bind();
+                ModalCrear(false);
             }
-
-            ModalCrear(false);
-
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //Actualizando los datos del modal Actualizar
@@ -195,25 +234,33 @@ namespace SistemaVentas.Cargo
         //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("EliminarCargo", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCargo", Convert.ToInt32(lblIdCargoEliminar.Text));
-                    int filasAfectadas = sqlCommand.ExecuteNonQuery();
-                }
-                Bind();
+                    using (var sqlCommand = new SqlCommand("EliminarCargo", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCargo", Convert.ToInt32(lblIdCargoEliminar.Text));
+                        int filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
+                    Bind();
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
                 }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
             }
         }
 

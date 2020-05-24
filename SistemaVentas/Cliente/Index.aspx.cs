@@ -42,18 +42,35 @@ namespace SistemaVentas.Cliente
         //Obteniendo el listado de Cargos para el GridView principal
         protected void Bind()
         {
-            var dataTable = new Crud().Seleccionar("SeleccionarClientes");
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
-            var cantidad = dataTable.Rows.Count;
-            cantidadClientes.InnerText = cantidad.ToString();
+            try
+            {
+                var dataTable = new Crud().Seleccionar("SeleccionarClientes");
+                GridView1.DataSource = dataTable;
+                GridView1.DataBind();
+                var cantidad = dataTable.Rows.Count;
+                cantidadClientes.InnerText = cantidad.ToString();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         //Obteniendo el listado de Cargos para el GridView principal en el cambio de paginacion
         protected void GridView1_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView1.PageIndex = e.NewPageIndex;
-            Bind();
+            try
+            {
+                GridView1.PageIndex = e.NewPageIndex;
+                Bind();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //Acciones para boton detalles, editar y eliminar que se encuentran en el GridView Principal
@@ -66,26 +83,35 @@ namespace SistemaVentas.Cliente
 
                 int idCliente = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
-                using (var sqlConnection = new SqlConnection(cadenaConexion))
+                try
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarClientesById", sqlConnection);
-                    SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCliente", idCliente);
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter.Fill(dataTable);
+                    using (var sqlConnection = new SqlConnection(cadenaConexion))
+                    {
+                        SqlCommand sqlCommand = new SqlCommand("SeleccionarClientesById", sqlConnection);
+                        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCliente", idCliente);
+                        DataTable dataTable = new DataTable();
+                        SqlDataAdapter.Fill(dataTable);
 
-                    lblIdCliente.Text = dataTable.Rows[0][0].ToString();
-                    lblPrimerNombreCliente.Text = dataTable.Rows[0][1].ToString();
-                    lblSegundoNombreCliente.Text = dataTable.Rows[0][2].ToString();
-                    lblPrimerApellidoCliente.Text = dataTable.Rows[0][3].ToString();
-                    lblSegundoApellidoCliente.Text = dataTable.Rows[0][4].ToString();
-                    lblDuiCliente.Text = dataTable.Rows[0][5].ToString();
-                    lblNitCliente.Text = dataTable.Rows[0][6].ToString();
-                    lblTelefonoCliente.Text = dataTable.Rows[0][7].ToString();
+                        lblIdCliente.Text = dataTable.Rows[0][0].ToString();
+                        lblPrimerNombreCliente.Text = dataTable.Rows[0][1].ToString();
+                        lblSegundoNombreCliente.Text = dataTable.Rows[0][2].ToString();
+                        lblPrimerApellidoCliente.Text = dataTable.Rows[0][3].ToString();
+                        lblSegundoApellidoCliente.Text = dataTable.Rows[0][4].ToString();
+                        lblDuiCliente.Text = dataTable.Rows[0][5].ToString();
+                        lblNitCliente.Text = dataTable.Rows[0][6].ToString();
+                        lblTelefonoCliente.Text = dataTable.Rows[0][7].ToString();
+                    }
+
+                    ModalDetalles(true);
+
                 }
-
-                ModalDetalles(true);
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
             else if (e.CommandName == "editar")
             {
@@ -94,25 +120,34 @@ namespace SistemaVentas.Cliente
 
                 int idCliente = Convert.ToInt32(GridView1.DataKeys[gvrow.RowIndex]?.Value);
 
-                using (var sqlConnection = new SqlConnection(cadenaConexion))
+                try
                 {
-                    SqlCommand sqlCommand = new SqlCommand("SeleccionarClientesById", sqlConnection);
-                    SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCliente", idCliente);
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter.Fill(dataTable);
+                    using (var sqlConnection = new SqlConnection(cadenaConexion))
+                    {
+                        SqlCommand sqlCommand = new SqlCommand("SeleccionarClientesById", sqlConnection);
+                        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCliente", idCliente);
+                        DataTable dataTable = new DataTable();
+                        SqlDataAdapter.Fill(dataTable);
 
-                    inpIdCliente_e.Value = dataTable.Rows[0][0].ToString();
-                    inpPrimerNombreCliente_e.Value = dataTable.Rows[0][1].ToString();
-                    inpSegundoNombreCliente_e.Value = dataTable.Rows[0][2].ToString();
-                    inpPrimerApellidoCliente_e.Value = dataTable.Rows[0][3].ToString();
-                    inpSegundoApellidoCliente_e.Value = dataTable.Rows[0][4].ToString();
-                    inpDuiCliente_e.Value = dataTable.Rows[0][5].ToString();
-                    inpNitCliente_e.Value = dataTable.Rows[0][6].ToString();
-                    inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
+                        inpIdCliente_e.Value = dataTable.Rows[0][0].ToString();
+                        inpPrimerNombreCliente_e.Value = dataTable.Rows[0][1].ToString();
+                        inpSegundoNombreCliente_e.Value = dataTable.Rows[0][2].ToString();
+                        inpPrimerApellidoCliente_e.Value = dataTable.Rows[0][3].ToString();
+                        inpSegundoApellidoCliente_e.Value = dataTable.Rows[0][4].ToString();
+                        inpDuiCliente_e.Value = dataTable.Rows[0][5].ToString();
+                        inpNitCliente_e.Value = dataTable.Rows[0][6].ToString();
+                        inpTelefonoCliente_e.Value = dataTable.Rows[0][7].ToString();
+                    }
+                    ModalEditar(true);
+
                 }
-                ModalEditar(true);
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
             else if (e.CommandName == "eliminar")
             {
@@ -136,45 +171,51 @@ namespace SistemaVentas.Cliente
         {
             //TODO: Validar que los campos esten llenos
 
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("InsertarCliente", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@primerNombreCliente", inpPrimerNombreCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoNombreCliente", inpSegundoNombreCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpPrimerApellidoCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoApellidoCliente", inpSegundoApellidoCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@duiCliente", inpDuiCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@nitCliente", inpNitCliente_c.Value);
-                    sqlCommand.Parameters.AddWithValue("@telefonoCliente", inpTelefonoCliente_c.Value);
+                    using (var sqlCommand = new SqlCommand("InsertarCliente", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@primerNombreCliente", inpPrimerNombreCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@segundoNombreCliente", inpSegundoNombreCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpPrimerApellidoCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@segundoApellidoCliente", inpSegundoApellidoCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@duiCliente", inpDuiCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@nitCliente", inpNitCliente_c.Value);
+                        sqlCommand.Parameters.AddWithValue("@telefonoCliente", inpTelefonoCliente_c.Value);
 
-                    Response.Redirect(Request.Url.ToString(), false);
-                    filasAfectadas = sqlCommand.ExecuteNonQuery();
+                        Response.Redirect(Request.Url.ToString(), false);
+                        filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
+
+                    if (filasAfectadas != 0)
+                    {
+                        //TODO: Mensaje exitoso
+
+                        //Limpiando el modal despues de la insercion
+                        inpPrimerNombreCliente_e.Value = String.Empty;
+                        inpSegundoNombreCliente_e.Value = String.Empty;
+                        inpPrimerApellidoCliente_e.Value = String.Empty;
+                        inpSegundoApellidoCliente_e.Value = String.Empty;
+                        inpDuiCliente_e.Value = String.Empty;
+                        inpNitCliente_e.Value = String.Empty;
+                        inpTelefonoCliente_e.Value = String.Empty;
+                    }
+                    else
+                    {
+                        //TODO: Mensaje de fracaso
+                    }
+                    Bind();
                 }
-
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
-
-                    //Limpiando el modal despues de la insercion
-                    inpPrimerNombreCliente_e.Value = String.Empty;
-                    inpSegundoNombreCliente_e.Value = String.Empty;
-                    inpPrimerApellidoCliente_e.Value = String.Empty;
-                    inpSegundoApellidoCliente_e.Value = String.Empty;
-                    inpDuiCliente_e.Value = String.Empty;
-                    inpNitCliente_e.Value = String.Empty;
-                    inpTelefonoCliente_e.Value = String.Empty;
-                }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
-
-                Bind();
             }
-
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
             ModalCrear(false);
         }
 
@@ -182,61 +223,58 @@ namespace SistemaVentas.Cliente
         protected void btnActualizar_OnClick(object sender, EventArgs e)
         {
             //TODO: Validar que los campos esten llenos
-
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("ActualizarCliente", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCliente", inpIdCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerNombreCliente", inpPrimerNombreCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoNombreCliente", inpSegundoNombreCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpPrimerApellidoCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@segundoApellidoCliente", inpSegundoApellidoCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@duiCliente", inpDuiCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@nitCliente", inpNitCliente_e.Value);
-                    sqlCommand.Parameters.AddWithValue("@telefonoCliente", inpTelefonoCliente_e.Value);
+                    using (var sqlCommand = new SqlCommand("ActualizarCliente", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCliente", inpIdCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@primerNombreCliente", inpPrimerNombreCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@segundoNombreCliente", inpSegundoNombreCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@primerApellidoCliente", inpPrimerApellidoCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@segundoApellidoCliente", inpSegundoApellidoCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@duiCliente", inpDuiCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@nitCliente", inpNitCliente_e.Value);
+                        sqlCommand.Parameters.AddWithValue("@telefonoCliente", inpTelefonoCliente_e.Value);
 
-                    filasAfectadas = sqlCommand.ExecuteNonQuery();
-                }
+                        filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
 
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
+                    Bind();
                 }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
-
-                Bind();
+                ModalEditar(false);
             }
-            ModalEditar(false);
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
         }
 
         //Eliminando la fila con el id indicado
         protected void btnEliminar_OnClick(object sender, EventArgs e)
         {
-            using (var sqlConnection = new SqlConnection(cadenaConexion))
+            try
             {
-                using (var sqlCommand = new SqlCommand("EliminarCliente", sqlConnection))
+                using (var sqlConnection = new SqlConnection(cadenaConexion))
                 {
-                    sqlConnection.Open();
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-                    sqlCommand.Parameters.AddWithValue("@idCliente", Convert.ToInt32(lblIdClienteEliminar.Text));
-                    int filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    using (var sqlCommand = new SqlCommand("EliminarCliente", sqlConnection))
+                    {
+                        sqlConnection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@idCliente", Convert.ToInt32(lblIdClienteEliminar.Text));
+                        int filasAfectadas = sqlCommand.ExecuteNonQuery();
+                    }
+                    Bind();
                 }
-                Bind();
-
-                if (filasAfectadas != 0)
-                {
-                    //TODO: Mensaje exitoso
-                }
-                else
-                {
-                    //TODO: Mensaje de fracaso
-                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
             }
         }
 

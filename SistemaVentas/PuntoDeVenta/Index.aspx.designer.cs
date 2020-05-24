@@ -96,6 +96,24 @@ namespace SistemaVentas.PuntoDeVenta
         protected global::System.Web.UI.WebControls.Button btncrear;
 
         /// <summary>
+        /// Control crearcliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label crearcliente;
+
+        /// <summary>
+        /// Control crearexito.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label crearexito;
+
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -247,6 +265,15 @@ namespace SistemaVentas.PuntoDeVenta
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Control exitoventa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label exitoventa;
 
         /// <summary>
         /// Control txtGeneral.
