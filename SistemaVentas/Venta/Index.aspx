@@ -7,7 +7,7 @@
         <h5 class="mt-3 d-block titulo">Listado de Ventas</h5>
 
         <div class="row mt-2">
-            <div class="col text-left">
+            <div class="col text-left" style="display: none">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>

@@ -7,7 +7,7 @@
 
         <h3 class="mt-3 d-block titulo">Listado de Marcas</h3>
 
-        <div class="row mt-2">
+        <div class="row mt-2" style="display: none">
             <div class="col text-left pl-3">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
@@ -83,10 +83,16 @@
                 <ul class="pagination">
 
                     <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">1</a>
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">2</a>
+                    <li class="page-item ml-3">
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </li>
                     
                 </ul>
@@ -138,11 +144,11 @@
                 <div class="mt-4">
                     <div class="d-inline">
                         <label for="inpIdMarca_e" class="col-form-label"><i class="far fa-bookmark d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpIdMarca_e" runat="server" />
+                        <input type="text" disabled="disabled" class="form-control d-inline" id="inpIdMarca_e" runat="server" />
                     </div>
                     <div class="d-inline">
                         <label for="inpNombreMarca_e" class="col-form-label"><i class="far fa-bookmark d-inline mx-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpNombreMarca_e" runat="server" />
+                        <input type="text" placeholder="Nombre marca" class="form-control d-inline" id="inpNombreMarca_e" runat="server" />
                     </div>
                 </div>
 
@@ -364,12 +370,17 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
+            var myIndex = <%=GridView1.PageIndex %>;
+            var next = myIndex + 2;
+            var before = myIndex;
+            //alert(before);
+
             $(".pagination li:nth-child(1)").on("click", function () {
-                document.querySelector(".prueba td:nth-child(1) a").click();
+                document.querySelector(".prueba td:nth-child(" + before + ") a").click();
             });
 
             $(".pagination li:nth-child(2)").on("click", function () {
-                document.querySelector(".prueba td:nth-child(2) a").click();
+                document.querySelector(".prueba td:nth-child(" + next + ") a").click();
             });
 
         });
@@ -454,14 +465,7 @@
 
 
 
-            /*esto da problemas
 
-            if (id.val().trim() === '') {
-                setErrorFor(id, "campo obligatorio");
-            }
-            else {
-                setSuccessFor(id);
-            }*/
 
 
             //verificacion primer nombre
@@ -474,14 +478,14 @@
             }
 
 
-            //id
+            /*id
 
             if (id.val().trim() === '') {
                 setErrorFor(id, "Id marca");
             }
             else {
                 setSuccessFor(id);
-            }
+            }*/
 
 
 

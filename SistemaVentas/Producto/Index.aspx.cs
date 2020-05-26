@@ -86,6 +86,7 @@ namespace SistemaVentas.Producto
                     }
 
                     lblPrecio.Text = dataTable.Rows[0][6].ToString();
+                    lblStock.Text = dataTable.Rows[0][7].ToString();
                 }
 
                 ModalDetalles(true);

@@ -9,7 +9,7 @@
 
         <div class="row mt-2">
 
-            <div class="col text-left">
+            <div class="col text-left" style="display: none">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>
@@ -60,10 +60,16 @@
                 <ul class="pagination">
                     
                     <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">1</a>
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">2</a>
+                    <li class="page-item ml-3">
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </li>
                    
                    
@@ -71,6 +77,7 @@
             </nav>
 
         </div>
+
 
 
     </div>
@@ -130,8 +137,8 @@
                     <asp:Label ID="lblSalarioCargo" runat="server"></asp:Label>
                 </div>
             </div>
-            <div class="modal-footer-mio text-center mt-3">
-                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
+            <div class="modal-footer-mio text-center mt-3" style="display: none">
+                <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir"/>
                 <button type="button" class="mod btn" id="cerrarDetalles" runat="server" OnServerClick="cerrarTodo">Cancelar</button>
             </div>
         </div>

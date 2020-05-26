@@ -15,33 +15,6 @@ namespace SistemaVentas.PuntoDeVenta
     {
 
         /// <summary>
-        /// Control duicliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox duicliente;
-
-        /// <summary>
-        /// Control Cliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cliente;
-
-        /// <summary>
-        /// Control buscarcliente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button buscarcliente;
-
-        /// <summary>
         /// Control txtNombres.
         /// </summary>
         /// <remarks>

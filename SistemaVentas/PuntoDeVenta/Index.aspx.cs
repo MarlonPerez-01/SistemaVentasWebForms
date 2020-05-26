@@ -57,23 +57,7 @@ namespace SistemaVentas.PuntoDeVenta
 
             conex.Close();
         }
-        protected void buscarcliente_Click(object sender, EventArgs e)
-        {
-            SqlConnection conex = new SqlConnection(ConexString);
-            conex.Open();
-            SqlCommand cmd = new SqlCommand("DuiClientes", conex);
-            cmd.Parameters.Add("@dui", System.Data.SqlDbType.VarChar).Value = Convert.ToString(duicliente.Text);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataReader read = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            DataTable tab = new DataTable();
-            tab.Load(read);
-            conex.Close();
-            Cliente.Text = Convert.ToString(tab.Rows[0][0]);
 
-
-
-
-        }
 
         protected void btncrear_Click(object sender, EventArgs e)
         {
@@ -98,7 +82,9 @@ namespace SistemaVentas.PuntoDeVenta
             }
             else
             {
+
                 crearcliente.Text = " Ingrese almenos un nombre";
+
             }
 
 
@@ -397,13 +383,17 @@ namespace SistemaVentas.PuntoDeVenta
 
         void ingresar()
         {
-            string nombreUsuario = Session["nombreUsuario"] as string;
-            string contraseñaUsuario = Session["contraseniaUsuario"] as string;
+            /*int idempleado;
+            string id = Session["idTipoUsuario"] as string;
+            Int32.TryParse(id, out idempleado);*/
+            string idempleado = Session["idTipoUsuario"] as string;
+            //int  = Convert.ToInt32(id.ToString());
+
             SqlConnection conex = new SqlConnection(ConexString);
             conex.Open();
             SqlCommand command = new SqlCommand("venta_", conex);
-            command.Parameters.Add("@nombreUsuario", System.Data.SqlDbType.VarChar).Value = nombreUsuario;
-            command.Parameters.Add("@contraseniaUsuario", System.Data.SqlDbType.VarChar).Value = contraseñaUsuario;
+            command.Parameters.Add("@idempleado", System.Data.SqlDbType.Int).Value = idempleado;
+
 
 
 

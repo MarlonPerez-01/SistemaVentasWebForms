@@ -4,19 +4,7 @@
   
     <h1 >Factura</h1><br />
 
-    <!--  Este es el primer drop Seleccionar Cliente  -->
-        <!--<div class="container" >       
-              <div class="elemento1"><i class="fas fa-user"></i>
-                  <asp:TextBox ID="duicliente" runat="server" placeholder="Ingrese Dui"  CssClass="texto"></asp:TextBox>
-                  <asp:TextBox ID="Cliente" runat="server" placeholder="NIT" CssClass="texto" Font-Bold="true">
-                    </asp:TextBox>
-                     <p><asp:Button ID="buscarcliente" runat="server" Text="Buscar" CssClass="buscarcliente" OnClick="buscarcliente_Click"/></p>
-                  
-                </div>
-        </div>-->
-    
-        
-    <!--  Aqui estan los 5 textboxs y el boton Crear nuevo  -->
+   
 
     <div class="container">
 

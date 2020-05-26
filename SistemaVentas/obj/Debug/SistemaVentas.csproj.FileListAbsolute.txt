@@ -597,7 +597,6 @@ C:\Users\Marlon\Desktop\ProyectoEstilosTrabajando - copia (2)\SistemaVentasWebFo
 C:\Users\Marlon\Desktop\ProyectoEstilosTrabajando - copia (2)\SistemaVentasWebForms\SistemaVentas\obj\Debug\SistemaVentas.csproj.CopyComplete
 C:\Users\Marlon\Desktop\ProyectoEstilosTrabajando - copia (2)\SistemaVentasWebForms\SistemaVentas\obj\Debug\SistemaVentas.dll
 C:\Users\Marlon\Desktop\ProyectoEstilosTrabajando - copia (2)\SistemaVentasWebForms\SistemaVentas\obj\Debug\SistemaVentas.pdb
-C:\Users\Marlon\Proyectos\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csprojAssemblyReference.cache
 C:\Users\A S U S\Desktop\c#\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\bin\SistemaVentas.dll.config
 C:\Users\A S U S\Desktop\c#\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\bin\SistemaVentas.dll
 C:\Users\A S U S\Desktop\c#\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\bin\SistemaVentas.pdb
@@ -748,3 +747,4 @@ C:\Users\Marlon\Desktop\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\Sistema
 C:\Users\Marlon\Desktop\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\obj\Debug\SistemaVentas.dll
 C:\Users\Marlon\Desktop\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\obj\Debug\SistemaVentas.pdb
 C:\Users\Marlon\Desktop\PROYECTO WEBFORM V7\SistemaVentasWebForms-master\SistemaVentas\obj\Debug\SistemaVentas.csprojAssemblyReference.cache
+C:\Users\Marlon\Proyectos\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csprojAssemblyReference.cache

@@ -6,9 +6,9 @@
 
         <h5 class="mt-3 d-block titulo">Listado de Productos</h5>
 
-        <div class="row mt-2">
+        <div class="row mt-2" >
 
-            <div class="col text-left">
+            <div class="col text-left" style="display: none">
                 <asp:TextBox ID="txtBuscar" CssClass="b-inline-block form-size ml-2 btn-opc down pl-2" runat="server"></asp:TextBox>
                 <asp:Button ID="btnBuscar" CssClass="btn b-inline-block btn-small ml-2" runat="server" runat="server" Text="Buscar" OnClick="btnBuscar_OnClick" />
             </div>
@@ -69,10 +69,16 @@
                 <ul class="pagination">
                     
                     <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">1</a>
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link border rounded-circle ml-1" href="#">2</a>
+                    <li class="page-item ml-3">
+                        <a class="page-link border rounded-circle" href="#">
+                            <span>&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </li>
                    
                     
@@ -124,7 +130,7 @@
 
                 <div class="mt-4">
                     <div class="d-inline">
-                        <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
+                        <label for="inpPrecioProducto_c" class="col-form-label"><i class="far fa-money-bill-alt d-inline mr-2"></i></label>
                         <input type="text" class="form-control d-inline" placeholder="Precio" id="inpPrecioProducto_c" runat="server" />
                     </div>
                     <div class="d-inline">
@@ -181,6 +187,11 @@
                     <label for="lblPrecio">Precio Venta:</label>
                     <asp:Label ID="lblPrecio" runat="server"></asp:Label>
                 </div>
+
+                <div>
+                    <label for="lblStock">Stock:</label>
+                    <asp:Label ID="lblStock" runat="server"></asp:Label>
+                </div>
             </div>
             <div class="modal-footer-mio text-center">
                 <asp:Button ID="btnImprimir" CssClass="mod btn" runat="server" Text="Imprimir" />
@@ -210,7 +221,7 @@
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="inpIdProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpIdProducto_e" runat="server" />
+                        <input type="text" disabled="disabled" class="form-control d-inline" id="inpIdProducto_e" runat="server" />
                     </div>
                     <div class="d-inline">
                         <label for="ddlCategoria_e" class="col-form-label"><i class="far fa-bookmark d-inline mx-2"></i></label>
@@ -225,18 +236,18 @@
                     </div>
                     <div class="d-inline">
                         <label for="inpNombreProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mx-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
+                        <input type="text" placeholder="Nombre producto" class="form-control d-inline" id="inpNombreProducto_e" runat="server" />
                     </div>
                 </div>
 
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="inpPrecioProducto_e" class="col-form-label"><i class="far fa-money-bill-alt d-inline mr-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpPrecioProducto_e" runat="server" />
+                        <input type="text" placeholder="Precio producto" class="form-control d-inline" id="inpPrecioProducto_e" runat="server" />
                     </div>
                     <div class="d-inline">
                         <label for="inpDescuentoProducto_e" class="col-form-label"><i class="far fa-money-bill-alt d-inline mx-2"></i></label>
-                        <input type="text" class="form-control d-inline" id="inpDescuentoProducto_e" runat="server" />
+                        <input type="text" placeholder="Descuento" class="form-control d-inline" id="inpDescuentoProducto_e" runat="server" />
                     </div>
                 </div>
 
@@ -244,7 +255,7 @@
                 <div class="mt-3">
                     <div class="d-inline">
                         <label for="txtDescripcionProducto_e" class="col-form-label"><i class="fas fa-box-open d-inline mr-2 mb-2"></i></label>
-                        <textarea id="txtDescripcionProducto_e" class="drop pt-2" cols="20" rows="2" runat="server"></textarea>
+                        <textarea id="txtDescripcionProducto_e" placeholder="Descripcion producto" class="drop pt-2" cols="20" rows="2" runat="server"></textarea>
                     </div>
                 </div>
 
@@ -540,12 +551,17 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
+            var myIndex = <%=GridView1.PageIndex %>;
+            var next = myIndex + 2;
+            var before = myIndex;
+            //alert(before);
+
             $(".pagination li:nth-child(1)").on("click", function () {
-                document.querySelector(".prueba td:nth-child(1) a").click();
+                document.querySelector(".prueba td:nth-child(" + before + ") a").click();
             });
 
             $(".pagination li:nth-child(2)").on("click", function () {
-                document.querySelector(".prueba td:nth-child(2) a").click();
+                document.querySelector(".prueba td:nth-child(" + next + ") a").click();
             });
 
         });
@@ -601,7 +617,7 @@
 
         var bForm = $("#btnCrear");
         var bFormE = $("#btnActualizar")
-       
+
         var imageE = $("#imgProducto_e").attr("src");
 
 
@@ -614,7 +630,7 @@
 
         bForm.on("click", function (event) {
 
-            
+
             checkInputs(crearProducto);
 
             if (crearProducto[1].hasClass("fail") || crearProducto[2].hasClass("fail") || crearProducto[3].hasClass("fail") || crearProducto[4].hasClass("fail") || crearProducto[5].hasClass("fail") || crearProducto[6].hasClass("fail"), crearProducto[7].hasClass("fail")) {
@@ -712,20 +728,34 @@
 
             //verificacion descripcion
 
-            if (precio.val().trim() === '') {
-                setErrorFor(precio, "Precio");
-            }
-            else {
+            if (isMoney(precio.val().trim())) {
+
                 setSuccessFor(precio);
+
+            }
+
+            else if (precio.val().trim() === '') {
+                setErrorFor(precio, "precio");
+            }
+
+            else {
+                setErrorFor(precio, "precio invalido");
             }
 
             //verificacion descripcion
 
-            if (descuento.val().trim() === '') {
-                setErrorFor(descuento, "Descuento");
-            }
-            else {
+            if (isMoney(descuento.val().trim())) {
+
                 setSuccessFor(descuento);
+
+            }
+
+            else if (descuento.val().trim() === '') {
+                setErrorFor(descuento, "Si no aplica debe ser 0");
+            }
+
+            else {
+                setErrorFor(descuento, "descuento invalido");
             }
 
 
@@ -748,6 +778,11 @@
         function setSuccessFor(input) {
             input.css("border-color", "#2ecc71")
             input.removeClass("fail").addClass("success")
+        }
+
+        function isMoney(m) {
+
+            return /^\d+(\.\d{1,2})?$/.test(m)
         }
 
 

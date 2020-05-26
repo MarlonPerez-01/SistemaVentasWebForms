@@ -3,7 +3,8 @@
 
 -- tables
 -- Table: Cargo
-ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
+
+--ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = OFF
 
 CREATE TABLE Cargo (
     idCargo int  NOT NULL IDENTITY,
@@ -16,7 +17,7 @@ CREATE TABLE Cargo (
 -- Table: Categoria
 CREATE TABLE Categoria (
     idCategoria int  NOT NULL IDENTITY,
-    nombreCategoria varchar(50)  NOT NULL CHECK (LEN(nombreCategoria) > 3), --CHECK
+    nombreCategoria varchar(50)  NOT NULL CHECK (LEN(nombreCategoria) > 2), --CHECK
     estado bit  NOT NULL DEFAULT 1,
     CONSTRAINT Categoria_pk PRIMARY KEY  (idCategoria)
 );

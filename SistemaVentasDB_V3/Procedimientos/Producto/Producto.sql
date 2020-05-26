@@ -59,12 +59,13 @@ AS
 	
 	BEGIN TRANSACTION
 
-	SELECT p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, p.precio
+	SELECT p.idProducto, c.nombreCategoria, m.nombreMarca, p.nombreProducto, p.descripcionProducto, p.imagenProducto, p.precio, s.cantidadDisponible
 	FROM dbo.Producto AS p
 	INNER JOIN dbo.Categoria c
 	ON p.idCategoria = c.idCategoria
 	INNER JOIN dbo.Marca m
 	ON p.idMarca = m.idMarca
+	INNER JOIN dbo.Stock s ON p.idProducto = s.idProducto
 
 	WHERE p.idProducto = @idProducto AND p.estado = 1
 
