@@ -34,20 +34,34 @@ namespace SistemaVentas.PuntoDeCompra
                 {
                     ddlProductoBind_dc();
                 }
-                BindUltimaCompra();
-                ModalCrear(false);
-                BindDetalleCompra();
+
+                try
+                {
+                    BindUltimaCompra();
+                    ModalCrear(false);
+                    BindDetalleCompra();
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                    throw;
+                }
             }
         }
 
+
         protected void BindUltimaCompra()
         {
+
             var dataTable = new Crud().Seleccionar("SeleccionarUltimaCompra");
-            inpIdCompra.Value = dataTable.Rows[0][0].ToString();
-            inpNombreProveedor.Value = dataTable.Rows[0][1].ToString();
-            inpNombreEmpleado.Value = dataTable.Rows[0][2].ToString();
-            inpFechaCompra.Value = dataTable.Rows[0][3].ToString();
-            inpHoraCompra.Value = dataTable.Rows[0][4].ToString();
+            if (dataTable.Rows.Count == 1)
+            {
+                inpIdCompra.Value = dataTable.Rows[0][0].ToString();
+                inpNombreProveedor.Value = dataTable.Rows[0][1].ToString();
+                inpNombreEmpleado.Value = dataTable.Rows[0][2].ToString();
+                inpFechaCompra.Value = dataTable.Rows[0][3].ToString();
+                inpHoraCompra.Value = dataTable.Rows[0][4].ToString();
+            }
         }
 
 

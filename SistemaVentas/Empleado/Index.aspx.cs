@@ -41,11 +41,19 @@ namespace SistemaVentas.Empleado
 
         protected void Bind()
         {
-            var dataTable = new Crud().Seleccionar("SeleccionarEmpleados");
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
-            var cantidad = dataTable.Rows.Count;
-            cantidadEmpleados.InnerText = cantidad.ToString();
+            try
+            {
+                var dataTable = new Crud().Seleccionar("SeleccionarEmpleados");
+                GridView1.DataSource = dataTable;
+                GridView1.DataBind();
+                var cantidad = dataTable.Rows.Count;
+                cantidadEmpleados.InnerText = cantidad.ToString();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
 
