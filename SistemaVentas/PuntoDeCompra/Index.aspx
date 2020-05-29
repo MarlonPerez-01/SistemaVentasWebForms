@@ -121,11 +121,7 @@
         </asp:GridView>
 
         </div>
-    
-        <div class="text-center mt-2">       
-            <button class="btn btn-small btn-primary mb-3">Generar Factura</button>
-        </div>
-
+        
     </div>
 
     <div id="fondoModal"></div>

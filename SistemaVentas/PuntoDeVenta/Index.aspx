@@ -2,8 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
   
-    <h1 >Factura</h1><br />
-
+  
+    <div class="container">
+        <h3 class="mt-3 d-block titulo" >Factura</h3><br />
+    </div>
    
 
     <div class="container">
@@ -211,7 +213,7 @@
     <br />
     <!--Esta es otra tabla lo ultimo --> 
                 <div class="container">
-                     <table class="table table-striped">
+                     <table class="table">
                         <thead>
                           <tr>
                              <th>Efectivo</th>
@@ -258,7 +260,7 @@
 
         .text{
             border: none;
-                        border-bottom: 1px solid #ff0000;
+                        border-bottom: 1px solid rgb(119, 100, 228);
                         outline: none;
                         height: 25px;
                         width: 250px;
@@ -296,7 +298,7 @@
             <style type="text/css">
                  .texto {
                         border: none;
-                        border-bottom: 1px solid #ff0000;
+                        border-bottom: 1px solid rgb(119, 100, 228);
                         outline: none;
                         height: 25px;
                         width: 300px;
@@ -313,7 +315,7 @@
                                .buscar1 {
                                     float:left;
                                     border: none;
-                                    border-bottom: 1px solid #ff0000;
+                                    border-bottom: 1px solid rgb(119, 100, 228);
                                     outline: none;
                                     height: 25px;
                                     width: 225px;
@@ -329,7 +331,7 @@
                     <style type="text/css">
                             .drop{
                                 border: none;
-                                border-bottom: 1px solid #ff0000;
+                                border-bottom: 1px solid rgb(119, 100, 228);
                                 outline: none;
                                 height: 25px;
                                 width: 250px;
@@ -347,7 +349,7 @@
                 .btnCrear{
                      height:20px;
                      display: inline-block;
-                     background:#ff0000;
+                     background: rgb(119, 100, 228);
                      border-radius:10px;
                      border:none;
                      font-size:12px;
@@ -359,7 +361,7 @@
         .buscarcliente{
             height:20px;
             width:350px;
-            background:#ff0000;
+            background: rgb(119, 100, 228);
             border-radius:10px;
             border:none;
             font-size:12px;
@@ -374,7 +376,7 @@
                 .dropBuscar{
                     padding-left:105px;
                     border: none;
-                    border-bottom: 1px solid #ff0000;
+                    border-bottom: 1px solid rgb(119, 100, 228);
                     outline: none;
                     height: 25px;           
                     font-size: 12px;
@@ -406,7 +408,7 @@
                 .btnAgregar{
                      height:20px;
                      
-                     background:#ff0000;
+                     background: rgb(119, 100, 228);
                      border-radius:10px;
                      border:none;
                      font-size:12px;
@@ -420,6 +422,15 @@
                 
                 text-align:left;
             }
+
+
+            .titulo {
+                text-align: center;
+                margin-bottom: 1em;
+                color: rgb(100, 47, 224);
+                font-weight: 400;
+            }
+
              </style>
 </asp:Content>
 
